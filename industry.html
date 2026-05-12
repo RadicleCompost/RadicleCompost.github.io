@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industry &amp; Compliance Resources — Radicle Compost</title>
+  <meta name="description" content="A curated directory of national, state and industry compliance documents for Australian organic waste processors and councils. Maintained as a service to the industry by Radicle Compost.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Page-specific styles ─────────────────────────────────── */
+    .ind-hero {
+      background: linear-gradient(135deg, #1a4033 0%, var(--green-dark) 100%);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+    }
+    .ind-hero h1 { font-size: 2.3rem; margin-bottom: 0.75rem; }
+    .ind-hero p {
+      color: rgba(255,255,255,0.75);
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    /* ── Disclaimer banner ────────────────────────────────────── */
+    .disclaimer {
+      background: #fffbea;
+      border-top: 3px solid #e6c84a;
+      border-bottom: 1px solid #f0e090;
+      padding: 1rem 2rem;
+    }
+    .disclaimer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .disclaimer-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .disclaimer p {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: #7a6200;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Anchor nav ───────────────────────────────────────────── */
+    .page-nav {
+      background: var(--cream);
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 68px;
+      z-index: 90;
+    }
+    .page-nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      overflow-x: auto;
+    }
+    .page-nav a {
+      display: block;
+      padding: 0.85rem 1.25rem;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--grey);
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .page-nav a:hover {
+      color: var(--green-dark);
+      border-bottom-color: var(--green-mid);
+      text-decoration: none;
+    }
+
+    /* ── Section header ───────────────────────────────────────── */
+    .doc-section { padding: 3.5rem 0; }
+    .doc-section + .doc-section { border-top: 1px solid #eee; }
+    .doc-section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .doc-section-icon {
+      width: 42px; height: 42px;
+      background: var(--green-dark);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .doc-section-icon svg { width: 22px; height: 22px; }
+    .doc-section-header h2 { margin-bottom: 0; font-size: 1.6rem; }
+    .doc-section > .container > p { max-width: 680px; margin-bottom: 2rem; }
+
+    /* ── Document cards ───────────────────────────────────────── */
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+    .doc-card {
+      background: var(--white);
+      border: 1px solid #e4e4e4;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .doc-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      border-color: var(--green-mid);
+    }
+    .doc-type-badge {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .badge-pdf  { background: #fde8e8; color: #c0392b; }
+    .badge-web  { background: #e8f4fd; color: #2471a3; }
+    .badge-std  { background: #e8f5e9; color: #1e8449; }
+    .badge-leg  { background: #f3e5f5; color: #7b1fa2; }
+    .badge-fund { background: #fff3e0; color: #e65100; }
+
+    .doc-info { flex: 1; min-width: 0; }
+    .doc-info h3 {
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      margin-bottom: 0.2rem;
+      line-height: 1.35;
+    }
+    .doc-info .doc-source {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--grey-light);
+      margin-bottom: 0.5rem;
+    }
+    .doc-info p { font-size: 0.87rem; margin-bottom: 0.6rem; color: var(--grey); }
+    .doc-info a {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+    .doc-info a:hover { text-decoration: underline; }
+
+    /* ── State tabs ───────────────────────────────────────────── */
+    .state-label {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--green-light);
+      color: var(--green-dark);
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Update note ──────────────────────────────────────────── */
+    .update-note {
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 1rem 1.5rem;
+      margin-top: 3rem;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--grey);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .ind-hero h1 { font-size: 1.7rem; }
+      .doc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── MAIN NAV ──────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="22" cy="22" r="21" fill="#52B788" opacity="0.18"/>
+      <path d="M22 36 C22 36 12 28 12 19 C12 13 17 9 22 9 C27 9 32 13 32 19 C32 28 22 36 22 36Z" fill="#52B788"/>
+      <path d="M22 36 L22 18" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round"/>
+      <path d="M22 24 C18 21 14 22 14 22" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M22 29 C26 26 30 27 30 27" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html" style="color:#fff;">Industry</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────── -->
+<div class="ind-hero">
+  <div class="hero-tag">Compliance &amp; Regulation</div>
+  <h1>Industry &amp; Compliance Resources</h1>
+  <p>A curated directory of national, state and industry documents that set the compliance and regulatory framework for Australian organic waste processors, councils, and composting facility operators. Maintained as a free service to the industry.</p>
+</div>
+
+<!-- ── DISCLAIMER ───────────────────────────────────────────── -->
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-icon">⚠️</div>
+    <p><strong>Disclaimer:</strong> The documents and links on this page are provided as a convenience to industry practitioners and are drawn from publicly available government, standards, and industry association sources. Radicle Compost makes no representation as to the currency, completeness, or accuracy of the linked materials. Regulatory requirements change frequently — always verify current requirements directly with the relevant authority before making compliance decisions. This page does not constitute legal or regulatory advice.</p>
+  </div>
+</div>
+
+<!-- ── PAGE ANCHOR NAV ───────────────────────────────────────── -->
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#national">National Framework</a>
+    <a href="#standards">Australian Standards</a>
+    <a href="#qld">Queensland</a>
+    <a href="#nsw">New South Wales</a>
+    <a href="#vic">Victoria</a>
+    <a href="#other">Other States</a>
+    <a href="#industry">Industry Bodies</a>
+    <a href="#funding">Funding &amp; Grants</a>
+  </div>
+</div>
+
+<div style="max-width:var(--max-w); margin:0 auto; padding:0 2rem;">
+
+<!-- ── NATIONAL FRAMEWORK ────────────────────────────────────── -->
+<div class="doc-section" id="national">
+  <div class="doc-section-header">
+    <div class="doc-section-icon">
+      <svg fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>
+    </div>
+    <h2>National Policy Framework</h2>
+  </div>
+  <p>Federal legislation, national strategies, and Commonwealth-led frameworks that underpin organic waste management across all Australian jurisdictions.</p>
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">Department of Climate Change, Energy, the Environment and Water</div>
+        <h3>National Waste Policy: Less Waste, More Resources (2018)</h3>
+        <p>The overarching national strategy setting Australia's waste and resource recovery priorities to 2030, including organics diversion targets.</p>
+        <a href="https://www.dcceew.gov.au/environment/protection/waste/national-waste-policy" target="_blank" rel="noopener">View document →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">Department of Climate Change, Energy, the Environment and Water</div>
+        <h3>National Waste Policy Action Plan 2019</h3>
+        <p>The implementation plan for the National Waste Policy, including specific targets for organic waste diversion from landfill by 2030.</p>
+        <a href="https://www.dcceew.gov.au/environment/protection/waste/national-waste-policy/action-plan" target="_blank" rel="noopener">View document →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">DCCEEW</div>
+        <h3>Australia's National Food Waste Strategy — Halving Waste by 2030</h3>
+        <p>Strategy targeting a 50% reduction in food waste by 2030, with implications for FOGO collection programs and composting infrastructure planning.</p>
+        <a href="https://www.dcceew.gov.au/environment/protection/waste/food-waste" target="_blank" rel="noopener">View document →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">Clean Energy Regulator</div>
+        <h3>Avoided Waste — ACCU Methodology (Solid Waste Organic Waste)</h3>
+        <p>The framework for generating Australian Carbon Credit Units (ACCUs) through organic waste diversion from landfill. Relevant to councils and operators seeking to monetise emissions reductions.</p>
+        <a href="https://www.cleanenergyregulator.gov.au/ERF/Pages/Choosing%20a%20project%20type/Opportunities%20for%20the%20land%20sector/Waste/Solid%20waste.aspx" target="_blank" rel="noopener">View document →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">PFAS National Environmental Management Plan</div>
+        <h3>PFAS NEMP 3.0 — Managing PFAS Contamination</h3>
+        <p>The national framework for managing per- and polyfluoroalkyl substances (PFAS). Critical reading for any operator processing FOGO or biosolids streams.</p>
+        <a href="https://www.dcceew.gov.au/environment/protection/publications/pfas-nemp-3" target="_blank" rel="noopener">View document →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">Product Stewardship Act 2011</div>
+        <h3>Product Stewardship Act 2011 (Cth)</h3>
+        <p>The legislative basis for product stewardship schemes in Australia, including packaging and single-use plastics relevant to contamination in organic waste streams.</p>
+        <a href="https://www.legislation.gov.au/Details/C2022C00289" target="_blank" rel="noopener">View legislation →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── AUSTRALIAN STANDARDS ──────────────────────────────────── -->
+<div class="doc-section" id="standards">
+  <div class="doc-section-header">
+    <div class="doc-section-icon">
+      <svg fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+    </div>
+    <h2>Australian Standards</h2>
+  </div>
+  <p>Standards Australia publications that define product quality, testing protocols, and certification requirements for composts and compost-derived products. Most standards require purchase from Standards Australia.</p>
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-std">STD</div>
+      <div class="doc-info">
+        <div class="doc-source">Standards Australia</div>
+        <h3>AS 4454:2012 — Composts, Soil Conditioners and Mulches</h3>
+        <p>The principal quality standard for composts sold in Australia. Defines testing requirements, permissible contaminant levels (including 0.05% flexible plastics by weight), and labelling requirements. Essential for any operator selling or supplying compost product.</p>
+        <a href="https://www.standards.org.au/standards-catalogue/sa-snz/agriculture/we-002/as--4454-2012" target="_blank" rel="noopener">View standard (purchase required) →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-std">STD</div>
+      <div class="doc-info">
+        <div class="doc-source">Standards Australia</div>
+        <h3>AS 4736:2006 — Biodegradable Plastics (Industrial Composting)</h3>
+        <p>Defines requirements for plastics and products to be labelled as suitable for industrial composting environments. Critical to understanding which packaging claims are legitimate and which are not.</p>
+        <a href="https://www.standards.org.au/standards-catalogue/sa-snz/other/ev-031/as--4736-2006" target="_blank" rel="noopener">View standard (purchase required) →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-std">STD</div>
+      <div class="doc-info">
+        <div class="doc-source">Standards Australia</div>
+        <h3>AS 5810:2010 — Biodegradable Plastics (Home Composting)</h3>
+        <p>Requirements for plastics and products suitable for home composting environments. Distinct from AS 4736 — products compliant with one standard are not necessarily compliant with the other.</p>
+        <a href="https://www.standards.org.au/standards-catalogue/sa-snz/other/ev-031/as--5810-2010" target="_blank" rel="noopener">View standard (purchase required) →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-std">STD</div>
+      <div class="doc-info">
+        <div class="doc-source">Standards Australia</div>
+        <h3>AS/NZS 4360 — Risk Management</h3>
+        <p>The Australian and New Zealand risk management standard, applicable to operational risk assessment for composting facilities and waste management operations.</p>
+        <a href="https://www.standards.org.au" target="_blank" rel="noopener">Search Standards Australia →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── QUEENSLAND ────────────────────────────────────────────── -->
+<div class="doc-section" id="qld">
+  <div class="doc-section-header">
+    <div class="doc-section-icon">
+      <svg fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    </div>
+    <h2>Queensland</h2>
+  </div>
+  <p>Queensland represents the most active grant funding environment in Australia for organics recycling, with 67 councils yet to implement FOGO solutions and over $281M in active funding. Key environmental, planning, and biosecurity requirements apply.</p>
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-leg">LEG</div>
+      <div class="doc-info">
+        <div class="state-label">QLD</div>
+        <div class="doc-source">Queensland Government</div>
+        <h3>Environmental Protection Act 1994 (Qld)</h3>
+        <p>The primary environmental legislation governing composting facility approvals, environmental authorities, and operational conditions in Queensland.</p>
+        <a href="https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-062" target="_blank" rel="noopener">View legislation →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">QLD</div>
+        <div class="doc-source">Department of Environment and Science</div>
+        <h3>Composting and Vermiculture — Environmental Authority Requirements</h3>
+        <p>Guidance on environmental authority requirements for composting facilities in Queensland, including ERA 62 (composting) classification and conditions.</p>
+        <a href="https://environment.des.qld.gov.au/management/waste/business/composting" target="_blank" rel="noopener">View guidance →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">QLD</div>
+        <div class="doc-source">Queensland Government</div>
+        <h3>Waste Levy — Queensland</h3>
+        <p>Information on Queensland's waste levy, current rates, exemptions, and requirements for levy-liable waste generators and transporters.</p>
+        <a href="https://www.qld.gov.au/environment/pollution/management/waste/transporting/levy" target="_blank" rel="noopener">View levy information →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-leg">LEG</div>
+      <div class="doc-info">
+        <div class="state-label">QLD</div>
+        <div class="doc-source">Biosecurity Queensland</div>
+        <h3>Fire Ant Biosecurity Zone — Composting Requirements</h3>
+        <p>Mandatory turning frequency requirements (every 21 days) and treatment conditions for composting operations within Queensland's fire ant biosecurity zone. Critical for facilities in SEQ.</p>
+        <a href="https://www.daf.qld.gov.au/business-priorities/biosecurity/animals/invasive-animals/red-imported-fire-ant/stakeholders/composting-industry" target="_blank" rel="noopener">View requirements →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">QLD</div>
+        <div class="doc-source">Queensland Government</div>
+        <h3>GROW FOGO Fund</h3>
+        <p>Queensland grant funding supporting councils to establish or expand Food Organics and Garden Organics collection and processing capability. Monitor for round openings.</p>
+        <a href="https://www.qld.gov.au/environment/pollution/management/waste/industry-waste/fogo" target="_blank" rel="noopener">View fund details →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">QLD</div>
+        <div class="doc-source">Queensland Government</div>
+        <h3>Regional Resource Recovery Boost Fund (RRBF)</h3>
+        <p>Capital funding for regional and remote councils to establish resource recovery infrastructure including composting facilities. Active rounds — check current status.</p>
+        <a href="https://www.qld.gov.au/environment/pollution/management/waste/recycling-waste-reduction/funding-programs" target="_blank" rel="noopener">View fund details →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── NEW SOUTH WALES ────────────────────────────────────────── -->
+<div class="doc-section" id="nsw">
+  <div class="doc-section-header">
+    <div class="doc-section-icon">
+      <svg fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    </div>
+    <h2>New South Wales</h2>
+  </div>
+  <p>NSW has 128 councils under FOGO mandates with significant state funding available. The Protection of the Environment Operations Act and EPA guidelines govern facility approvals and operations.</p>
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-leg">LEG</div>
+      <div class="doc-info">
+        <div class="state-label">NSW</div>
+        <div class="doc-source">NSW Government</div>
+        <h3>Protection of the Environment Operations Act 1997 (NSW)</h3>
+        <p>The primary environmental legislation for NSW, governing environment protection licences for composting facilities and regulated activities.</p>
+        <a href="https://legislation.nsw.gov.au/view/html/inforce/current/act-1997-156" target="_blank" rel="noopener">View legislation →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">NSW</div>
+        <div class="doc-source">NSW Environment Protection Authority</div>
+        <h3>Composting and Organic Waste Processing — EPA Guidelines</h3>
+        <p>EPA guidance on licensing, environmental controls, and best practice for composting facilities in NSW, including odour management requirements.</p>
+        <a href="https://www.epa.nsw.gov.au/your-environment/waste/business-industry-waste-advice/organic-waste" target="_blank" rel="noopener">View guidance →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">NSW</div>
+        <div class="doc-source">NSW Government</div>
+        <h3>Waste Levy — NSW</h3>
+        <p>Current NSW waste levy rates, categories, and requirements. Metropolitan and regional rates differ significantly — relevant to processing location decisions.</p>
+        <a href="https://www.epa.nsw.gov.au/your-environment/waste/waste-levy" target="_blank" rel="noopener">View levy information →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">NSW</div>
+        <div class="doc-source">NSW Government / EPA</div>
+        <h3>NSW FOGO Fund &amp; Organics Infrastructure Funding</h3>
+        <p>State funding programs supporting FOGO rollout and processing infrastructure for NSW councils. Includes both collection and processing capacity components.</p>
+        <a href="https://www.epa.nsw.gov.au/your-environment/waste/grants-programs" target="_blank" rel="noopener">View funding programs →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">NSW</div>
+        <div class="doc-source">NSW Government</div>
+        <h3>NSW Plastics Plan &amp; Organics Action</h3>
+        <p>NSW's strategy for managing plastics in the waste stream, including implications for soft plastic contamination in FOGO streams and compost product quality.</p>
+        <a href="https://www.epa.nsw.gov.au/your-environment/waste/plastics" target="_blank" rel="noopener">View plan →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── VICTORIA ───────────────────────────────────────────────── -->
+<div class="doc-section" id="vic">
+  <div class="doc-section-header">
+    <div class="doc-section-icon">
+      <svg fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    </div>
+    <h2>Victoria</h2>
+  </div>
+  <p>Victoria has 26 of 79 councils yet to fully onboard FOGO solutions. The Environment Protection Act 2017 modernised Victoria's regulatory framework significantly.</p>
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-leg">LEG</div>
+      <div class="doc-info">
+        <div class="state-label">VIC</div>
+        <div class="doc-source">Victorian Government</div>
+        <h3>Environment Protection Act 2017 (Vic)</h3>
+        <p>Victoria's modernised environment protection legislation, which introduced a general environmental duty and updated permit requirements for composting and waste management facilities.</p>
+        <a href="https://www.legislation.vic.gov.au/in-force/acts/environment-protection-act-2017/" target="_blank" rel="noopener">View legislation →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">VIC</div>
+        <div class="doc-source">Environment Protection Authority Victoria</div>
+        <h3>EPA Victoria — Composting and Organics Processing</h3>
+        <p>EPA guidance on works approvals, licences, and compliance requirements for composting facilities and organics processing operations in Victoria.</p>
+        <a href="https://www.epa.vic.gov.au/for-business/industry-specific-guidance/composting" target="_blank" rel="noopener">View guidance →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">VIC</div>
+        <div class="doc-source">Sustainability Victoria</div>
+        <h3>Victorian Organics Resource Recovery Strategy</h3>
+        <p>Victoria's strategy for recovering value from organic waste streams, setting targets and policy directions for FOGO processing and compost market development.</p>
+        <a href="https://www.sustainability.vic.gov.au/recycling-and-waste-reduction/at-home/food-and-garden-organics" target="_blank" rel="noopener">View strategy →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">VIC</div>
+        <div class="doc-source">Sustainability Victoria</div>
+        <h3>Victorian Organics Funding Programs</h3>
+        <p>Sustainability Victoria grant programs supporting councils and industry to develop organics collection and processing capability. Check for active rounds.</p>
+        <a href="https://www.sustainability.vic.gov.au/grants-funding-and-investment" target="_blank" rel="noopener">View funding →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── OTHER STATES ──────────────────────────────────────────── -->
+<div class="doc-section" id="other">
+  <div class="doc-section-header">
+    <div class="doc-section-icon">
+      <svg fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/><circle cx="12" cy="12" r="9"/></svg>
+    </div>
+    <h2>Other States &amp; Territories</h2>
+  </div>
+  <p>Western Australia, South Australia, and Tasmania are tracking behind eastern states in FOGO mandates but are under increasing federal pressure. Key regulatory bodies and resources are listed below.</p>
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">WA</div>
+        <div class="doc-source">Waste Authority Western Australia</div>
+        <h3>Waste Authority WA — Organic Waste</h3>
+        <p>Western Australia's waste authority guidance on organic waste management, FOGO programs, and composting requirements.</p>
+        <a href="https://www.wasteauthority.wa.gov.au/programs/fogo" target="_blank" rel="noopener">View guidance →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">SA</div>
+        <div class="doc-source">Green Industries SA</div>
+        <h3>Green Industries SA — Organics &amp; Composting</h3>
+        <p>South Australia's resource recovery body guidance on organic waste, composting standards, and state funding programs.</p>
+        <a href="https://www.greenindustries.sa.gov.au/organics" target="_blank" rel="noopener">View guidance →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="state-label">TAS</div>
+        <div class="doc-source">Sustainable Timber Tasmania / EPA Tasmania</div>
+        <h3>EPA Tasmania — Waste Management Licensing</h3>
+        <p>Tasmanian environment protection authority requirements for waste management facilities, including composting and organic waste processing.</p>
+        <a href="https://epa.tas.gov.au/regulation/waste" target="_blank" rel="noopener">View requirements →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── INDUSTRY BODIES ───────────────────────────────────────── -->
+<div class="doc-section" id="industry">
+  <div class="doc-section-header">
+    <div class="doc-section-icon">
+      <svg fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    </div>
+    <h2>Industry Associations &amp; Bodies</h2>
+  </div>
+  <p>Peak bodies, certification schemes, and industry associations providing standards, advocacy, training and networking for the Australian organics recycling sector.</p>
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">AORA</div>
+        <h3>Australian Organics Recycling Association (AORA)</h3>
+        <p>The peak national body for the organics recycling industry in Australia. Advocacy, events, industry data, and member resources. Martin Tower has served as a non-executive director of AORA.</p>
+        <a href="https://www.aora.org.au" target="_blank" rel="noopener">Visit AORA →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">WMRR</div>
+        <h3>Waste Management and Resource Recovery Association of Australia (WMRR)</h3>
+        <p>The national peak body for the waste management and resource recovery sector. Policy advocacy, industry events, and regulatory updates.</p>
+        <a href="https://www.wmrr.asn.au" target="_blank" rel="noopener">Visit WMRR →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-std">CERT</div>
+      <div class="doc-info">
+        <div class="doc-source">Certified Sustainable Limited</div>
+        <h3>Certified Sustainable — Compost Certification</h3>
+        <p>The Australian certification body delivering world-class sustainability standards for the organics recycling industry. Martin Tower is currently Chair of Certified Sustainable Limited.</p>
+        <a href="https://www.certifiedsustainable.com.au" target="_blank" rel="noopener">Visit Certified Sustainable →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">LGAQ</div>
+        <h3>Local Government Association of Queensland (LGAQ)</h3>
+        <p>The peak body for Queensland local government. Annual conference, policy resources, and procurement guidance relevant to councils navigating FOGO obligations.</p>
+        <a href="https://www.lgaq.asn.au" target="_blank" rel="noopener">Visit LGAQ →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-web">Web</div>
+      <div class="doc-info">
+        <div class="doc-source">ALGA</div>
+        <h3>Australian Local Government Association (ALGA)</h3>
+        <p>The national voice of local government in Australia. Federal policy advocacy and resources relevant to council waste management obligations.</p>
+        <a href="https://alga.com.au" target="_blank" rel="noopener">Visit ALGA →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── FUNDING ────────────────────────────────────────────────── -->
+<div class="doc-section" id="funding">
+  <div class="doc-section-header">
+    <div class="doc-section-icon">
+      <svg fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </div>
+    <h2>Funding &amp; Grant Programs</h2>
+  </div>
+  <p>A summary of active and recurring grant programs relevant to composting infrastructure. Grant rounds open and close with limited notice — councils and operators with a concept proposal in place are far better positioned to apply quickly.</p>
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">FEDERAL</div>
+        <div class="doc-source">DCCEEW</div>
+        <h3>Recycling Modernisation Fund</h3>
+        <p>Federal co-investment in infrastructure for sorting and processing a range of recyclable materials including organics. Check current program status.</p>
+        <a href="https://www.dcceew.gov.au/environment/protection/waste/recycling-modernisation-fund" target="_blank" rel="noopener">View fund →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">FEDERAL</div>
+        <div class="doc-source">DCCEEW</div>
+        <h3>Household Recycling Infrastructure Support Program (HRISP)</h3>
+        <p>Federal funding to improve household waste and recycling systems including organics collection. Available to councils and state governments.</p>
+        <a href="https://www.dcceew.gov.au/environment/protection/waste/household-recycling" target="_blank" rel="noopener">View program →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">QLD</div>
+        <div class="doc-source">Queensland Government</div>
+        <h3>GROW FOGO Fund (Queensland)</h3>
+        <p>Queensland's primary grant program for FOGO infrastructure. Monitor opening dates closely — rounds are competitive and application windows are short.</p>
+        <a href="https://www.qld.gov.au/environment/pollution/management/waste/industry-waste/fogo" target="_blank" rel="noopener">View fund →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">QLD</div>
+        <div class="doc-source">Queensland Government</div>
+        <h3>Regional Resource Recovery Boost Fund (RRBF)</h3>
+        <p>Capital funding for regional and remote Queensland councils. Well-suited to smaller councils with limited internal project delivery capacity.</p>
+        <a href="https://www.qld.gov.au/environment/pollution/management/waste/recycling-waste-reduction/funding-programs" target="_blank" rel="noopener">View fund →</a>
+      </div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-type-badge badge-fund">FUND</div>
+      <div class="doc-info">
+        <div class="state-label">NSW</div>
+        <div class="doc-source">NSW EPA</div>
+        <h3>NSW Organics Infrastructure Fund</h3>
+        <p>NSW funding for FOGO processing infrastructure. Part of the broader suite of programs supporting NSW councils' compliance with FOGO mandates.</p>
+        <a href="https://www.epa.nsw.gov.au/your-environment/waste/grants-programs" target="_blank" rel="noopener">View grants →</a>
+      </div>
+    </div>
+
+    <div class="doc-card" style="background:var(--cream); border-color:var(--green-mid);">
+      <div class="doc-type-badge badge-std">TIP</div>
+      <div class="doc-info">
+        <h3>Need help navigating grant applications?</h3>
+        <p>Radicle Compost provides grant application support as part of our advisory services. We help you prepare the concept proposal and feasibility documentation that funding bodies require — and we monitor round openings so you're ready to move quickly.</p>
+        <a href="index.html#contact">Talk to us about grant readiness →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="update-note">
+    This directory is maintained by Radicle Compost and updated periodically. If you identify a broken link or a significant document that should be included, please <a href="mailto:martin@radiclecompost.com.au">contact us</a>.
+    <br>Last reviewed: May 2026.
+  </div>
+</div>
+
+</div><!-- end max-width wrapper -->
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <strong>Radicle Compost</strong> — Radicle Agriculture Pty Ltd &nbsp;|&nbsp;
+  <a href="mailto:martin@radiclecompost.com.au">martin@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  0412 780 364 &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
+  <br><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd. All rights reserved.
+</footer>
+
+</body>
+</html>
