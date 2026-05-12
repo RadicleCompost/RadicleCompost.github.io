@@ -57,10 +57,11 @@
       overflow: hidden;
       border: 4px solid var(--green-mid);
     }
-    .profile-photo-wrap svg {
-      width: 80px;
-      height: 80px;
-      opacity: 0.45;
+    .profile-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
     .profile-name {
       font-family: var(--sans);
@@ -224,11 +225,7 @@
   <div class="profile-card">
     <div class="profile-left">
       <div class="profile-photo-wrap">
-        <!-- Placeholder silhouette -->
-        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="#2D6A4F">
-          <circle cx="40" cy="28" r="18"/>
-          <path d="M10 72 C10 52 70 52 70 72Z"/>
-        </svg>
+        <img src="assets/martin-tower.jpg" alt="Martin Tower — Founder, Radicle Compost" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
       </div>
       <div class="profile-name">Martin Tower</div>
       <div class="profile-title">Founder &amp; Principal</div>
