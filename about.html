@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Radicle Compost</title>
+  <meta name="description" content="Meet the team behind Radicle Compost. 25 years of practical experience in Australia's recycled organics industry, from facility design to market development.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── About page specific styles ─── */
+    .about-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .about-hero h1 {
+      font-size: 2.4rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .about-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.1rem;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ── Profile layout ─── */
+    .profile-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .profile-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 3rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      margin-bottom: 3rem;
+    }
+    .profile-left {
+      text-align: center;
+    }
+    .profile-photo-wrap {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--green-light);
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 4px solid var(--green-mid);
+    }
+    .profile-photo-wrap svg {
+      width: 80px;
+      height: 80px;
+      opacity: 0.45;
+    }
+    .profile-name {
+      font-family: var(--sans);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 0.25rem;
+    }
+    .profile-title {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--green-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 1.25rem;
+    }
+    .profile-quals {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .profile-quals li {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--grey);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .profile-quals li:last-child { border-bottom: none; }
+
+    .profile-right h2 {
+      font-size: 1.6rem;
+      color: var(--green-dark);
+      margin-bottom: 1.25rem;
+    }
+    .profile-right p {
+      font-size: 0.97rem;
+      color: var(--grey);
+      margin-bottom: 1rem;
+    }
+    .profile-right p:last-child { margin-bottom: 0; }
+
+    /* ── Credential strip ─── */
+    .credential-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.75rem 0;
+    }
+    .credential-pill {
+      background: var(--cream);
+      border: 1px solid var(--green-light);
+      border-radius: 2rem;
+      padding: 0.4rem 1rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+
+    /* ── Coming soon card ─── */
+    .profile-card--pending {
+      border: 2px dashed var(--green-light);
+      box-shadow: none;
+      background: var(--cream);
+      text-align: center;
+      padding: 3rem;
+    }
+    .profile-card--pending h3 {
+      color: var(--green-dark);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .profile-card--pending p {
+      color: var(--grey-light);
+      font-size: 0.93rem;
+      margin: 0;
+    }
+
+    /* ── Values section ─── */
+    .values-section {
+      background: var(--cream);
+      padding: 5rem 2rem;
+    }
+    .values-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .value-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      border-top: 4px solid var(--green-mid);
+    }
+    .value-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .value-card p {
+      font-size: 0.93rem;
+      margin: 0;
+    }
+
+    /* ── CTA strip ─── */
+    .about-cta {
+      background: var(--green-dark);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .about-cta h2 { color: var(--white); margin-bottom: 0.75rem; }
+    .about-cta p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 2rem; }
+
+    /* ── Responsive ─── */
+    @media (max-width: 768px) {
+      .profile-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+      }
+      .profile-photo-wrap { width: 120px; height: 120px; }
+      .about-hero h1 { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="12" y="10" width="14" height="100" rx="4" fill="#FFFFFF"/>
+      <path d="M26 10 Q76 10 76 42 Q76 74 26 74" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="51" cy="42" rx="22" ry="26" fill="#7B4226" transform="rotate(-10,51,42)"/>
+      <line x1="44" y1="25" x2="58" y2="62" stroke="#2D1A0E" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="74" x2="72" y2="110" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html">Industry</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<div class="about-hero">
+  <h1>About Radicle Compost</h1>
+  <p>We bring 25 years of hands-on experience to every engagement — no generic frameworks, no fresh-from-university advice.</p>
+</div>
+
+<!-- ── PROFILES ───────────────────────────────────────────────── -->
+<div class="profile-section">
+
+  <!-- Martin Tower -->
+  <div class="profile-card">
+    <div class="profile-left">
+      <div class="profile-photo-wrap">
+        <!-- Placeholder silhouette -->
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="#2D6A4F">
+          <circle cx="40" cy="28" r="18"/>
+          <path d="M10 72 C10 52 70 52 70 72Z"/>
+        </svg>
+      </div>
+      <div class="profile-name">Martin Tower</div>
+      <div class="profile-title">Founder &amp; Principal</div>
+      <ul class="profile-quals">
+        <li>MBA</li>
+        <li>B.Ag.Sc (Hons)</li>
+        <li>Dip. Business</li>
+        <li>Chair, BIAC Organics</li>
+        <li>25+ Years Industry</li>
+      </ul>
+    </div>
+
+    <div class="profile-right">
+      <h2>25 Years at the Sharp End of Organics</h2>
+
+      <div class="credential-strip">
+        <span class="credential-pill">Facility Feasibility</span>
+        <span class="credential-pill">Process Engineering</span>
+        <span class="credential-pill">Market Development</span>
+        <span class="credential-pill">Regulatory Navigation</span>
+        <span class="credential-pill">Council Advisory</span>
+      </div>
+
+      <p>Martin Tower has spent 25 years working across every dimension of Australia's recycled organics industry — from the very early days of source-separated collection through to the sophisticated FOGO systems that councils are now grappling with. His career spans operational management, facility design oversight, market development, and strategic advisory roles for some of Australia's largest composting operators.</p>
+
+      <p>He holds a Bachelor of Agricultural Science (Honours), an MBA, and a Diploma of Business. He currently serves as Chair of the Brisbane Industry Advisory Committee (BIAC) Organics subcommittee, a role that places him at the intersection of council procurement, regulatory development, and industry best practice.</p>
+
+      <p>Martin's background is deliberately cross-disciplinary. He combines the agronomic understanding of how organic material behaves in soil systems with the commercial acumen to structure bankable projects and the regulatory literacy to navigate the increasingly complex approvals environment across Australian jurisdictions.</p>
+
+      <p>What makes his advisory work distinctive is the combination of genuine operational experience — he has managed composting facilities, not just advised on them — with a strategic perspective that keeps commercial sustainability and practical achievability at the centre of every recommendation.</p>
+
+      <p>He established Radicle Agriculture Pty Ltd to offer that depth of knowledge directly to councils, agribusinesses, and regional enterprises, without the overhead or the commercial conflicts that come with being attached to an equipment supplier or an engineering firm. The advice is independent. The interest is in getting your project right.</p>
+    </div>
+  </div>
+
+  <!-- David Hall — pending -->
+  <div class="profile-card profile-card--pending">
+    <h3>David Hall</h3>
+    <p>Bio coming soon.</p>
+  </div>
+
+</div>
+
+<!-- ── VALUES ─────────────────────────────────────────────────── -->
+<div class="values-section">
+  <div style="max-width:900px; margin:0 auto;">
+    <h2 style="color:var(--green-dark); margin-bottom:0.5rem;">How We Work</h2>
+    <p style="max-width:600px;">We are not engineers, equipment suppliers, or project managers for hire. We are your independent expert — brought in to tell you what is actually achievable, at realistic cost, before you commit.</p>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Independent</h3>
+        <p>We have no commercial relationship with equipment suppliers, construction firms, or processing operators. Our only interest is the quality of the outcome for you.</p>
+      </div>
+      <div class="value-card">
+        <h3>Practical First</h3>
+        <p>Every recommendation is stress-tested against operational reality. We have managed facilities and sold compost — we know what works on the ground, not just on paper.</p>
+      </div>
+      <div class="value-card">
+        <h3>Commercially Grounded</h3>
+        <p>We understand that sustainability requires financial viability. Cashflow, revenue strategy, and cost structure are integral to every piece of advice we give.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ────────────────────────────────────────────────────── -->
+<div class="about-cta">
+  <h2>Ready to talk?</h2>
+  <p>Most engagements start with a straightforward conversation. No pitch, no commitment — just a practical discussion about your situation.</p>
+  <a href="index.html#contact" class="btn">Get in Touch</a>
+</div>
+
+<footer>
+  <strong>Radicle Compost</strong> — Radicle Agriculture Pty Ltd &nbsp;|&nbsp;
+  <a href="mailto:martin@radiclecompost.com.au">martin@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
+  <br><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd. All rights reserved.
+</footer>
+
+</body>
+</html>
