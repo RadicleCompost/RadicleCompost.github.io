@@ -11,7 +11,17 @@
 
 <!-- ── NAV ─────────────────────────────────────────────────── -->
 <nav>
-  <div class="nav-logo">Radicle <span>Compost</span></div>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Leaf / seedling mark -->
+      <circle cx="22" cy="22" r="21" fill="#52B788" opacity="0.18"/>
+      <path d="M22 36 C22 36 12 28 12 19 C12 13 17 9 22 9 C27 9 32 13 32 19 C32 28 22 36 22 36Z" fill="#52B788"/>
+      <path d="M22 36 L22 18" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round"/>
+      <path d="M22 24 C18 21 14 22 14 22" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M22 29 C26 26 30 27 30 27" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
@@ -30,7 +40,7 @@
     <a href="#services" class="btn btn--outline">Our Services</a>
 
     <div class="video-wrap">
-      <video controls poster="">
+      <video autoplay muted loop playsinline>
         <source src="assets/landing-page.mov" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -79,45 +89,38 @@
     <div class="services-grid">
 
       <div class="service-card">
-        <div class="service-num">SO1</div>
-        <h3>Input Audit &amp; Concept Proposal</h3>
-        <p>Comprehensive situation review — waste stream volumes, site suitability, conceptual layout, cost assessment, and end-market identification. The ideal starting point for any new composting project.</p>
+        <div class="service-card-header"><div class="service-num">SO1</div><h3>Input Audit &amp; Concept Proposal</h3></div>
+        <div class="service-card-body"><p>Comprehensive situation review — waste stream volumes, site suitability, conceptual layout, cost assessment, and end-market identification. The ideal starting point for any new composting project.</p></div>
       </div>
 
       <div class="service-card">
-        <div class="service-num">SO2</div>
-        <h3>Construction Planning &amp; Approvals</h3>
-        <p>Coordinating technical experts, navigating government approvals and licensing, developing project budgets, and communicating milestones to your stakeholders and funding bodies.</p>
+        <div class="service-card-header"><div class="service-num">SO2</div><h3>Construction Planning &amp; Approvals</h3></div>
+        <div class="service-card-body"><p>Coordinating technical experts, navigating government approvals and licensing, developing project budgets, and communicating milestones to your stakeholders and funding bodies.</p></div>
       </div>
 
       <div class="service-card">
-        <div class="service-num">SO3</div>
-        <h3>Site Construction Project Support</h3>
-        <p>Acting as your expert representative during construction — specifying equipment, negotiating contracts, and overseeing commissioning to ensure the built facility matches the design intent.</p>
+        <div class="service-card-header"><div class="service-num">SO3</div><h3>Site Construction Project Support</h3></div>
+        <div class="service-card-body"><p>Acting as your expert representative during construction — specifying equipment, negotiating contracts, and overseeing commissioning to ensure the built facility matches the design intent.</p></div>
       </div>
 
       <div class="service-card">
-        <div class="service-num">SO4</div>
-        <h3>Operations Setup &amp; Training</h3>
-        <p>Standard operating procedures, staff training, quality control systems, and 12 months of troubleshooting and optimisation support as your operation matures.</p>
+        <div class="service-card-header"><div class="service-num">SO4</div><h3>Operations Setup &amp; Training</h3></div>
+        <div class="service-card-body"><p>Standard operating procedures, staff training, quality control systems, and 12 months of troubleshooting and optimisation support as your operation matures.</p></div>
       </div>
 
       <div class="service-card">
-        <div class="service-num">SO5</div>
-        <h3>Compost Marketing &amp; Sales Strategy</h3>
-        <p>Identifying target markets, developing value propositions, designing trial and demonstration sites, product development advice, and coaching your sales team to build internal capability.</p>
+        <div class="service-card-header"><div class="service-num">SO5</div><h3>Compost Marketing &amp; Sales Strategy</h3></div>
+        <div class="service-card-body"><p>Identifying target markets, developing value propositions, designing trial and demonstration sites, product development advice, and coaching your sales team to build internal capability.</p></div>
       </div>
 
       <div class="service-card">
-        <div class="service-num">SO6</div>
-        <h3>Quality Testing &amp; Certification</h3>
-        <p>Sampling and testing protocols, interpreting laboratory results, navigating organic certification requirements, and ongoing monitoring to ensure consistent quality and customer confidence.</p>
+        <div class="service-card-header"><div class="service-num">SO6</div><h3>Quality Testing &amp; Certification</h3></div>
+        <div class="service-card-body"><p>Sampling and testing protocols, interpreting laboratory results, navigating organic certification requirements, and ongoing monitoring to ensure consistent quality and customer confidence.</p></div>
       </div>
 
       <div class="service-card">
-        <div class="service-num">SO7</div>
-        <h3>3-Year Contracted Expert Support</h3>
-        <p>A long-term advisory partnership with retained access to Radicle Compost expertise across the full project lifecycle. Scheduled site visits, progress reviews, and a dedicated channel for ad-hoc support. Priced by negotiation.</p>
+        <div class="service-card-header"><div class="service-num">SO7</div><h3>3-Year Contracted Expert Support</h3></div>
+        <div class="service-card-body"><p>A long-term advisory partnership with retained access to Radicle Compost expertise across the full project lifecycle. Scheduled site visits, progress reviews, and a dedicated channel for ad-hoc support. Priced by negotiation.</p></div>
       </div>
 
     </div>
@@ -131,7 +134,7 @@
 <section class="section" id="about">
   <div class="container">
     <h2 style="text-align:center; margin-bottom:3rem;">Meet the Team</h2>
-    <div class="about-grid">
+    <div class="about-grid about-grid--single">
 
       <div class="about-card">
         <h3>Martin Tower</h3>
@@ -142,11 +145,6 @@
         <p>Martin holds an MBA and has completed the Australian Company Directors Course. He has served as a non-executive director on several boards, including the Australian Organics Recycling Association, and is currently Chair of Certified Sustainable Limited.</p>
       </div>
 
-      <div class="about-card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:#f8f8f8; border: 2px dashed #ddd;">
-        <h3 style="color:#aaa;">David</h3>
-        <span class="about-role" style="color:#bbb;">Associate Advisor</span>
-        <p style="color:#bbb; font-size:0.9rem;">Biography coming soon.</p>
-      </div>
 
     </div>
   </div>
@@ -202,7 +200,7 @@
       <div class="contact-details">
         <div class="contact-item">
           <div class="label">Email</div>
-          <div class="value"><a href="mailto:martin@radicleag.com.au">martin@radicleag.com.au</a></div>
+          <div class="value"><a href="mailto:martin@radiclecompost.com.au">martin@radiclecompost.com.au</a></div>
         </div>
         <div class="contact-item">
           <div class="label">Phone</div>
@@ -210,10 +208,10 @@
         </div>
         <div class="contact-item">
           <div class="label">Web</div>
-          <div class="value"><a href="https://www.radicleag.com.au">radicleag.com.au</a></div>
+          <div class="value"><a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a></div>
         </div>
       </div>
-      <a href="mailto:martin@radicleag.com.au" class="btn">Send an Email</a>
+      <a href="mailto:martin@radiclecompost.com.au" class="btn">Send an Email</a>
     </div>
   </div>
 </section>
@@ -222,8 +220,8 @@
 <footer>
   <strong>Radicle Compost</strong> — Radicle Agriculture Pty Ltd &nbsp;|&nbsp;
   ABN: &nbsp;|&nbsp;
-  <a href="mailto:martin@radicleag.com.au">martin@radicleag.com.au</a> &nbsp;|&nbsp;
-  <a href="https://www.radicleag.com.au">radicleag.com.au</a>
+  <a href="mailto:martin@radiclecompost.com.au">martin@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
   <br><br>
   &copy; 2026 Radicle Agriculture Pty Ltd. All rights reserved.
 </footer>
