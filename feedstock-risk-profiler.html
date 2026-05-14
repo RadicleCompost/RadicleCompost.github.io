@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedstock Risk Profiler — Radicle Compost</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f8f6;
+    color: #1a1a1a;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 22px; font-weight: 500; color: #2D6A4F; margin-bottom: 4px; }
+  .subtitle { font-size: 14px; color: #666; margin-bottom: 20px; }
+  .branding { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid #2D6A4F; }
+  .brand-name { font-size: 13px; font-weight: 500; color: #2D6A4F; }
+  .brand-url { font-size: 11px; color: #aaa; }
+
+  .tool-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  @media (max-width: 640px) { .tool-layout { grid-template-columns: 1fr; } }
+
+  .inputs-panel { display: flex; flex-direction: column; gap: 16px; }
+  .results-panel { display: flex; flex-direction: column; gap: 16px; }
+
+  .dim-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .dim-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2D6A4F;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dim-label .dim-icon { font-size: 14px; }
+  .dim-options { display: flex; flex-wrap: wrap; gap: 6px; }
+  .opt-btn {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: #f8f8f6;
+    cursor: pointer;
+    transition: all .15s;
+    color: #444;
+  }
+  .opt-btn:hover { border-color: #2D6A4F; color: #2D6A4F; }
+  .opt-btn.active { background: #2D6A4F; color: #fff; border-color: #2D6A4F; }
+  .opt-btn.risk-low.active    { background: #1D9E75; border-color: #1D9E75; }
+  .opt-btn.risk-medium.active { background: #BA7517; border-color: #BA7517; }
+  .opt-btn.risk-high.active   { background: #D85A30; border-color: #D85A30; }
+  .opt-btn.risk-vhigh.active  { background: #A32D2D; border-color: #A32D2D; }
+
+  .score-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .score-title { font-size: 11px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+  .score-row { display: grid; grid-template-columns: 120px 1fr 40px; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .score-label { font-size: 11px; color: #666; text-align: right; }
+  .score-track { height: 12px; background: #f0f0f0; border-radius: 6px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 6px; transition: width .4s ease, background .4s ease; }
+  .score-num { font-size: 11px; color: #666; text-align: center; }
+
+  .risk-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    transition: background .4s, color .4s;
+  }
+  .overall-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .overall-label { font-size: 11px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .rec-card {
+    background: #EAF4EE;
+    border: 1px solid #c8e6d4;
+    border-radius: 10px;
+    padding: 14px;
+    flex: 1;
+  }
+  .rec-title { font-size: 11px; font-weight: 600; color: #2D6A4F; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .rec-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: flex-start;
+  }
+  .rec-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+  .rec-text { font-size: 12px; color: #333; line-height: 1.5; }
+  .rec-tech { font-weight: 600; }
+
+  .flags-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .flags-title { font-size: 11px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .flag-item { display: flex; gap: 8px; margin-bottom: 6px; align-items: flex-start; font-size: 12px; color: #444; line-height: 1.5; }
+  .flag-icon { flex-shrink: 0; font-size: 13px; }
+
+  .placeholder-msg { font-size: 13px; color: #aaa; text-align: center; padding: 24px 0; line-height: 1.8; }
+
+  .footnote { font-size: 11px; color: #aaa; margin-top: 20px; line-height: 1.6; border-top: 1px solid #e0e0e0; padding-top: 12px; }
+
+  .reset-btn { font-size: 11px; background: none; border: 1px solid #ccc; color: #999; border-radius: 6px; padding: 4px 12px; cursor: pointer; margin-top: 4px; }
+  .reset-btn:hover { border-color: #A32D2D; color: #A32D2D; }
+</style>
+</head>
+<body>
+
+<div class="branding">
+  <div>
+    <div class="brand-name">RADICLE COMPOST</div>
+    <div class="brand-url">radiclecompost.com.au</div>
+  </div>
+  <div style="font-size:11px;color:#aaa;text-align:right">Free Planning Tool #2 — Feedstock Risk Profiler<br>Version 1.0 | May 2026</div>
+</div>
+
+<h1>Feedstock risk profiler</h1>
+<p class="subtitle">Select your input stream characteristics to generate a process risk profile and technology recommendations — no login required</p>
+
+<div class="tool-layout">
+
+  <div class="inputs-panel">
+
+    <div class="dim-card">
+      <div class="dim-label"><span class="dim-icon">🪣</span> Feedstock type</div>
+      <div class="dim-options" data-dim="type">
+        <button class="opt-btn risk-low"    data-val="greenWaste"  data-score="1">Green waste</button>
+        <button class="opt-btn risk-low"    data-val="foodMfg"     data-score="2">Food manufacturing</button>
+        <button class="opt-btn risk-medium" data-val="fogo"        data-score="3">FOGO (kerbside)</button>
+        <button class="opt-btn risk-medium" data-val="manure"      data-score="3">Livestock manure</button>
+        <button class="opt-btn risk-high"   data-val="biosolids"   data-score="4">Biosolids</button>
+        <button class="opt-btn risk-vhigh"  data-val="abattoir"    data-score="5">Abattoir / meat waste</button>
+      </div>
+    </div>
+
+    <div class="dim-card">
+      <div class="dim-label"><span class="dim-icon">⚠️</span> Contamination level</div>
+      <div class="dim-options" data-dim="contamination">
+        <button class="opt-btn risk-low"    data-val="low"    data-score="1">Low — source-separated, clean</button>
+        <button class="opt-btn risk-medium" data-val="medium" data-score="3">Moderate — some plastics/glass</button>
+        <button class="opt-btn risk-high"   data-val="high"   data-score="5">High — mixed, unsorted</button>
+      </div>
+    </div>
+
+    <div class="dim-card">
+      <div class="dim-label"><span class="dim-icon">📊</span> Feedstock variability</div>
+      <div class="dim-options" data-dim="variability">
+        <button class="opt-btn risk-low"    data-val="consistent" data-score="1">Consistent — single source, predictable</button>
+        <button class="opt-btn risk-medium" data-val="moderate"   data-score="3">Moderate — seasonal or mixed sources</button>
+        <button class="opt-btn risk-high"   data-val="variable"   data-score="5">High — multiple sources, unpredictable</button>
+      </div>
+    </div>
+
+    <div class="dim-card">
+      <div class="dim-label"><span class="dim-icon">💧</span> Moisture content</div>
+      <div class="dim-options" data-dim="moisture">
+        <button class="opt-btn risk-low"    data-val="dry"    data-score="1">Dry (&lt;40%) — woody, fibrous</button>
+        <button class="opt-btn risk-medium" data-val="medium" data-score="2">Moderate (40–60%)</button>
+        <button class="opt-btn risk-high"   data-val="wet"    data-score="4">Wet (&gt;60%) — food scraps, slurry</button>
+      </div>
+    </div>
+
+    <div class="dim-card">
+      <div class="dim-label"><span class="dim-icon">🦠</span> Pathogen / biosecurity risk</div>
+      <div class="dim-options" data-dim="pathogen">
+        <button class="opt-btn risk-low"    data-val="low"    data-score="1">Low — plant material only</button>
+        <button class="opt-btn risk-medium" data-val="medium" data-score="3">Moderate — mixed food / animal</button>
+        <button class="opt-btn risk-high"   data-val="high"   data-score="5">High — meat, blood, biosolids</button>
+      </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetAll()">↺ Reset all</button>
+
+  </div>
+
+  <div class="results-panel" id="results-panel">
+
+    <div class="score-card" id="score-card">
+      <div class="score-title">Risk profile</div>
+      <div id="scores-body">
+        <div class="placeholder-msg">Select at least one characteristic<br>to generate your risk profile</div>
+      </div>
+    </div>
+
+    <div class="flags-card" id="flags-card" style="display:none">
+      <div class="flags-title">Key process flags</div>
+      <div id="flags-body"></div>
+    </div>
+
+    <div class="rec-card" id="rec-card" style="display:none">
+      <div class="rec-title">Technology recommendations</div>
+      <div id="rec-body"></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footnote">
+  Risk scores are indicative only. Based on generalised process risk parameters for regional Australian composting facilities. Site-specific regulatory requirements, separation distances, and EPA licence conditions may impose additional constraints. This tool does not substitute for professional process design assessment. Source: Radicle Compost advisory experience, May 2026. For a detailed feedstock and site assessment, <a href="mailto:support@radiclecompost.com.au" style="color:#2D6A4F">talk to Radicle Compost</a>.
+</div>
+
+<script>
+const DIMS = ['type','contamination','variability','moisture','pathogen'];
+const DIM_LABELS = {
+  type:          'Feedstock type',
+  contamination: 'Contamination',
+  variability:   'Variability',
+  moisture:      'Moisture',
+  pathogen:      'Pathogen risk'
+};
+const MAX_SCORES = { type:5, contamination:5, variability:5, moisture:4, pathogen:5 };
+
+const sel = {};
+
+const FLAGS = [
+  {
+    cond: s => s.type?.val === 'fogo' || s.type?.val === 'abattoir' || s.type?.val === 'biosolids',
+    icon: '🔥',
+    text: 'Regulatory temperature requirements apply (AS4454 / EPA). System must be capable of sustained 55°C+ for minimum prescribed periods.'
+  },
+  {
+    cond: s => s.type?.val === 'abattoir',
+    icon: '🦠',
+    text: 'Category 3 animal by-products — check DAFF import/movement rules and state EPA licence conditions before accepting.'
+  },
+  {
+    cond: s => s.type?.val === 'manure' && s.pathogen?.val === 'high',
+    icon: '🐄',
+    text: 'Intensive livestock manure: fire ant biosecurity zone compliance (QLD) mandates turning schedules that may conflict with static pile management — verify with Biosecurity Queensland.'
+  },
+  {
+    cond: s => (s.type?.val === 'fogo' || s.type?.val === 'abattoir') && s.variability?.val === 'variable',
+    icon: '⚙️',
+    text: 'Highly variable FOGO or meat-waste inputs are poorly suited to passive static pile systems. Automated aeration control significantly improves process stability under variable conditions.'
+  },
+  {
+    cond: s => s.moisture?.val === 'wet' && s.contamination?.val !== 'low',
+    icon: '💧',
+    text: 'Wet, contaminated feedstock increases leachate risk. Impermeable pad, leachate collection, and stormwater separation are essential. Covered or enclosed systems strongly recommended.'
+  },
+  {
+    cond: s => s.contamination?.val === 'high',
+    icon: '♻️',
+    text: 'High contamination will compromise end-product quality and AS4454 compliance. Pre-processing (screening, de-packaging) is likely required before composting.'
+  },
+  {
+    cond: s => s.type?.val === 'biosolids',
+    icon: '📋',
+    text: 'Biosolids co-composting requires EPA approval and a declared PFAS status. Verify land application restrictions and end-use markets before committing to intake.'
+  },
+  {
+    cond: s => s.moisture?.val === 'wet' || s.type?.val === 'fogo',
+    icon: '🌧️',
+    text: 'Wet inputs or FOGO: rainfall infiltration will significantly affect pile temperature and process stability. Covered or enclosed processing strongly recommended in high-rainfall regions.'
+  },
+  {
+    cond: s => s.variability?.val === 'variable' && s.pathogen?.val === 'high',
+    icon: '📈',
+    text: 'Variable high-risk inputs: consistent time–temperature compliance is difficult to guarantee without automated process monitoring. Manual management of this risk profile is high-labour and high-liability.'
+  },
+];
+
+function getRecommendations(scores, totalScore, maxPossible) {
+  const pct = totalScore / maxPossible;
+  const t = sel.type?.val;
+  const v = sel.variability?.val;
+  const m = sel.moisture?.val;
+  const p = sel.pathogen?.val;
+
+  const recs = [];
+
+  if (pct < 0.35) {
+    recs.push({ color:'#1D9E75', tech:'Open windrow', reason:'Clean, consistent, low-moisture feedstock is well-suited to open windrow. Low process risk tolerates the natural variability of an open system.' });
+    recs.push({ color:'#1D9E75', tech:'Static aerated pile', reason:'Also suitable. Lower footprint than windrow (typically 20–30% of the pad area for equivalent throughput) and lower labour — consider if land is constrained.' });
+  }
+
+  if (pct >= 0.35 && pct < 0.6) {
+    recs.push({ color:'#639922', tech:'Covered windrow', reason:'Covers provide meaningful odour and leachate control for moderate-risk feedstocks with low additional capital. High ROI intervention for existing open windrow sites.' });
+    recs.push({ color:'#639922', tech:'Static aerated pile', reason:'Forced aeration improves temperature control and odour management versus open windrow. Appropriate for moderate variability and moisture levels.' });
+    if (v === 'variable' || m === 'wet') {
+      recs.push({ color:'#0F6E56', tech:'Semi-autonomous static pile', reason:'Automated process control significantly reduces risk exposure when managing variable or wet feedstocks. Remote monitoring provides early warning before compliance issues arise.' });
+    }
+  }
+
+  if (pct >= 0.6 && pct < 0.8) {
+    recs.push({ color:'#0F6E56', tech:'Semi-autonomous static pile', reason:'Automated aeration control and process monitoring is strongly recommended at this risk level. Time–temperature compliance logging is a practical necessity for regulatory and liability reasons.' });
+    recs.push({ color:'#BA7517', tech:'Fabric structure (enclosed)', reason:'Enclosure significantly reduces odour and weather exposure for high-moisture or variable inputs. Combines well with forced aeration.' });
+    if (p === 'high' || t === 'abattoir' || t === 'biosolids') {
+      recs.push({ color:'#D85A30', tech:'In-vessel composting', reason:'For high-pathogen inputs, an enclosed in-vessel system may be required to meet EPA licence conditions and achieve consistent time–temperature compliance documentation.' });
+    }
+  }
+
+  if (pct >= 0.8) {
+    recs.push({ color:'#D85A30', tech:'In-vessel or tunnel composting', reason:'At this risk profile, open or semi-open systems are unlikely to meet regulatory requirements. Fully enclosed processing with biofilter exhaust treatment is the baseline expectation for approval.' });
+    recs.push({ color:'#BA7517', tech:'Fabric structure with biofilter', reason:'If full in-vessel is cost-prohibitive, a well-designed enclosed fabric structure with biofilter can be a pragmatic intermediate step — but get EPA pre-lodgement advice before committing.' });
+    if (t === 'abattoir' || (m === 'wet' && p === 'high')) {
+      recs.push({ color:'#A32D2D', tech:'Anaerobic digestion (pre-treatment)', reason:'For meat waste or very wet, high-pathogen streams, anaerobic pre-treatment reduces volume and pathogen load before composting. Capital-intensive but may be the only viable pathway at scale.' });
+    }
+    recs.push({ color:'#0F6E56', tech:'Process design consultation recommended', reason:'A feedstock profile at this risk level warrants a formal process design assessment before selecting technology. Regulatory pre-lodgement and licence conditions will significantly influence the viable options.' });
+  }
+
+  return recs;
+}
+
+function scoreColor(score, max) {
+  const pct = score / max;
+  if (pct <= 0.3) return '#1D9E75';
+  if (pct <= 0.55) return '#639922';
+  if (pct <= 0.75) return '#BA7517';
+  if (pct <= 0.9) return '#D85A30';
+  return '#A32D2D';
+}
+
+function overallRisk(pct) {
+  if (pct < 0.3) return { label:'Low risk', bg:'#1D9E75', text:'#fff' };
+  if (pct < 0.5) return { label:'Low–moderate risk', bg:'#639922', text:'#fff' };
+  if (pct < 0.65) return { label:'Moderate risk', bg:'#BA7517', text:'#fff' };
+  if (pct < 0.8) return { label:'Moderate–high risk', bg:'#D85A30', text:'#fff' };
+  return { label:'High risk', bg:'#A32D2D', text:'#fff' };
+}
+
+function render() {
+  const activeDims = DIMS.filter(d => sel[d]);
+  if (activeDims.length === 0) {
+    document.getElementById('scores-body').innerHTML = '<div class="placeholder-msg">Select at least one characteristic<br>to generate your risk profile</div>';
+    document.getElementById('flags-card').style.display = 'none';
+    document.getElementById('rec-card').style.display = 'none';
+    return;
+  }
+
+  let totalScore = 0, maxPossible = 0;
+  const scoreRows = DIMS.map(d => {
+    const s = sel[d];
+    if (!s) return '';
+    totalScore += s.score;
+    maxPossible += MAX_SCORES[d];
+    const pct = Math.round(s.score / MAX_SCORES[d] * 100);
+    const col = scoreColor(s.score, MAX_SCORES[d]);
+    return `<div class="score-row">
+      <div class="score-label">${DIM_LABELS[d]}</div>
+      <div class="score-track"><div class="score-fill" style="width:${pct}%;background:${col}"></div></div>
+      <div class="score-num" style="color:${col}">${s.score}/${MAX_SCORES[d]}</div>
+    </div>`;
+  }).join('');
+
+  const overallPct = maxPossible > 0 ? totalScore / maxPossible : 0;
+  const risk = overallRisk(overallPct);
+
+  document.getElementById('scores-body').innerHTML = scoreRows + `
+    <div style="margin-top:14px;padding-top:10px;border-top:1px solid #eee">
+      <div class="overall-row">
+        <div class="overall-label">Overall risk</div>
+        <div class="risk-badge" style="background:${risk.bg};color:${risk.text}">${risk.label}</div>
+      </div>
+      <div style="font-size:11px;color:#aaa">Score: ${totalScore} / ${maxPossible} (${Math.round(overallPct*100)}%) — ${activeDims.length} of 5 dimensions assessed</div>
+    </div>`;
+
+  const activeFlags = FLAGS.filter(f => f.cond(sel));
+  if (activeFlags.length > 0) {
+    document.getElementById('flags-card').style.display = 'block';
+    document.getElementById('flags-body').innerHTML = activeFlags.map(f =>
+      `<div class="flag-item"><span class="flag-icon">${f.icon}</span><span>${f.text}</span></div>`
+    ).join('');
+  } else {
+    document.getElementById('flags-card').style.display = 'none';
+  }
+
+  if (activeDims.length >= 3) {
+    const recs = getRecommendations(sel, totalScore, maxPossible);
+    document.getElementById('rec-card').style.display = 'block';
+    if (recs.length === 0) {
+      document.getElementById('rec-body').innerHTML = '<div style="font-size:12px;color:#666">Complete more dimensions for tailored recommendations.</div>';
+    } else {
+      document.getElementById('rec-body').innerHTML = recs.map(r =>
+        `<div class="rec-item">
+          <div class="rec-dot" style="background:${r.color}"></div>
+          <div class="rec-text"><span class="rec-tech">${r.tech}:</span> ${r.reason}</div>
+        </div>`
+      ).join('') + `<div style="margin-top:12px;font-size:11px;color:#888">For a formal process design assessment: <a href="mailto:support@radiclecompost.com.au" style="color:#2D6A4F">talk to Radicle Compost</a></div>`;
+    }
+  } else {
+    document.getElementById('rec-card').style.display = 'none';
+  }
+}
+
+document.querySelectorAll('.dim-options').forEach(group => {
+  const dim = group.dataset.dim;
+  group.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (sel[dim]?.val === btn.dataset.val) {
+        delete sel[dim];
+        btn.classList.remove('active');
+      } else {
+        group.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+        sel[dim] = { val: btn.dataset.val, score: parseInt(btn.dataset.score) };
+        btn.classList.add('active');
+      }
+      render();
+    });
+  });
+});
+
+function resetAll() {
+  DIMS.forEach(d => delete sel[d]);
+  document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+  render();
+}
+
+render();
+</script>
+</body>
+</html>

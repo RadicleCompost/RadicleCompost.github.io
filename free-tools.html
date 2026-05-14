@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Planning Tools — Radicle Compost</title>
+  <meta name="description" content="Free interactive planning tools for organics recycling facilities. Compare technologies, assess feedstock risk, and size your composting pad — from Radicle Compost.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Free Tools page specific styles ─── */
+    .tools-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .tools-hero h1 {
+      font-size: 2.4rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .tools-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto 1.5rem;
+    }
+    .tools-hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .tools-hero-stat-num {
+      font-family: var(--sans);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green-light);
+      line-height: 1;
+    }
+    .tools-hero-stat-label {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Guidance banner ─── */
+    .guidance-banner {
+      background: #fff8f0;
+      border-top: 3px solid #f4a261;
+      border-bottom: 1px solid #f4d4b0;
+      padding: 1.25rem 2rem;
+    }
+    .guidance-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: #7a4a00;
+      line-height: 1.65;
+    }
+    .guidance-inner strong { color: #5a3300; }
+    .guidance-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── Tools section ─── */
+    .tools-section {
+      padding: 4rem 2rem 3rem;
+    }
+    .tools-intro {
+      max-width: var(--max-w);
+      margin: 0 auto 2.5rem;
+    }
+    .tools-intro p {
+      font-size: 1rem;
+      max-width: 680px;
+    }
+    .tools-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.75rem;
+    }
+    .tool-card {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid #dde8e2;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .tool-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.11);
+      transform: translateY(-2px);
+    }
+    .tool-card-header {
+      background: linear-gradient(135deg, var(--green-dark), #40916c);
+      padding: 1.75rem 1.5rem 1.25rem;
+      position: relative;
+    }
+    .tool-number {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+    }
+    .tool-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .tool-card-header h3 {
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .tool-card-subtitle {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.4;
+    }
+    .tool-card-body {
+      padding: 1.25rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .tool-card-body p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tool-tag {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      background: var(--green-light);
+      color: var(--green-dark);
+      border-radius: 2rem;
+      padding: 0.2rem 0.65rem;
+      font-weight: 500;
+      opacity: 0.85;
+    }
+    .tool-best-for {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--grey);
+      border-top: 1px solid #eef2ee;
+      padding-top: 0.9rem;
+      line-height: 1.55;
+    }
+    .tool-best-for strong {
+      display: block;
+      color: var(--green-dark);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+    }
+    .tool-card-cta {
+      display: block;
+      background: var(--green-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 0.85rem 1.25rem;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+      border-top: 1px solid #dde8e2;
+    }
+    .tool-card-cta:hover {
+      background: #1a4033;
+      text-decoration: none;
+    }
+
+    /* ── How to use ─── */
+    .how-section {
+      background: var(--cream);
+      padding: 4rem 2rem;
+    }
+    .how-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      background: var(--green-dark);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .step h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+    .step p {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    /* ── Advisory CTA ─── */
+    .advisory-cta {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%);
+      padding: 4rem 2rem;
+      color: var(--white);
+    }
+    .advisory-cta-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 640px) {
+      .advisory-cta-inner { grid-template-columns: 1fr; }
+    }
+    .advisory-cta h2 { color: var(--white); }
+    .advisory-cta p { color: rgba(255,255,255,0.75); }
+    .advisory-cta ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.75rem;
+    }
+    .advisory-cta ul li {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      padding: 0.25rem 0 0.25rem 1.2rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .advisory-cta ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green-light);
+      font-weight: 700;
+    }
+    .advisory-cta-btn-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+    .advisory-cta-note {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="12" y="10" width="14" height="100" rx="4" fill="#FFFFFF"/>
+      <path d="M26 10 Q76 10 76 42 Q76 74 26 74" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="51" cy="42" rx="22" ry="26" fill="#7B4226" transform="rotate(-10,51,42)"/>
+      <line x1="44" y1="25" x2="58" y2="62" stroke="#2D1A0E" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="74" x2="72" y2="110" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html">Industry</a></li>
+    <li><a href="free-tools.html" style="color:#B7E4C7;font-weight:600;">Free Tools</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<script>
+  (function(){
+    var btn = document.querySelector('.nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+</script>
+
+<!-- HERO -->
+<section class="tools-hero">
+  <div class="hero-tag">Free Planning Tools</div>
+  <h1>Start your facility planning with confidence</h1>
+  <p>Three interactive tools built on 25 years of organics recycling experience — free to use, no login required. Indicative figures to inform your planning conversations before committing to detailed design.</p>
+  <div class="tools-hero-stats">
+    <div>
+      <div class="tools-hero-stat-num">3</div>
+      <div class="tools-hero-stat-label">Free tools</div>
+    </div>
+    <div>
+      <div class="tools-hero-stat-num">9</div>
+      <div class="tools-hero-stat-label">Technologies compared</div>
+    </div>
+    <div>
+      <div class="tools-hero-stat-num">25+</div>
+      <div class="tools-hero-stat-label">Years experience behind the data</div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDANCE BANNER -->
+<div class="guidance-banner">
+  <div class="guidance-inner">
+    <span class="guidance-icon">📋</span>
+    <span><strong>These tools provide indicative guidance only.</strong> The figures are based on Australian regional-scale facilities and generalised parameters — a starting point for planning conversations, not a substitute for site-specific design. Feedstock composition, local planning requirements, regulatory conditions, and many other site-specific factors will significantly affect outcomes. <strong>Radicle Compost is available to help you move from indicative estimates to a site-specific concept plan.</strong></span>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<section class="tools-section">
+  <div class="tools-intro">
+    <h2>Three tools, one planning foundation</h2>
+    <p>Use them in sequence — understand the technology landscape, assess your feedstock risk, then size your processing area. Each tool is designed to surface the right questions early, before costly assumptions get built into a design.</p>
+  </div>
+
+  <div class="tools-grid">
+
+    <div class="tool-card">
+      <div class="tool-card-header">
+        <span class="tool-number">TOOL 01</span>
+        <span class="tool-icon">📊</span>
+        <h3>Organics Processing Spectrum</h3>
+        <div class="tool-card-subtitle">Compare 9 technologies across cost, odour risk and throughput</div>
+      </div>
+      <div class="tool-card-body">
+        <p>Maps nine composting and organic waste processing technologies — from open windrow to anaerobic digestion — across four dimensions that matter most at the early planning stage.</p>
+        <div class="tool-tags">
+          <span class="tool-tag">Capital cost</span>
+          <span class="tool-tag">Operating cost</span>
+          <span class="tool-tag">Odour risk</span>
+          <span class="tool-tag">Throughput</span>
+          <span class="tool-tag">9 technologies</span>
+        </div>
+        <div class="tool-best-for">
+          <strong>Best used for</strong>
+          Early technology shortlisting. Helps councils and operators understand the cost and risk trade-offs before engaging a designer or consultant.
+        </div>
+      </div>
+      <a href="organics-processing-spectrum.html" class="tool-card-cta">Open tool →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-header">
+        <span class="tool-number">TOOL 02</span>
+        <span class="tool-icon">🔬</span>
+        <h3>Feedstock Risk Profiler</h3>
+        <div class="tool-card-subtitle">Assess your input stream across 5 risk dimensions</div>
+      </div>
+      <div class="tool-card-body">
+        <p>Select your feedstock characteristics — type, contamination, variability, moisture, and pathogen risk — to generate a scored risk profile and indicative technology recommendations.</p>
+        <div class="tool-tags">
+          <span class="tool-tag">Feedstock type</span>
+          <span class="tool-tag">Contamination</span>
+          <span class="tool-tag">Moisture</span>
+          <span class="tool-tag">Pathogen risk</span>
+          <span class="tool-tag">Process flags</span>
+        </div>
+        <div class="tool-best-for">
+          <strong>Best used for</strong>
+          Understanding whether your intended feedstock suits open composting or requires more controlled systems. Surfaces key regulatory flags early.
+        </div>
+      </div>
+      <a href="feedstock-risk-profiler.html" class="tool-card-cta">Open tool →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-header">
+        <span class="tool-number">TOOL 03</span>
+        <span class="tool-icon">📐</span>
+        <h3>Facility Sizing Calculator</h3>
+        <div class="tool-card-subtitle">Indicative pad area for windrow or static pile systems</div>
+      </div>
+      <div class="tool-card-body">
+        <p>Enter your weekly input tonnage, processing cycle length, and system type to get an indicative processing pad size and layout diagram. Covers windrow and static pile with adjustable parameters.</p>
+        <div class="tool-tags">
+          <span class="tool-tag">Windrow sizing</span>
+          <span class="tool-tag">Static pile sizing</span>
+          <span class="tool-tag">Pad area</span>
+          <span class="tool-tag">Layout diagram</span>
+          <span class="tool-tag">Volume calc</span>
+        </div>
+        <div class="tool-best-for">
+          <strong>Best used for</strong>
+          Early site feasibility — understanding whether your available land can accommodate the processing area your throughput requires.
+        </div>
+      </div>
+      <a href="facility-sizing-calculator.html" class="tool-card-cta">Open tool →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="how-section">
+  <div class="how-inner">
+    <h2>Start here, then go deeper</h2>
+    <p>These tools work best used in sequence — each one builds context for the next.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Compare the technology landscape</h4>
+        <p>Use the Processing Spectrum to understand what's out there and where different systems sit on cost and risk — before you commit to a direction.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Profile your feedstock</h4>
+        <p>Use the Risk Profiler to assess your intended input stream. High-risk feedstocks narrow your technology options significantly — better to know early.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Size your processing area</h4>
+        <p>Once you have a technology direction, use the Sizing Calculator to get a rough pad footprint. Check it against your available land before going further.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Talk to Radicle Compost</h4>
+        <p>When the indicative numbers look workable — or the complexity starts to show — a site-specific assessment adds real value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORY CTA -->
+<section class="advisory-cta">
+  <div class="advisory-cta-inner">
+    <div>
+      <div class="hero-tag" style="margin-bottom:1rem;">Radicle Compost Advisory</div>
+      <h2>When indicative isn't enough</h2>
+      <p>These tools surface the right questions. Answering them accurately for your specific site, feedstock, regulatory environment and budget is where 25 years of hands-on experience makes the difference.</p>
+      <ul>
+        <li>Site-specific concept design and feasibility assessment</li>
+        <li>Feedstock characterisation and risk assessment</li>
+        <li>Regulatory pre-lodgement and EPA licence strategy</li>
+        <li>Technology selection and procurement support</li>
+        <li>Operational review and process troubleshooting</li>
+        <li>Business case development for council or board approval</li>
+      </ul>
+    </div>
+    <div class="advisory-cta-btn-wrap">
+      <a href="mailto:support@radiclecompost.com.au?subject=Facility%20Planning%20Enquiry" class="btn">Talk to Radicle Compost</a>
+      <div class="advisory-cta-note">No obligation — happy to discuss<br>where you're at</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Radicle Compost</strong> — Radicle Agriculture Pty Ltd &nbsp;·&nbsp; ABN 67 645 914 781 &nbsp;|&nbsp;
+  <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
+  <br><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd. All rights reserved. These tools provide indicative guidance only and should not be used as the basis for regulatory, planning, or construction decisions.
+</footer>
+
+</body>
+</html>

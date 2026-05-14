@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organics Facility Sizing Calculator — Radicle Agriculture</title>
+<style>
+  :root {
+    --green-dark: #1a3a2a;
+    --green-mid: #2d6a4f;
+    --green-light: #52b788;
+    --green-pale: #d8f3dc;
+    --accent: #40916c;
+    --amber: #f4a261;
+    --amber-light: #fff3e0;
+    --text: #1b1b1b;
+    --text-muted: #555;
+    --border: #c8e6c9;
+    --bg: #f7faf8;
+    --white: #ffffff;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+    color: white;
+    padding: 36px 24px 32px;
+    text-align: center;
+  }
+
+  .header-logo {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .header p {
+    font-size: 15px;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+
+  /* System Selector */
+  .system-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    flex: 1;
+    min-width: 200px;
+    padding: 18px 20px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+  }
+
+  .tab-btn:hover { border-color: var(--green-light); }
+
+  .tab-btn.active {
+    border-color: var(--green-mid);
+    background: var(--green-pale);
+  }
+
+  .tab-btn .tab-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 4px;
+  }
+
+  .tab-btn .tab-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .tab-btn.active .tab-title { color: var(--green-mid); }
+
+  /* Grid layout */
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  @media (max-width: 680px) {
+    .calc-grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--green-pale);
+  }
+
+  /* Form elements */
+  .field {
+    margin-bottom: 18px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .field .hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .field input[type="number"],
+  .field select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .field input[type="number"]:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--green-light);
+    box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.15);
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .toggle-section {
+    margin-top: 4px;
+  }
+
+  .toggle-link {
+    font-size: 12px;
+    color: var(--green-mid);
+    cursor: pointer;
+    text-decoration: underline;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  .advanced-fields {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+  }
+
+  /* Results */
+  .results-card {
+    background: var(--green-dark);
+    color: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .results-card .card-title {
+    color: var(--green-light);
+    border-color: rgba(82,183,136,0.3);
+  }
+
+  .metric {
+    margin-bottom: 20px;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 4px;
+  }
+
+  .metric-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green-light);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .metric-sub {
+    font-size: 12px;
+    opacity: 0.65;
+  }
+
+  .metric-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 16px 0;
+  }
+
+  /* Diagram */
+  .diagram-container {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .diagram-title {
+    font-size: 11px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  canvas {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  /* Complexity callout */
+  .callout {
+    background: var(--amber-light);
+    border: 1.5px solid var(--amber);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-top: 20px;
+    grid-column: 1 / -1;
+  }
+
+  .callout-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #b5540a;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .callout p {
+    font-size: 13px;
+    color: #7a3900;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .callout ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .callout ul li {
+    font-size: 12px;
+    color: #7a3900;
+    padding: 3px 0 3px 16px;
+    position: relative;
+  }
+
+  .callout ul li::before {
+    content: "›";
+    position: absolute;
+    left: 4px;
+    font-weight: bold;
+  }
+
+  /* CTA */
+  .cta-section {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 28px;
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--green-mid);
+    color: white;
+    padding: 13px 32px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cta-btn:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+  .disclaimer {
+    grid-column: 1 / -1;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 8px;
+    line-height: 1.6;
+  }
+
+  /* Windrow vis */
+  .windrow-vis {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 0;
+  }
+
+  .windrow-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .windrow-bar {
+    height: 14px;
+    background: linear-gradient(to right, var(--green-mid), var(--green-light));
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    min-width: 20px;
+  }
+
+  .windrow-label {
+    font-size: 11px;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .windrow-bar.active { background: linear-gradient(to right, #40916c, #74c69d); }
+  .windrow-bar.fallow { background: linear-gradient(to right, #555, #777); opacity: 0.5; }
+
+  /* Footer */
+  .footer {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    margin-top: 40px;
+  }
+
+  .footer a { color: var(--green-light); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-logo">Radicle Agriculture — Free Planning Tool</div>
+  <h1>Organics Composting Facility<br>Sizing &amp; Footprint Calculator</h1>
+  <p>Enter your weekly input tonnage and processing parameters to get an indicative pad size and infrastructure footprint for your compost operation.</p>
+</div>
+
+<div class="main">
+
+  <!-- System type selector -->
+  <div class="system-tabs">
+    <button class="tab-btn active" onclick="setSystem('windrow')" id="tab-windrow">
+      <div class="tab-title">⟰ Windrow Composting</div>
+      <div class="tab-desc">Mechanically turned rows. Best for high throughput, council organics, source-separated food &amp; green waste.</div>
+    </button>
+    <button class="tab-btn" onclick="setSystem('static')" id="tab-static">
+      <div class="tab-title">⬛ Static Pile Composting</div>
+      <div class="tab-desc">Aerated or passively composting piles. Suitable for lower throughput or space-constrained sites.</div>
+    </button>
+  </div>
+
+  <div class="calc-grid">
+
+    <!-- INPUT PANEL -->
+    <div class="card">
+      <div class="card-title">Site Inputs</div>
+
+      <div class="field">
+        <label>Weekly organic waste input (tonnes/week)</label>
+        <div class="hint">Total wet weight of material received per week</div>
+        <input type="number" id="tonnage" value="50" min="1" max="5000" step="1" oninput="calculate()">
+      </div>
+
+      <div class="field">
+        <label>Processing cycle (weeks)</label>
+        <div class="hint">How long material stays in active composting before curing (typically 8–16 weeks)</div>
+        <input type="number" id="cycle" value="12" min="4" max="52" step="1" oninput="calculate()">
+      </div>
+
+      <div class="field">
+        <label>Bulk density (m³/tonne)</label>
+        <div class="hint">Default 1.6 m³/t is typical for mixed green/food organics at receival</div>
+        <input type="number" id="density" value="1.6" min="0.8" max="3.0" step="0.1" oninput="calculate()">
+      </div>
+
+      <div class="toggle-section">
+        <button class="toggle-link" onclick="toggleAdvanced()">&#9881; Adjust windrow/pile dimensions</button>
+      </div>
+
+      <!-- Windrow advanced -->
+      <div class="advanced-fields" id="advanced-windrow" style="display:none;">
+        <div class="field-row">
+          <div class="field">
+            <label>Base width (m)</label>
+            <div class="hint">3–6m typical</div>
+            <input type="number" id="w-base" value="3" min="2" max="6" step="0.5" oninput="calculate()">
+          </div>
+          <div class="field">
+            <label>Height (m)</label>
+            <div class="hint">1.5–3m</div>
+            <input type="number" id="w-height" value="1.8" min="1.0" max="3.0" step="0.1" oninput="calculate()">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Windrow length (m)</label>
+            <input type="number" id="w-length" value="30" min="10" max="200" step="5" oninput="calculate()">
+          </div>
+          <div class="field">
+            <label>Spacing between windrows (m)</label>
+            <input type="number" id="w-spacing" value="3" min="2" max="6" step="0.5" oninput="calculate()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Minimum number of windrows</label>
+          <div class="hint">8 is typical minimum for efficient operations</div>
+          <input type="number" id="w-min" value="8" min="4" max="40" step="1" oninput="calculate()">
+        </div>
+      </div>
+
+      <!-- Static pile advanced -->
+      <div class="advanced-fields" id="advanced-static" style="display:none;">
+        <div class="field-row">
+          <div class="field">
+            <label>Pile base width (m)</label>
+            <div class="hint">6–30m range</div>
+            <input type="number" id="s-width" value="6" min="4" max="30" step="1" oninput="calculate()">
+          </div>
+          <div class="field">
+            <label>Pile length (m)</label>
+            <input type="number" id="s-length" value="12" min="4" max="60" step="1" oninput="calculate()">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Pile height (m)</label>
+            <div class="hint">Up to 3.5m</div>
+            <input type="number" id="s-height" value="2.5" min="1.0" max="3.5" step="0.1" oninput="calculate()">
+          </div>
+          <div class="field">
+            <label>Pile spacing (m)</label>
+            <input type="number" id="s-spacing" value="3" min="2" max="6" step="0.5" oninput="calculate()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Minimum number of piles</label>
+          <input type="number" id="s-min" value="8" min="4" max="40" step="1" oninput="calculate()">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RESULTS PANEL -->
+    <div class="results-card">
+      <div class="card-title">Indicative Processing Area</div>
+
+      <div class="metric">
+        <div class="metric-label">Total material in process at peak</div>
+        <div class="metric-value" id="r-volume">—</div>
+        <div class="metric-sub">cubic metres</div>
+      </div>
+
+      <div class="metric-divider"></div>
+
+      <div class="metric">
+        <div class="metric-label" id="r-unit-label">Number of windrows required</div>
+        <div class="metric-value" id="r-units">—</div>
+        <div class="metric-sub" id="r-units-sub">—</div>
+      </div>
+
+      <div class="metric-divider"></div>
+
+      <div class="metric">
+        <div class="metric-label">Estimated processing pad area</div>
+        <div class="metric-value" id="r-area">—</div>
+        <div class="metric-sub">m² (processing area only)</div>
+      </div>
+
+      <div class="metric-divider"></div>
+
+      <div class="metric">
+        <div class="metric-label">Approximate pad dimensions</div>
+        <div class="metric-value" id="r-dims">—</div>
+        <div class="metric-sub">width × length (indicative)</div>
+      </div>
+
+      <div class="diagram-container">
+        <div class="diagram-title">Indicative layout (plan view)</div>
+        <canvas id="layoutCanvas" height="160"></canvas>
+      </div>
+    </div>
+
+    <!-- CALLOUT -->
+    <div class="callout">
+      <div class="callout-title">⚠ This calculation covers the processing area only</div>
+      <p>Real facility design requires additional space and infrastructure beyond active composting pads. Depending on your site and throughput, you will also need to plan for:</p>
+      <ul>
+        <li>Receival and pre-processing area — waste inspection, weighbridge, receival pad</li>
+        <li>Decontamination — removal of plastics, contaminants, foreign objects (FOs)</li>
+        <li>Shredding and size reduction — tub grinder, trommel, or chipper operation</li>
+        <li>Mechanical handling — loader, turner, or in-vessel equipment turning circles and traffic lanes</li>
+        <li>Curing area — material typically requires a further 4–12 weeks of curing post-active phase</li>
+        <li>Screening — finished compost screening to specification (usually 10–25mm)</li>
+        <li>Finished product stockpile — storage awaiting sale, testing, or despatch</li>
+        <li>Buffer and setback distances — from property boundaries, residences, and waterways</li>
+        <li>Leachate and stormwater management — bunded pads, drains, holding ponds</li>
+        <li>Site access, parking, and amenities</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <p>Facility sizing is highly site-specific. Soil type, topography, local planning requirements, feedstock composition, intended end market, and regulatory conditions all affect the design. These figures are a planning conversation starter — not a permit or consent document.</p>
+      <p><strong>Ready to move from back-of-envelope to a site-specific concept plan?</strong></p>
+      <a href="mailto:martin@radicleagriculture.com.au?subject=Facility%20Sizing%20Enquiry" class="cta-btn">Talk to Radicle Compost →</a>
+    </div>
+
+    <div class="disclaimer">
+      This tool provides indicative estimates only and should not be used as the basis for regulatory, planning, or construction decisions.<br>
+      Outputs assume standard mixed green/food organics feedstock. Bulk density, volume reduction ratios, and space requirements vary significantly by feedstock, climate, and management.<br>
+      © Radicle Agriculture Pty Ltd
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <strong>Radicle Agriculture Pty Ltd</strong> &nbsp;|&nbsp; Organics Recycling Advisory &nbsp;|&nbsp;
+  <a href="mailto:martin@radicleagriculture.com.au">martin@radicleagriculture.com.au</a>
+</div>
+
+<script>
+let currentSystem = 'windrow';
+let showAdvanced = false;
+
+function setSystem(sys) {
+  currentSystem = sys;
+  document.getElementById('tab-windrow').classList.toggle('active', sys === 'windrow');
+  document.getElementById('tab-static').classList.toggle('active', sys === 'static');
+  calculate();
+}
+
+function toggleAdvanced() {
+  showAdvanced = !showAdvanced;
+  const wAdv = document.getElementById('advanced-windrow');
+  const sAdv = document.getElementById('advanced-static');
+  if (currentSystem === 'windrow') {
+    wAdv.style.display = showAdvanced ? 'block' : 'none';
+    sAdv.style.display = 'none';
+  } else {
+    sAdv.style.display = showAdvanced ? 'block' : 'none';
+    wAdv.style.display = 'none';
+  }
+}
+
+function val(id, fallback) {
+  const el = document.getElementById(id);
+  return el ? (parseFloat(el.value) || fallback) : fallback;
+}
+
+function fmt(n, dec) {
+  if (n >= 10000) return Math.round(n).toLocaleString();
+  if (n >= 1000) return n.toLocaleString(undefined, {maximumFractionDigits: dec || 0});
+  return n.toLocaleString(undefined, {maximumFractionDigits: dec !== undefined ? dec : 1});
+}
+
+function calculate() {
+  // Common inputs
+  const tonnagePerWeek = val('tonnage', 50);
+  const cycleWeeks = val('cycle', 12);
+  const density = val('density', 1.6);
+
+  // Volume in process at any time
+  const volPerWeek = tonnagePerWeek * density;
+  const totalVol = volPerWeek * cycleWeeks;
+
+  document.getElementById('r-volume').textContent = fmt(totalVol, 0) + ' m³';
+
+  if (currentSystem === 'windrow') {
+    calculateWindrow(totalVol, volPerWeek);
+  } else {
+    calculateStatic(totalVol, volPerWeek);
+  }
+}
+
+function calculateWindrow(totalVol, volPerWeek) {
+  const baseW = val('w-base', 3);
+  const height = val('w-height', 1.8);
+  const length = val('w-length', 30);
+  const spacing = val('w-spacing', 3);
+  const minWindrows = val('w-min', 8);
+
+  // Trapezoid cross-section volume: A = (base + top)/2 * height
+  // Top width ≈ 80% of base (user's spec)
+  const topW = baseW * 0.8;
+  const xsecArea = (baseW + topW) / 2 * height;
+  const windrowVol = xsecArea * length;
+
+  // How many windrows needed for total volume?
+  const windrowsNeeded = Math.ceil(totalVol / windrowVol);
+  const actualWindrows = Math.max(windrowsNeeded, minWindrows);
+
+  // Pad area: width = (baseW + spacing) * N, length = row length + 6m access at ends
+  const padWidth = actualWindrows * (baseW + spacing);
+  const padLength = length + 10; // 5m access each end
+
+  const padArea = padWidth * padLength;
+
+  document.getElementById('r-unit-label').textContent = 'Number of windrows required';
+  document.getElementById('r-units').textContent = actualWindrows;
+  document.getElementById('r-units-sub').textContent =
+    windrowsNeeded < minWindrows
+      ? `${windrowsNeeded} calculated — minimum ${minWindrows} recommended for efficient operations`
+      : `(${windrowsNeeded} calculated — matches minimum requirement)`;
+
+  document.getElementById('r-area').textContent = fmt(padArea, 0) + ' m²';
+  document.getElementById('r-dims').textContent = `${fmt(padWidth,1)} m × ${fmt(padLength,1)} m`;
+
+  drawWindrowLayout(actualWindrows, baseW, length, spacing, padWidth, padLength);
+}
+
+function calculateStatic(totalVol, volPerWeek) {
+  const pWidth = val('s-width', 6);
+  const pLength = val('s-length', 12);
+  const pHeight = val('s-height', 2.5);
+  const spacing = val('s-spacing', 3);
+  const minPiles = val('s-min', 8);
+
+  // Static pile: approximate as truncated pyramid
+  // Top surface ~60% of base in each direction (similar reduction as windrow)
+  const topW = pWidth * 0.7;
+  const topL = pLength * 0.7;
+  // Volume: frustum ≈ h/3 * (A1 + A2 + sqrt(A1*A2))
+  const A1 = pWidth * pLength;
+  const A2 = topW * topL;
+  const pileVol = (pHeight / 3) * (A1 + A2 + Math.sqrt(A1 * A2));
+
+  const pilesNeeded = Math.ceil(totalVol / pileVol);
+  const actualPiles = Math.max(pilesNeeded, minPiles);
+
+  // Arrange in 2 rows if > 4 piles
+  const cols = Math.ceil(actualPiles / 2);
+  const rows = actualPiles <= 4 ? 1 : 2;
+
+  const padWidth = cols * (pWidth + spacing) + spacing;
+  const padLength = rows * (pLength + spacing) + spacing + 8; // access lane
+
+  const padArea = padWidth * padLength;
+
+  document.getElementById('r-unit-label').textContent = 'Number of piles required';
+  document.getElementById('r-units').textContent = actualPiles;
+  document.getElementById('r-units-sub').textContent =
+    pilesNeeded < minPiles
+      ? `${pilesNeeded} calculated — minimum ${minPiles} recommended for rotation`
+      : `(${pilesNeeded} calculated)`;
+
+  document.getElementById('r-area').textContent = fmt(padArea, 0) + ' m²';
+  document.getElementById('r-dims').textContent = `${fmt(padWidth,1)} m × ${fmt(padLength,1)} m`;
+
+  drawStaticLayout(actualPiles, pWidth, pLength, spacing, padWidth, padLength, rows, cols);
+}
+
+// ---- DRAWING FUNCTIONS ----
+
+function drawWindrowLayout(count, baseW, length, spacing, totalW, totalL) {
+  const canvas = document.getElementById('layoutCanvas');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+
+  const displayW = canvas.parentElement.clientWidth - 32;
+  const displayH = 160;
+  canvas.style.width = displayW + 'px';
+  canvas.style.height = displayH + 'px';
+  canvas.width = displayW * dpr;
+  canvas.height = displayH * dpr;
+  ctx.scale(dpr, dpr);
+
+  ctx.clearRect(0, 0, displayW, displayH);
+  ctx.fillStyle = '#1e2e24';
+  ctx.fillRect(0, 0, displayW, displayH);
+
+  const margin = 14;
+  const drawW = displayW - margin * 2;
+  const drawH = displayH - margin * 2;
+
+  const scaleX = drawW / totalW;
+  const scaleY = drawH / totalL;
+  const sc = Math.min(scaleX, scaleY);
+
+  const scaledTotalW = totalW * sc;
+  const scaledTotalL = totalL * sc;
+  const offsetX = margin + (drawW - scaledTotalW) / 2;
+  const offsetY = margin + (drawH - scaledTotalL) / 2;
+
+  // Pad background
+  ctx.fillStyle = 'rgba(255,255,255,0.05)';
+  ctx.fillRect(offsetX, offsetY, scaledTotalW, scaledTotalL);
+
+  // Windrows
+  const unitW = (baseW + spacing) * sc;
+  const maxVisible = Math.min(count, 40);
+  for (let i = 0; i < maxVisible; i++) {
+    const x = offsetX + i * unitW + (spacing * sc * 0.5);
+    const w = baseW * sc;
+    const y = offsetY + 5 * sc;
+    const h = (totalL - 10) * sc;
+    const grad = ctx.createLinearGradient(x, y, x + w, y);
+    grad.addColorStop(0, '#2d6a4f');
+    grad.addColorStop(0.5, '#52b788');
+    grad.addColorStop(1, '#2d6a4f');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, 2);
+    ctx.fill();
+  }
+
+  if (count > 40) {
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(`+ ${count - 40} more windrows`, displayW / 2, displayH - 6);
+  }
+
+  // Label
+  ctx.fillStyle = 'rgba(255,255,255,0.4)';
+  ctx.font = `${Math.max(9, Math.min(11, drawW / 40))}px sans-serif`;
+  ctx.textAlign = 'left';
+  ctx.fillText(`${count} windrows  ·  ${fmt(totalW,1)}m × ${fmt(totalL,1)}m`, offsetX + 4, offsetY + drawH + 10);
+}
+
+function drawStaticLayout(count, pWidth, pLength, spacing, totalW, totalL, rows, cols) {
+  const canvas = document.getElementById('layoutCanvas');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+
+  const displayW = canvas.parentElement.clientWidth - 32;
+  const displayH = 160;
+  canvas.style.width = displayW + 'px';
+  canvas.style.height = displayH + 'px';
+  canvas.width = displayW * dpr;
+  canvas.height = displayH * dpr;
+  ctx.scale(dpr, dpr);
+
+  ctx.clearRect(0, 0, displayW, displayH);
+  ctx.fillStyle = '#1e2e24';
+  ctx.fillRect(0, 0, displayW, displayH);
+
+  const margin = 14;
+  const drawW = displayW - margin * 2;
+  const drawH = displayH - margin * 2;
+
+  const scaleX = drawW / totalW;
+  const scaleY = drawH / totalL;
+  const sc = Math.min(scaleX, scaleY);
+
+  const scaledTotalW = totalW * sc;
+  const scaledTotalL = totalL * sc;
+  const offsetX = margin + (drawW - scaledTotalW) / 2;
+  const offsetY = margin + (drawH - scaledTotalL) / 2;
+
+  ctx.fillStyle = 'rgba(255,255,255,0.05)';
+  ctx.fillRect(offsetX, offsetY, scaledTotalW, scaledTotalL);
+
+  const cellW = (pWidth + spacing) * sc;
+  const cellH = (pLength + spacing) * sc;
+  const maxVisible = Math.min(count, 40);
+
+  for (let i = 0; i < maxVisible; i++) {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const x = offsetX + spacing * sc + col * cellW;
+    const y = offsetY + spacing * sc + row * cellH;
+    const w = pWidth * sc;
+    const h = pLength * sc;
+
+    // Shadow effect for 3D look
+    ctx.fillStyle = 'rgba(0,0,0,0.3)';
+    ctx.fillRect(x + 3, y + 3, w, h);
+
+    const grad = ctx.createLinearGradient(x, y, x + w, y + h);
+    grad.addColorStop(0, '#52b788');
+    grad.addColorStop(1, '#2d6a4f');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, 2);
+    ctx.fill();
+  }
+
+  ctx.fillStyle = 'rgba(255,255,255,0.4)';
+  ctx.font = `${Math.max(9, Math.min(11, drawW / 40))}px sans-serif`;
+  ctx.textAlign = 'left';
+  ctx.fillText(`${count} piles  ·  ${fmt(totalW,1)}m × ${fmt(totalL,1)}m`, offsetX + 4, offsetY + drawH + 10);
+}
+
+// Initial calculation
+calculate();
+</script>
+</body>
+</html>
