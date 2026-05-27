@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The FOGO Mandate: When Policy Outpaces Processing — Radicle Compost</title>
+  <meta name="description" content="Regional and rural councils face a structural squeeze: state FOGO mandates are outpacing the infrastructure needed to process it. A practitioner's guide to navigating the gap.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Article page styles ── */
+    .article-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .article-hero .article-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      line-height: 1.25;
+    }
+    .article-hero .article-meta {
+      color: rgba(255,255,255,0.65);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+    }
+
+    /* ── Article body ── */
+    .article-container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+    .article-lead {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .article-container p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--grey);
+      margin-bottom: 1.4rem;
+    }
+    .article-container h2 {
+      font-size: 1.5rem;
+      color: var(--green-dark);
+      margin: 3rem 0 1.1rem;
+      line-height: 1.3;
+    }
+    .article-divider {
+      border: none;
+      border-top: 3px solid var(--green-light);
+      margin: 3rem 0;
+      opacity: 0.4;
+    }
+    .article-blockquote {
+      border-left: 5px solid var(--green-mid);
+      margin: 2.5rem 0;
+      padding: 1.25rem 1.75rem;
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+    }
+    .article-blockquote p {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      margin-bottom: 0.5rem;
+    }
+    .article-blockquote cite {
+      font-size: 0.85rem;
+      color: var(--grey-light);
+      font-style: normal;
+      font-family: var(--sans);
+    }
+    .inline-bold { font-weight: 700; }
+    .article-closing {
+      font-style: italic;
+      color: #555;
+      border-top: 1px solid #ddd;
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+    .article-closing p { font-style: italic; }
+    .author-line {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--grey-light);
+      font-style: normal;
+      font-family: var(--sans);
+    }
+
+    /* ── Enquiry form ── */
+    .enquiry-section { background: var(--cream); padding: 5rem 2rem; }
+    .enquiry-inner { max-width: 720px; margin: 0 auto; }
+    .enquiry-inner h2 { color: var(--green-dark); margin-bottom: 0.5rem; }
+    .enquiry-inner > p { margin-bottom: 2rem; }
+    .form-wrap { background: var(--white); border-radius: 10px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label { display: block; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--green-dark); margin-bottom: 0.45rem; }
+    .form-group select, .form-group textarea, .form-group input[type="text"], .form-group input[type="email"] {
+      width: 100%; padding: 0.7rem 0.9rem; border: 1px solid #d0d8ce; border-radius: 6px;
+      font-family: var(--sans); font-size: 0.95rem; color: var(--grey); background: #fafafa;
+      box-sizing: border-box; transition: border-color 0.2s;
+    }
+    .form-group select:focus, .form-group textarea:focus, .form-group input:focus {
+      outline: none; border-color: var(--green-mid); background: var(--white);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-submit {
+      width: 100%; padding: 1rem; background: var(--green-mid); color: var(--white);
+      border: none; border-radius: 6px; font-family: var(--sans); font-size: 1rem;
+      font-weight: 700; cursor: pointer; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--green-dark); }
+    .form-note { font-size: 0.82rem; color: var(--grey-light); margin-top: 1rem; text-align: center; }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 3.5rem 1.25rem 3rem; }
+      .article-container { padding: 2.5rem 1.25rem 4rem; }
+      .form-wrap { padding: 1.75rem 1.25rem; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3G0RXX2B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1H3G0RXX2B');
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="12" y="10" width="14" height="100" rx="4" fill="#FFFFFF"/>
+      <path d="M26 10 Q76 10 76 42 Q76 74 26 74" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="51" cy="42" rx="22" ry="26" fill="#7B4226" transform="rotate(-10,51,42)"/>
+      <line x1="44" y1="25" x2="58" y2="62" stroke="#2D1A0E" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="74" x2="72" y2="110" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html">Policy Library</a></li>
+    <li><a href="free-tools.html" style="color:#B7E4C7;font-weight:600;">Free Tools</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<script>
+  (function(){
+    var btn = document.querySelector('.nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+</script>
+
+<!-- ── ARTICLE HERO ──────────────────────────────────────────── -->
+<div class="article-hero">
+  <div class="article-tag">Policy &amp; Strategy</div>
+  <h1>The FOGO Mandate: When Policy Outpaces Processing</h1>
+  <div class="article-meta">May 2026 &nbsp;·&nbsp; Martin Tower, Radicle Compost</div>
+</div>
+
+<!-- ── ARTICLE BODY ──────────────────────────────────────────── -->
+<div class="article-container">
+
+  <p class="article-lead">If you are a regional or rural council waste manager, your desk is probably covered in state-mandated timelines.</p>
+
+  <p>Food Organics and Garden Organics diversion. Compliance deadlines. Community expectations about circularity and sustainability. You want to build something lasting — a genuine asset for your region. But when you look at the capital requirements, the contamination statistics, and the near-absence of local end markets, the whole exercise starts to feel less like an environmental triumph and more like being handed an expensive, ticking administrative clock.</p>
+
+  <p>You are not imagining the difficulty. The structural problem is real.</p>
+
+  <hr class="article-divider">
+
+  <blockquote class="article-blockquote">
+    <p>"The trouble with a map is that it shows you where everything is, but it never shows you the state of the roads you have to travel to get there."</p>
+    <cite>— Overheard from a road train driver on the Blackall Highway</cite>
+  </blockquote>
+
+  <hr class="article-divider">
+
+  <h2>The Structural Squeeze</h2>
+
+  <p>Across regional and rural Australia, local governments are facing a common problem that state policy timelines are not designed to acknowledge: the commercial and technical infrastructure needed to process FOGO is lagging well behind the mandate to collect it.</p>
+
+  <p>For a metropolitan council with hundreds of thousands of ratepayers and existing logistics density, a centralised, high-capital facility can make commercial sense. For a regional council managing multiple small waste transfer stations across vast distances — often with a ratepayer base in the tens of thousands — the financial reality is entirely different. The numbers simply do not work the same way.</p>
+
+  <p>FOGO is a notoriously difficult feedstock. Unlike clean green waste, it arrives wet, acidic, highly variable, and contaminated. Managing it means navigating three compounding pressures simultaneously.</p>
+
+  <p><span class="inline-bold">Contamination</span> rarely gets the attention it deserves in the policy discussion. Household plastics, glass fragments, and hazardous lithium-ion batteries are common in regional streams, and the automated picking and advanced screening technology needed to clean that stream cost-effectively is expensive. Without it, you are not producing a soil amendment — you are producing a regulated liability.</p>
+
+  <p><span class="inline-bold">Capital and operating costs</span> are the second pressure. Traditional open-windrow processing remains the lowest-cost entry point, but food waste introduces odour risks and leachate management obligations that make it socially and legally difficult to operate near communities. Moving to enclosed tunnel systems or covered aerated static piles — the technologies that solve those problems — requires multi-million-dollar capital investment that small ratepayer bases struggle to amortise over any reasonable horizon.</p>
+
+  <p><span class="inline-bold">The offtake problem</span> is the third and most consistently underestimated pressure. Processing the material is only half the task. You still need a buyer. If local agricultural markets are conservative, or if finished material carries any trace of microplastic or glass contamination, you are not selling a premium soil conditioner. You are managing an output that may eventually cost you more to place than it generates in revenue.</p>
+
+  <p>When traditional processing looks too risky, councils are drawn into a bewildering array of emerging alternatives. Biochar and pyrolysis offer permanent carbon sequestration and the ability to eliminate persistent contaminants like PFAS — but at equipment costs that represent a significant commercial commitment for most regional budgets. Anaerobic digestion can generate local energy from organic waste, but requires careful feedstock balancing and a level of technical oversight that is difficult to sustain at a rural depot. Vermicomposting and Black Soldier Fly Larvae processing offer genuinely impressive nutrient and protein conversion, but both operate on thin margins and demand climate conditions that are hard to guarantee reliably outside controlled environments.</p>
+
+  <p>None of these technologies are wrong. Each has a legitimate application. But choosing between them without a clear regional context first is where things go wrong.</p>
+
+  <hr class="article-divider">
+
+  <h2>The Quiet Trail of Stranded Assets</h2>
+
+  <p>The consequence of entering the technology selection process without that context is already visible across the country — if you know where to look.</p>
+
+  <p>There are high-tech sorting machines sitting idle because the throughput economics never materialised. Pyrolysis units that were switched off when daily operating costs outpaced local tipping fee revenue. Premium enclosed processing systems bypassed by operators because the physical reality of their waste stream — the volume, the contamination profile, the seasonality — was never honestly modelled before the investment was made.</p>
+
+  <p>When a regional facility fails commercially, or when finished material is rejected by farmers due to contamination, the financial damage falls entirely on the council and its ratepayers. There is no state policy backstop for a stranded capital asset.</p>
+
+  <p>The problem is rarely the technology itself. It is the sequence in which the decision was made.</p>
+
+  <hr class="article-divider">
+
+  <h2>What the Successful Councils Do Differently</h2>
+
+  <p>Councils that navigate the FOGO mandate well do not start by selecting a technology or benchmarking against what a neighbouring region has built. They start at the other end of the problem.</p>
+
+  <p>They map their realistic end markets first — what products, in what volumes, at what quality specification, can actually be sold or used within a viable transport radius. They characterise their feedstock honestly, including its worst-case contamination profile, not its best-case projections. They model operating costs against the full lifecycle of the asset, not just the construction phase. And only then — with that regional picture in hand — do they begin evaluating which processing pathway fits the problem they actually have.</p>
+
+  <p>This approach will not always point to the most technically sophisticated solution. Sometimes the right answer for a remote regional council is a well-managed, lower-technology biological system that produces a consistent, locally-usable output — not a flagship facility designed to impress a grant assessor. The goal is a system that still works in year eight, not one that looks impressive at the opening.</p>
+
+  <p>A free tool that can help councils begin this process — mapping their specific feedstock and market context to candidate processing pathways — is available at <a href="https://radiclecompost.com.au/free-tools.html">radiclecompost.com.au/free-tools</a>. It does not make the decision for you, but it structures the right questions.</p>
+
+  <hr class="article-divider">
+
+  <div class="article-closing">
+    <p>If this is something you are actively navigating, I am happy to have a practical conversation — no pitch, just a discussion grounded in what actually works in regional contexts.</p>
+    <div class="author-line">Martin Tower &nbsp;|&nbsp; Radicle Compost &nbsp;|&nbsp; <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> &nbsp;|&nbsp; 0412 780 364</div>
+  </div>
+
+</div>
+
+<!-- ── ENQUIRY FORM ────────────────────────────────────────── -->
+<section class="enquiry-section" id="contact">
+  <div class="enquiry-inner">
+    <h2>Tell us about your situation</h2>
+    <p>Every situation is different. Tell us about yours and we'll come back to you within 48 hours with an honest assessment of whether and how we can help.</p>
+    <div class="form-wrap">
+      <form action="https://formsubmit.co/support@radiclecompost.com.au" method="POST">
+        <input type="hidden" name="_subject" value="New Radicle Compost Enquiry">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+        <div class="form-group">
+          <label>Which best describes your current situation?</label>
+          <select name="Current Situation" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Regional council managing FOGO or organic waste diversion obligations</option>
+            <option>Agricultural or livestock operation with organic waste to manage</option>
+            <option>Food processing or storage facility with organic waste outputs</option>
+            <option>Exploring options before committing to anything</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Where are you located?</label>
+          <select name="Location" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Queensland — South East</option>
+            <option>Queensland — Regional</option>
+            <option>New South Wales</option>
+            <option>Victoria</option>
+            <option>South Australia / Western Australia / NT</option>
+            <option>Other / Multiple sites</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What are your current organic waste volumes?</label>
+          <select name="Waste Volumes" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Under 1,000 tonnes per year</option>
+            <option>1,000 – 5,000 tonnes per year</option>
+            <option>5,000 – 20,000 tonnes per year</option>
+            <option>Over 20,000 tonnes per year</option>
+            <option>Not sure — we haven't measured it</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What do you currently do with your organic waste?</label>
+          <select name="Current Disposal Method" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Landfill or licensed disposal</option>
+            <option>Third party collection / service contract</option>
+            <option>On-site composting or processing (not working well)</option>
+            <option>On-site composting or processing (working reasonably well)</option>
+            <option>Nothing yet — it's accumulating</option>
+            <option>Mixed / depends on the stream</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What best describes your desired outcome?</label>
+          <select name="Desired Outcome" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Meet compliance obligations at minimum cost</option>
+            <option>Turn our waste stream into a revenue opportunity</option>
+            <option>Understand our options before committing capital</option>
+            <option>Improve an existing operation that isn't performing</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What's your biggest obstacle right now?</label>
+          <select name="Biggest Obstacle" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Not sure where to start</option>
+            <option>Previous solutions haven't worked or weren't right for our scale</option>
+            <option>Capital constraints</option>
+            <option>Ratepayer or stakeholder cost sensitivity</option>
+            <option>Regulatory uncertainty</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What kind of support are you looking for?</label>
+          <select name="Support Required" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Strategic advice and market analysis</option>
+            <option>Facility design and operational setup</option>
+            <option>Review of an existing operation</option>
+            <option>Training or capability building</option>
+            <option>Not sure yet — open to a conversation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Anything else we should know? <span style="font-weight:400;">(optional)</span></label>
+          <textarea name="Additional Information" placeholder="Any context that would help us understand your situation…"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" name="Name" required placeholder="First and last name">
+        </div>
+        <div class="form-group">
+          <label>Your email</label>
+          <input type="email" name="Email" required placeholder="email@example.com">
+        </div>
+        <button type="submit" class="form-submit">Submit — We'll Be In Touch Within 48 Hours</button>
+        <p class="form-note">Your information is used solely to respond to your enquiry. We don't share it with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Radicle Compost</strong> — Radicle Agriculture Pty Ltd &nbsp;·&nbsp; ABN 67 645 914 781 &nbsp;|&nbsp;
+  <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
+  <br><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd. All rights reserved.
+</footer>
+
+</body>
+</html>

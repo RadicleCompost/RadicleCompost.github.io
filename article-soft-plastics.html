@@ -94,11 +94,143 @@
 
   <hr class="article-divider">
 
-  <div class="article-cta">
-    <p>If this is something you're navigating at your facility, I'd welcome a conversation. No pitch — just a practical discussion.</p>
-    <div class="contact-line"><strong>Martin Tower</strong> &nbsp;·&nbsp; support@radiclecompost.com.au &nbsp;·&nbsp; 0412 780 364 &nbsp;·&nbsp; radiclecompost.com.au</div>
   </div>
 </div>
+
+<!-- ── ENQUIRY FORM ────────────────────────────────────────── -->
+<style>
+  .enquiry-section { background: #f7f4ee; padding: 5rem 2rem; }
+  .enquiry-inner { max-width: 720px; margin: 0 auto; }
+  .enquiry-inner h2 { color: #2d5a27; margin-bottom: 0.5rem; font-family: Georgia, serif; font-size: 1.6rem; }
+  .enquiry-inner > p { margin-bottom: 2rem; font-family: Georgia, serif; }
+  .enq-form-wrap { background: #fff; border-radius: 10px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+  .enq-form-group { margin-bottom: 1.4rem; }
+  .enq-form-group label { display: block; font-family: Arial, sans-serif; font-size: 0.88rem; font-weight: 600; color: #2d5a27; margin-bottom: 0.45rem; }
+  .enq-form-group select, .enq-form-group textarea, .enq-form-group input[type="text"], .enq-form-group input[type="email"] {
+    width: 100%; padding: 0.7rem 0.9rem; border: 1px solid #d0d8ce; border-radius: 6px;
+    font-family: Arial, sans-serif; font-size: 0.95rem; color: #555; background: #fafafa;
+    box-sizing: border-box; transition: border-color 0.2s;
+  }
+  .enq-form-group select:focus, .enq-form-group textarea:focus, .enq-form-group input:focus {
+    outline: none; border-color: #4a7c3f; background: #fff;
+  }
+  .enq-form-group textarea { min-height: 110px; resize: vertical; }
+  .enq-form-submit {
+    width: 100%; padding: 1rem; background: #4a7c3f; color: #fff;
+    border: none; border-radius: 6px; font-family: Arial, sans-serif; font-size: 1rem;
+    font-weight: 700; cursor: pointer; transition: background 0.2s;
+  }
+  .enq-form-submit:hover { background: #2d5a27; }
+  .enq-form-note { font-size: 0.82rem; color: #999; margin-top: 1rem; text-align: center; font-family: Arial, sans-serif; }
+</style>
+<section class="enquiry-section" id="contact">
+  <div class="enquiry-inner">
+    <h2>Tell us about your situation</h2>
+    <p>Every situation is different. Tell us about yours and we'll come back to you within 48 hours with an honest assessment of whether and how we can help.</p>
+    <div class="enq-form-wrap">
+      <form action="https://formsubmit.co/support@radiclecompost.com.au" method="POST">
+        <input type="hidden" name="_subject" value="New Radicle Compost Enquiry">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+        <div class="enq-form-group">
+          <label>Which best describes your current situation?</label>
+          <select name="Current Situation" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Regional council managing FOGO or organic waste diversion obligations</option>
+            <option>Agricultural or livestock operation with organic waste to manage</option>
+            <option>Food processing or storage facility with organic waste outputs</option>
+            <option>Exploring options before committing to anything</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="enq-form-group">
+          <label>Where are you located?</label>
+          <select name="Location" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Queensland — South East</option>
+            <option>Queensland — Regional</option>
+            <option>New South Wales</option>
+            <option>Victoria</option>
+            <option>South Australia / Western Australia / NT</option>
+            <option>Other / Multiple sites</option>
+          </select>
+        </div>
+        <div class="enq-form-group">
+          <label>What are your current organic waste volumes?</label>
+          <select name="Waste Volumes" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Under 1,000 tonnes per year</option>
+            <option>1,000 – 5,000 tonnes per year</option>
+            <option>5,000 – 20,000 tonnes per year</option>
+            <option>Over 20,000 tonnes per year</option>
+            <option>Not sure — we haven't measured it</option>
+          </select>
+        </div>
+        <div class="enq-form-group">
+          <label>What do you currently do with your organic waste?</label>
+          <select name="Current Disposal Method" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Landfill or licensed disposal</option>
+            <option>Third party collection / service contract</option>
+            <option>On-site composting or processing (not working well)</option>
+            <option>On-site composting or processing (working reasonably well)</option>
+            <option>Nothing yet — it's accumulating</option>
+            <option>Mixed / depends on the stream</option>
+          </select>
+        </div>
+        <div class="enq-form-group">
+          <label>What best describes your desired outcome?</label>
+          <select name="Desired Outcome" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Meet compliance obligations at minimum cost</option>
+            <option>Turn our waste stream into a revenue opportunity</option>
+            <option>Understand our options before committing capital</option>
+            <option>Improve an existing operation that isn't performing</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="enq-form-group">
+          <label>What's your biggest obstacle right now?</label>
+          <select name="Biggest Obstacle" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Not sure where to start</option>
+            <option>Previous solutions haven't worked or weren't right for our scale</option>
+            <option>Capital constraints</option>
+            <option>Ratepayer or stakeholder cost sensitivity</option>
+            <option>Regulatory uncertainty</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="enq-form-group">
+          <label>What kind of support are you looking for?</label>
+          <select name="Support Required" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Strategic advice and market analysis</option>
+            <option>Facility design and operational setup</option>
+            <option>Review of an existing operation</option>
+            <option>Training or capability building</option>
+            <option>Not sure yet — open to a conversation</option>
+          </select>
+        </div>
+        <div class="enq-form-group">
+          <label>Anything else we should know? <span style="font-weight:400;">(optional)</span></label>
+          <textarea name="Additional Information" placeholder="Any context that would help us understand your situation…"></textarea>
+        </div>
+        <div class="enq-form-group">
+          <label>Your name</label>
+          <input type="text" name="Name" required placeholder="First and last name">
+        </div>
+        <div class="enq-form-group">
+          <label>Your email</label>
+          <input type="email" name="Email" required placeholder="email@example.com">
+        </div>
+        <button type="submit" class="enq-form-submit">Submit — We'll Be In Touch Within 48 Hours</button>
+        <p class="enq-form-note">Your information is used solely to respond to your enquiry. We don't share it with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
 
 <footer>
   <strong>Radicle Compost</strong> — Radicle Agriculture Pty Ltd &nbsp;·&nbsp; ABN 67 645 914 781 &nbsp;|&nbsp;
