@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The RFT Trap: Why Procurement Is the Wrong Place to Start — Radicle Compost</title>
+  <meta name="description" content="Regional councils across Australia are spending money on organic waste management they don't need to spend — because the sequence is wrong. Why the RFT is near the end of the process, not the beginning.">
+  <meta name="author" content="Martin Tower, Radicle Compost">
+  <meta name="keywords" content="RFT organics processing regional council, organic waste procurement Australia, FOGO tender regional councils, composting facility procurement, organics processing strategy, council waste tender, regional organics advisory">
+  <meta property="og:title" content="The RFT Trap: Why Procurement Is the Wrong Place to Start — Radicle Compost">
+  <meta property="og:description" content="Why issuing a Request for Tender for organics processing in regional areas consistently produces poor outcomes — and what the correct sequence looks like.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://radiclecompost.com.au/article-rft-trap.html">
+  <meta property="og:site_name" content="Radicle Compost">
+  <meta property="og:locale" content="en_AU">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .article-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .article-hero .article-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      line-height: 1.25;
+    }
+    .article-hero .article-meta {
+      color: rgba(255,255,255,0.65);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+    }
+    .article-container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+    .article-lead {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .article-container p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--grey);
+      margin-bottom: 1.4rem;
+    }
+    .article-container h2 {
+      font-size: 1.5rem;
+      color: var(--green-dark);
+      margin: 3rem 0 1.1rem;
+      line-height: 1.3;
+    }
+    .article-divider {
+      border: none;
+      border-top: 3px solid var(--green-light);
+      margin: 3rem 0;
+      opacity: 0.4;
+    }
+    .article-blockquote {
+      border-left: 5px solid var(--green-mid);
+      margin: 2.5rem 0;
+      padding: 1.25rem 1.75rem;
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+    }
+    .article-blockquote p {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      margin-bottom: 0.5rem;
+    }
+    .article-blockquote cite {
+      font-size: 0.85rem;
+      color: var(--grey-light);
+      font-style: normal;
+      font-family: var(--sans);
+    }
+    .inline-bold { font-weight: 700; }
+    .article-closing {
+      font-style: italic;
+      color: #555;
+      border-top: 1px solid #ddd;
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+    .article-closing p { font-style: italic; }
+    .author-line {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--grey-light);
+      font-style: normal;
+      font-family: var(--sans);
+    }
+    .enquiry-section { background: var(--cream); padding: 5rem 2rem; }
+    .enquiry-inner { max-width: 720px; margin: 0 auto; }
+    .enquiry-inner h2 { color: var(--green-dark); margin-bottom: 0.5rem; }
+    .enquiry-inner > p { margin-bottom: 2rem; }
+    .form-wrap { background: var(--white); border-radius: 10px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label { display: block; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--green-dark); margin-bottom: 0.45rem; }
+    .form-group select, .form-group textarea, .form-group input[type="text"], .form-group input[type="email"] {
+      width: 100%; padding: 0.7rem 0.9rem; border: 1px solid #d0d8ce; border-radius: 6px;
+      font-family: var(--sans); font-size: 0.95rem; color: var(--grey); background: #fafafa;
+      box-sizing: border-box; transition: border-color 0.2s;
+    }
+    .form-group select:focus, .form-group textarea:focus, .form-group input:focus {
+      outline: none; border-color: var(--green-mid); background: var(--white);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-submit {
+      width: 100%; padding: 1rem; background: var(--green-mid); color: var(--white);
+      border: none; border-radius: 6px; font-family: var(--sans); font-size: 1rem;
+      font-weight: 700; cursor: pointer; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--green-dark); }
+    .form-note { font-size: 0.82rem; color: var(--grey-light); margin-top: 1rem; text-align: center; }
+    @media (max-width: 600px) {
+      .article-hero { padding: 3.5rem 1.25rem 3rem; }
+      .article-container { padding: 2.5rem 1.25rem 4rem; }
+      .form-wrap { padding: 1.75rem 1.25rem; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3G0RXX2B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1H3G0RXX2B');
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="12" y="10" width="14" height="100" rx="4" fill="#FFFFFF"/>
+      <path d="M26 10 Q76 10 76 42 Q76 74 26 74" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="51" cy="42" rx="22" ry="26" fill="#7B4226" transform="rotate(-10,51,42)"/>
+      <line x1="44" y1="25" x2="58" y2="62" stroke="#2D1A0E" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="74" x2="72" y2="110" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html">Policy Library</a></li>
+    <li><a href="free-tools.html" style="color:#B7E4C7;font-weight:600;">Free Tools</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<script>
+  (function(){
+    var btn = document.querySelector('.nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+</script>
+
+<!-- ── ARTICLE HERO ──────────────────────────────────────────── -->
+<div class="article-hero">
+  <div class="article-tag">Policy &amp; Strategy</div>
+  <h1>The RFT Trap: Why Procurement Is the Wrong Place to Start With Organics</h1>
+  <div class="article-meta">June 2026 &nbsp;·&nbsp; Martin Tower, Radicle Compost</div>
+</div>
+
+<!-- ── ARTICLE BODY ──────────────────────────────────────────── -->
+<div class="article-container">
+
+  <p class="article-lead">Regional councils across Australia are spending money on organic waste management that they don't need to spend. Not because their intentions are wrong, but because the sequence is.</p>
+
+  <p>The standard approach goes: identify the problem, get internal approval, write a Request for Tender, publish it, wait for the market to respond. It feels like due process. In practice, for organics processing in regional areas, it consistently produces poor outcomes — either a single response from a freight-in incumbent, or no conforming responses at all.</p>
+
+  <p>Here's why, and what the alternative looks like.</p>
+
+  <hr class="article-divider">
+
+  <h2>Part 1: The Grinding Problem — When Outsourcing Looks Cheaper Than It Is</h2>
+
+  <p>Green waste grinding and mulching is typically handled by mobile contractors — operators who bring their own equipment, process the stockpile, and take the material away. Councils pay a rate per tonne, the contractor moves on, and the arrangement looks clean and flexible.</p>
+
+  <p>The problem is that it never stops. At around $20 per tonne, a council processing 8,000–10,000 tonnes of green waste per year is spending $160,000–$200,000 annually — every year, indefinitely — for a service that requires no permanent local infrastructure and leaves no local value behind.</p>
+
+  <p>The alternative is shared capital investment. A slow-speed shredder suitable for council operations — safer and more appropriate than the high-speed grinders typically used by mobile contractors — costs roughly $80,000–$180,000 depending on throughput capacity. Shared across two or three neighbouring councils, the capital cost becomes modest. At typical annual volumes, the asset pays for itself in one to two years. After that, the grinding cost drops substantially and the savings stay in the region rather than leaving with the contractor.</p>
+
+  <p>There are operational considerations — scheduling, maintenance, logistics — that make the shared model more complex than writing a cheque to a contractor. But the economics are clear, and councils that have made the investment rarely go back.</p>
+
+  <p>This matters beyond the immediate saving. It establishes a regional infrastructure mindset. It creates the habit of asking: are we paying for a service permanently when we could own the capability? That question becomes much more important when the conversation turns to composting.</p>
+
+  <hr class="article-divider">
+
+  <h2>Part 2: The Composting Problem — Why the RFT Produces the Wrong Result</h2>
+
+  <p>Composting is a different problem in kind, not just degree.</p>
+
+  <p>A grinding contractor can be mobile. A composting operation cannot. Processing organic material above a threshold volume in Queensland — and equivalent thresholds apply in other states — requires an Environmental Authority tied to a specific, licensed site. Obtaining one typically takes twelve to twenty-four months from application to decision. It cannot be fast-tracked to meet a tender timeline. It cannot be moved between sites. It is a fixed, site-specific, multi-year regulatory commitment.</p>
+
+  <p>This creates a structural problem that most councils don't see until they're sitting in a tender evaluation meeting.</p>
+
+  <p>When a council issues an RFT for organics processing services, any tenderer without an existing licensed site in that region cannot submit a conforming response. They cannot obtain an EA in three weeks. They cannot propose a notional site and commit to approval within a contract commencement timeframe. They are, structurally, excluded — not by the tender specification, but by the regulatory environment that the specification reasonably reflects.</p>
+
+  <p>In a metropolitan or peri-urban context, there are usually enough licensed operators in proximity that some competition is possible. In regional areas — which is where the majority of unserved organic waste processing need exists — there is frequently no licensed composting facility within viable freight distance. The result is one of two outcomes: a single response from a large operator prepared to freight material to a distant licensed facility and charge accordingly, or no conforming responses at all.</p>
+
+  <div class="article-blockquote">
+    <p>Neither outcome reflects genuine market competition. Both result in councils paying more than they should, for longer than they should, with less local value than they could have achieved.</p>
+  </div>
+
+  <p>And the reason is not the procurement process. The procurement process is working exactly as it should. The reason is that the procurement process was started too late.</p>
+
+  <hr class="article-divider">
+
+  <h2>The Only Solution: Infrastructure Before Procurement</h2>
+
+  <p>Nobody is going to purchase land, invest in site preparation, navigate a two-year environmental approval process, and build composting infrastructure on the speculative possibility that a council might one day issue an RFT. The commercial risk is unacceptable. The capital requirement is real. The certainty is zero.</p>
+
+  <p>This means that if a regional council goes to tender hoping that the market will build the infrastructure to respond, it will be disappointed. The market cannot and will not do that without a prior commitment.</p>
+
+  <p>The councils and regional bodies that achieve genuine competition — and genuine value — are the ones that invert the sequence. They identify or secure a suitable site. They scope the approvals pathway. They understand the product market. They establish, or enable others to establish, the infrastructure foundation. <span class="inline-bold">Then</span> they go to procurement — and discover that the field of capable, motivated respondents is materially larger because the two-year regulatory barrier has been substantially resolved.</p>
+
+  <p>This model — where a council or regional body takes an early role in site identification and infrastructure enablement, then contracts the operation to a specialist — changes the economics completely. It creates local competition where none previously existed. It keeps gate fee revenue in the region. It produces a processing facility that serves local agricultural markets rather than shipping material to a distant processor and buying product back from even further away.</p>
+
+  <p>It is more work in the early stages. But the alternative — issuing an RFT into a vacuum and accepting whatever single response arrives — is not a strategy. It is an abdication of strategic responsibility at the point where strategic decisions actually matter.</p>
+
+  <div class="article-blockquote">
+    <p>The RFT is not the beginning of the organics processing journey. It is near the end. The beginning is a site, an approvals pathway, and a market assessment. Everything else follows from those three things — including, eventually, a competitive tender with multiple capable respondents.</p>
+  </div>
+
+  <div class="article-closing">
+    <p>Martin Tower has spent 25 years designing, commissioning, and operating organics processing facilities across Australia — council, agricultural, and food processing sectors. Radicle Compost takes a market-first approach: product markets are assessed before processing technology is recommended, and site and regulatory work begins before procurement.</p>
+    <p class="author-line"><a href="https://radiclecompost.com.au">radiclecompost.com.au</a> &nbsp;|&nbsp; <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a></p>
+  </div>
+
+</div>
+
+<!-- ── MORE ARTICLES ──────────────────────────────────────────── -->
+<section style="background:#f0f4f0;padding:4rem 2rem;">
+  <div style="max-width:740px;margin:0 auto;">
+    <h2 style="color:var(--green-dark);margin-bottom:1.5rem;">More from Radicle Compost</h2>
+    <div style="display:grid;gap:1.25rem;">
+      <a href="article-fogo-mandate.html" style="display:block;background:white;padding:1.25rem 1.5rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Policy &amp; Strategy</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">The FOGO Mandate: When Policy Outpaces Processing</div>
+      </a>
+      <a href="article-build-or-truck.html" style="display:block;background:white;padding:1.25rem 1.5rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Strategy</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">Build or Truck? The Decision That's Costing Councils Millions</div>
+      </a>
+      <a href="article-odour.html" style="display:block;background:white;padding:1.25rem 1.5rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Operations</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">Your Compost Pile Has a Mood Problem</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ENQUIRY FORM ───────────────────────────────────────────── -->
+<section class="enquiry-section">
+  <div class="enquiry-inner">
+    <h2>Tell us about your situation</h2>
+    <p>Every situation is different. Tell us about yours and we'll come back to you within 48 hours with an honest assessment of whether and how we can help.</p>
+    <div class="form-wrap">
+      <form>
+        <div class="form-group">
+          <label for="situation">Which best describes your current situation?</label>
+          <select id="situation" name="situation" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Regional council managing FOGO or organic waste diversion obligations</option>
+            <option>Agricultural or livestock operation with organic waste to manage</option>
+            <option>Food processing or storage facility with organic waste outputs</option>
+            <option>Exploring options before committing to anything</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else we should know? (optional)</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit — We'll Be In Touch Within 48 Hours</button>
+        <p class="form-note">Your information is used solely to respond to your enquiry. We don't share it with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Radicle Compost</strong> — Radicle Agriculture Pty Ltd · ABN 67 645 914 781 | <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> | <a href="https://radiclecompost.com.au">radiclecompost.com.au</a></p>
+  <p style="margin-top:0.5rem;font-size:0.85rem;opacity:0.7;">© 2026 Radicle Agriculture Pty Ltd. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
