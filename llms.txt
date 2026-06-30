@@ -1,0 +1,24 @@
+# Radicle Compost
+
+> Radicle Compost (Radicle Agriculture Pty Ltd t/as Radicle Compost) is a specialist organic waste advisory practice serving regional councils and agricultural operations across Australia. Led by Martin Tower, who brings 25 years of hands-on experience in Australia's organics recycling industry, Radicle Compost uses a market-first methodology — finding the buyer for the finished compost product before recommending infrastructure — to help councils navigate FOGO mandates, composting facility design, and organic waste diversion strategy without overbuilding or under-planning. The practice is technology-agnostic: recommendations are based on outcomes and methodology, not on selling a specific equipment product.
+
+## Services
+
+- [About Radicle Compost](https://radiclecompost.com.au/about.html): Background on the practice, Martin Tower's 25 years of experience, and the independent, market-first advisory approach.
+- [Industry](https://radiclecompost.com.au/industry.html): Regulatory and industry context for organics processing in Australia, including FOGO policy, compliance standards, and market dynamics.
+
+## Articles
+
+- [Articles index](https://radiclecompost.com.au/articles.html): Full list of practitioner articles on organics processing, regulation, and strategy.
+- [The FOGO Mandate: When Policy Outpaces Processing](https://radiclecompost.com.au/article-fogo-mandate.html): Why state FOGO mandates are outpacing the infrastructure needed to process the material, and how councils should sequence their response.
+- [The RFT Trap](https://radiclecompost.com.au/article-rft-trap.html): How councils issuing RFTs for green waste processing lock in operators without building a long-term asset.
+- [Build or Truck](https://radiclecompost.com.au/article-build-or-truck.html): The capital decision councils face when weighing on-site processing infrastructure against freighting organics elsewhere.
+- [Odour Management in Composting](https://radiclecompost.com.au/article-odour.html): Why stricter odour regulation can make the next composting facility harder to build, not easier.
+- [Soft Plastics Contamination](https://radiclecompost.com.au/article-soft-plastics.html): Managing soft plastics contamination in council organics streams.
+
+## Free Tools
+
+- [Free Tools overview](https://radiclecompost.com.au/free-tools.html): Index of interactive planning tools for councils and operators assessing organics processing options.
+- [Organics Processing Spectrum](https://radiclecompost.com.au/organics-processing-spectrum.html): Interactive tool comparing organics processing technologies across the spectrum from simple windrow to enclosed aerated systems.
+- [Feedstock Risk Profiler](https://radiclecompost.com.au/feedstock-risk-profiler.html): Tool for assessing contamination and processing risk in a given organics feedstock.
+- [Facility Sizing Calculator](https://radiclecompost.com.au/facility-sizing-calculator.html): Tool for estimating composting facility size and throughput requirements based on feedstock volume.
