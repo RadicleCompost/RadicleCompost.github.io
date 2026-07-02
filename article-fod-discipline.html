@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The FOD Discipline: Why Contamination Control Doesn't Stop at the Bin — Radicle Compost</title>
+  <meta name="description" content="Most contamination programs stop at telling people what goes in the bin. They have no answer for what happens next. How airport foreign-object-debris culture applies to organics processing, and why detection without a defined response is a leak.">
+  <meta name="author" content="Martin Tower, Radicle Compost">
+  <meta name="keywords" content="contamination control composting, organics contamination response, FOGO contamination council, compost quality assurance, contamination sanction ladder council, physical contamination organics processing">
+  <meta property="og:title" content="The FOD Discipline: Why Contamination Control Doesn't Stop at the Bin — Radicle Compost">
+  <meta property="og:description" content="Most contamination programs stop at telling people what goes in the bin. They have no answer for what happens next.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://radiclecompost.com.au/article-fod-discipline.html">
+  <meta property="og:site_name" content="Radicle Compost">
+  <meta property="og:locale" content="en_AU">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .article-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .article-hero .article-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      line-height: 1.25;
+    }
+    .article-hero .article-meta {
+      color: rgba(255,255,255,0.65);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+    }
+    .article-container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+    .article-lead {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .article-answer-block {
+      background: var(--cream);
+      border-left: 5px solid var(--green-mid);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: #2a2a2a;
+    }
+    .article-answer-block strong { color: var(--green-dark); }
+    .article-container p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--grey);
+      margin-bottom: 1.4rem;
+    }
+    .article-container h2 {
+      font-size: 1.5rem;
+      color: var(--green-dark);
+      margin: 3rem 0 1.1rem;
+      line-height: 1.3;
+    }
+    .article-divider {
+      border: none;
+      border-top: 3px solid var(--green-light);
+      margin: 3rem 0;
+      opacity: 0.4;
+    }
+    .article-blockquote {
+      border-left: 5px solid var(--green-mid);
+      margin: 2.5rem 0;
+      padding: 1.25rem 1.75rem;
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+    }
+    .article-blockquote p {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      margin-bottom: 0.5rem;
+    }
+    .article-blockquote cite {
+      font-size: 0.85rem;
+      color: var(--grey-light);
+      font-style: normal;
+      font-family: var(--sans);
+    }
+    .inline-bold { font-weight: 700; }
+    .faq-block {
+      margin: 1rem 0;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      background: #fafafa;
+    }
+    .faq-block + .faq-block { margin-top: 1rem; }
+    .faq-block h3 {
+      font-size: 1.05rem;
+      color: var(--green-dark);
+      margin: 0 0 0.6rem;
+      line-height: 1.4;
+    }
+    .faq-block p {
+      margin-bottom: 0;
+      font-size: 0.97rem;
+    }
+    .article-closing {
+      font-style: italic;
+      color: #555;
+      border-top: 1px solid #ddd;
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+    .article-closing p { font-style: italic; }
+    .author-line {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--grey-light);
+      font-style: normal;
+      font-family: var(--sans);
+    }
+    .enquiry-section { background: var(--cream); padding: 5rem 2rem; }
+    .enquiry-inner { max-width: 720px; margin: 0 auto; }
+    .enquiry-inner h2 { color: var(--green-dark); margin-bottom: 0.5rem; }
+    .enquiry-inner > p { margin-bottom: 2rem; }
+    .form-wrap { background: var(--white); border-radius: 10px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label { display: block; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--green-dark); margin-bottom: 0.45rem; }
+    .form-group select, .form-group textarea, .form-group input[type="text"], .form-group input[type="email"] {
+      width: 100%; padding: 0.7rem 0.9rem; border: 1px solid #d0d8ce; border-radius: 6px;
+      font-family: var(--sans); font-size: 0.95rem; color: var(--grey); background: #fafafa;
+      box-sizing: border-box; transition: border-color 0.2s;
+    }
+    .form-group select:focus, .form-group textarea:focus, .form-group input:focus {
+      outline: none; border-color: var(--green-mid); background: var(--white);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-submit {
+      width: 100%; padding: 1rem; background: var(--green-mid); color: var(--white);
+      border: none; border-radius: 6px; font-family: var(--sans); font-size: 1rem;
+      font-weight: 700; cursor: pointer; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--green-dark); }
+    .form-note { font-size: 0.82rem; color: var(--grey-light); margin-top: 1rem; text-align: center; }
+    @media (max-width: 600px) {
+      .article-hero { padding: 3.5rem 1.25rem 3rem; }
+      .article-container { padding: 2.5rem 1.25rem 4rem; }
+      .form-wrap { padding: 1.75rem 1.25rem; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3G0RXX2B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1H3G0RXX2B');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://radiclecompost.com.au/#organization",
+    "name": "Radicle Compost",
+    "legalName": "Radicle Agriculture Pty Ltd t/as Radicle Compost",
+    "alternateName": "Radicle Agriculture Pty Ltd",
+    "taxID": "67645914781",
+    "url": "https://radiclecompost.com.au",
+    "sameAs": ["https://www.linkedin.com/company/radicle-compost"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The FOD Discipline: Why Contamination Control Doesn't Stop at the Bin",
+    "description": "Most contamination programs stop at telling people what goes in the bin. They have no answer for what happens next — and detection without a defined response is a leak.",
+    "url": "https://radiclecompost.com.au/article-fod-discipline.html",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "author": { "@id": "https://radiclecompost.com.au/#martin-tower", "@type": "Person", "name": "Martin Tower" },
+    "publisher": { "@id": "https://radiclecompost.com.au/#organization", "@type": "ProfessionalService", "name": "Radicle Compost" },
+    "mainEntityOfPage": "https://radiclecompost.com.au/article-fod-discipline.html"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What happens after contamination is found in a FOGO or organics bin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A well-designed response escalates in proportion to the behaviour. A first occurrence is education-only — a bin tag explaining what was found and why. Repeat occurrences move through targeted letters, a face-to-face doorstep visit, and formal warnings before any service-level sanction is considered. Treating a one-off mistake and a repeat pattern the same way wastes the council's highest-cost intervention (a doorstep visit) on cases that don't need it, and under-responds to genuine repeat non-compliance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do some composting sites have less contamination in finished product than others, even with similar kerbside contamination rates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because contamination control on a well-run site doesn't stop at one inspection stage. It runs as a continuous, site-wide discipline — at pile construction, during active composting, and at final screening — rather than being treated as a single picking step that finishes. Sites that rely on one inspection point catch less than sites where everyone on site is expected to remove visible contamination on sight."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the FOD (foreign object debris) model and how does it apply to composting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "FOD walks are scheduled runway and apron sweeps that airports run regardless of whether anything was seen, because a missed object can cause catastrophic and unpredictable damage. Applied to organics processing, the same logic holds: every person on site treats spotting and removing non-organic material as second nature, not as a task reserved for someone 'on picking duty' — because the cost of contaminated product reaching a client is severe even though it's invisible day to day."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should a council suspend bin collection for contamination on the first offence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Generally no. Most established organics education programs treat a first occurrence as education-only — a punitive response to a single mistake damages community goodwill disproportionately to the behaviour-change benefit, and risks conflating genuine confusion (new residents, language barriers) with wilful non-compliance. Service-level sanctions are typically reserved for persistent, documented repeat patterns or single hazardous-material events."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="12" y="10" width="14" height="100" rx="4" fill="#FFFFFF"/>
+      <path d="M26 10 Q76 10 76 42 Q76 74 26 74" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="51" cy="42" rx="22" ry="26" fill="#7B4226" transform="rotate(-10,51,42)"/>
+      <line x1="44" y1="25" x2="58" y2="62" stroke="#2D1A0E" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="74" x2="72" y2="110" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html">Policy Library</a></li>
+    <li><a href="free-tools.html" style="color:#B7E4C7;font-weight:600;">Free Tools</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<script>
+  (function(){
+    var btn = document.querySelector('.nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+</script>
+
+<!-- ── ARTICLE HERO ──────────────────────────────────────────── -->
+<div class="article-hero">
+  <div class="article-tag">Operations &amp; Quality</div>
+  <h1>The FOD Discipline: Why Contamination Control Doesn't Stop at the Bin</h1>
+  <div class="article-meta">July 2026 &nbsp;·&nbsp; Martin Tower, Radicle Compost</div>
+</div>
+
+<!-- ── ARTICLE BODY ──────────────────────────────────────────── -->
+<div class="article-container">
+
+  <p class="article-lead">Most contamination programs stop at telling people what goes in the bin. They have no answer for what happens next.</p>
+
+  <div class="article-answer-block">
+    <strong>In short:</strong> Detecting contamination without a defined response is a leak — councils pay for monitoring without getting the behaviour change it should buy. The fix has two parts: a graduated household response ladder that escalates with repeat behaviour rather than treating every mistake the same, and a continuous on-site vigilance culture — borrowed from airport foreign-object-debris (FOD) control — that catches contamination at every stage, not just one inspection point.
+  </div>
+
+  <p>Every opportunity should be taken to reduce contamination risk. Not as a single tactic bolted onto an education program, but as the frame for everything that follows — from the first bin tag a household receives to the last visual scan before product leaves the gate.</p>
+
+  <hr class="article-divider">
+
+  <h2>It Starts With Source Separation — But It Can't End There</h2>
+
+  <p>Education, re-education, encouragement: this is the right starting point, and most councils already do some version of it. Bin lid stickers, photo-illustrated tags, the occasional letterbox drop. It's necessary. It is not sufficient.</p>
+
+  <p>The gap is what happens after the education has been tried and the contamination keeps showing up. Most programs — including the better-known national benchmarks — are comprehensive on prevention and thin on response. They tell residents what goes where. They rarely specify, in writing, what happens when someone keeps getting it wrong.</p>
+
+  <p>That gap matters because, eventually, sanctions are inevitable. People are people. A council that hasn't decided in advance how it escalates from a first mistake to a persistent pattern ends up improvising under pressure — usually after a complaint, a media query, or a contaminated load a client has already rejected. That's the wrong moment to be designing the policy for the first time.</p>
+
+  <hr class="article-divider">
+
+  <h2>How Should Contamination Response Actually Escalate?</h2>
+
+  <p>The principle that works is proportionality: a one-off mistake and a repeat offender are different problems, and treating them identically either over-punishes the first or under-responds to the second.</p>
+
+  <p>In practice, that means a graduated ladder — education-only for a first occurrence, increasingly targeted and personal contact for repeats, and only reaching a service-level consequence after a documented pattern or a genuinely hazardous single event. The specific tiers and triggers are a policy design exercise tailored to each council's by-laws and risk appetite — not something to standardise blindly across very different local government contexts.</p>
+
+  <div class="article-blockquote">
+    <p>If you're not sure, put it in the red bin.</p>
+    <cite>— the single rule of thumb that resolves more borderline contamination decisions than any amount of detailed sorting guidance</cite>
+  </div>
+
+  <p>That line does more work than it looks like it does. Sorting guidance that tries to enumerate every possible item inevitably misses edge cases; a rule that defaults to the safe, low-cost error (something compostable ending up in general waste) rather than the expensive one (something non-compostable contaminating a load) is easier to remember and easier to act on under uncertainty.</p>
+
+  <hr class="article-divider">
+
+  <h2>Contamination Control Doesn't Stop at the Bin</h2>
+
+  <p>This is where most operators — not just councils, but processing sites themselves — under-invest. Contamination management is too often treated as a single stage: manual picking, somewhere in the middle of the process, performed by whoever's rostered on. Once that stage finishes, the assumption is that the job is done.</p>
+
+  <p>It isn't. Contamination control needs to continue through collection, arrival, picking, processing, movement, stockpiling, screening, and dispatch — every point where material is handled is a point where something out of place can be caught, or missed.</p>
+
+  <h2>What Does an Airport Runway Have to Do With Compost Quality?</h2>
+
+  <p>Airports run FOD walks — scheduled, mandatory sweeps of the runway and apron for any object that could damage an engine or aircraft, performed whether or not anything was seen on the previous pass, because the cost of a single missed object is severe and the timing of the next one is unpredictable.</p>
+
+  <p>The same logic applies directly to organics processing. Constant visual scanning for contamination should be a duty every person on site carries, in every role — not a task reserved for whoever is rostered "on picking." A piece of plastic, glass, or metal gets picked up the moment it's seen, not when it's convenient. No item is too small to bother with, because the discipline degrades the moment people start triaging what's "worth stopping for."</p>
+
+  <p>The mechanism that makes this work in practice is removing friction: a single, known, fixed disposal point for anything flagged — never moved without notice — so there's no excuse to leave something "for later," which in practice means never.</p>
+
+  <hr class="article-divider">
+
+  <h2>Why This Is a Commercial Risk, Not Just a Compliance Exercise</h2>
+
+  <p>Here's the part that's easy to underweight until it happens: contamination discovered in delivered product can have a serious effect on a client relationship. Not a compliance footnote — a trust problem, the kind that's expensive to repair and sometimes isn't repaired at all.</p>
+
+  <p>That reframes contamination management from "something we do to satisfy a license condition" to "a business risk we actively manage on a client's behalf." It's the difference between a facility that can demonstrate a defined, defensible process and one that can only say it tries hard.</p>
+
+  <p>Detection is not the whole answer, either. A facility also needs a defined process for what happens to contamination once it's found — how it's handled, where it goes — and a way of measuring it. Measurement matters most as a feedback loop, not a static KPI: data fed back to the source, whether that's a household or an upstream commercial supplier, turns "you got it wrong" into a visible, trackable scorecard of improvement. That loop is what actually changes behaviour over time — a number on a report that nobody upstream ever sees changes nothing.</p>
+
+  <hr class="article-divider">
+
+  <h2>The Practical Takeaway</h2>
+
+  <p>Two things, done together, close the gap most programs leave open: a household response that escalates proportionately instead of treating every mistake the same, and an on-site culture where contamination control is everyone's constant responsibility rather than one stage's job.</p>
+
+  <p>Neither is complicated in principle. Both take deliberate design to get right — and both are easy to get wrong in ways that only show up later, in a contaminated load, a frustrated client, or a doorstep visit that should have happened three tags ago.</p>
+
+  <div class="article-closing">
+    <p>We are keen to talk to you, obligation free, about our experience in developing all of these systems and procedures to manage physical contamination. Martin Tower has spent 25 years designing, commissioning, and operating organics processing facilities across Australia — council, agricultural, and food processing sectors.</p>
+    <p class="author-line"><a href="https://radiclecompost.com.au">radiclecompost.com.au</a> &nbsp;|&nbsp; <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a></p>
+  </div>
+
+  <hr class="article-divider">
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-block">
+    <h3>What happens after contamination is found in a FOGO or organics bin?</h3>
+    <p>A well-designed response escalates in proportion to the behaviour. A first occurrence is education-only — a bin tag explaining what was found and why. Repeat occurrences move through targeted letters, a face-to-face doorstep visit, and formal warnings before any service-level sanction is considered. Treating a one-off mistake and a repeat pattern the same way wastes the council's highest-cost intervention on cases that don't need it, and under-responds to genuine repeat non-compliance.</p>
+  </div>
+  <div class="faq-block">
+    <h3>Why do some composting sites have less contamination in finished product than others, even with similar kerbside contamination rates?</h3>
+    <p>Because contamination control on a well-run site doesn't stop at one inspection stage. It runs as a continuous, site-wide discipline — at pile construction, during active composting, and at final screening — rather than being treated as a single picking step that finishes. Sites that rely on one inspection point catch less than sites where everyone on site is expected to remove visible contamination on sight.</p>
+  </div>
+  <div class="faq-block">
+    <h3>What is the FOD (foreign object debris) model and how does it apply to composting?</h3>
+    <p>FOD walks are scheduled runway and apron sweeps that airports run regardless of whether anything was seen, because a missed object can cause catastrophic and unpredictable damage. Applied to organics processing, the same logic holds: every person on site treats spotting and removing non-organic material as second nature, not as a task reserved for someone "on picking duty" — because the cost of contaminated product reaching a client is severe even though it's invisible day to day.</p>
+  </div>
+  <div class="faq-block">
+    <h3>Should a council suspend bin collection for contamination on the first offence?</h3>
+    <p>Generally no. Most established organics education programs treat a first occurrence as education-only — a punitive response to a single mistake damages community goodwill disproportionately to the behaviour-change benefit, and risks conflating genuine confusion (new residents, language barriers) with wilful non-compliance. Service-level sanctions are typically reserved for persistent, documented repeat patterns or single hazardous-material events.</p>
+  </div>
+
+</div>
+
+<!-- ── MORE ARTICLES ──────────────────────────────────────────── -->
+<section style="background:#f0f4f0;padding:4rem 2rem;">
+  <div style="max-width:740px;margin:0 auto;">
+    <h2 style="color:var(--green-dark);margin-bottom:1.5rem;">More from Radicle Compost</h2>
+    <div style="display:grid;gap:1.25rem;">
+      <a href="article-rft-trap.html" style="display:block;background:white;padding:1.25rem 1.5rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Policy &amp; Strategy</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">The RFT Trap: Why Procurement Is the Wrong Place to Start</div>
+      </a>
+      <a href="article-fogo-mandate.html" style="display:block;background:white;padding:1.25rem 1.5rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Policy &amp; Strategy</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">The FOGO Mandate: When Policy Outpaces Processing</div>
+      </a>
+      <a href="article-odour.html" style="display:block;background:white;padding:1.25rem 1.5rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Operations</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">Your Compost Pile Has a Mood Problem</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ENQUIRY FORM ───────────────────────────────────────────── -->
+<section class="enquiry-section">
+  <div class="enquiry-inner">
+    <h2>Tell us about your situation</h2>
+    <p>Every situation is different. Tell us about yours and we'll come back to you within 48 hours with an honest assessment of whether and how we can help.</p>
+    <div class="form-wrap">
+      <form>
+        <div class="form-group">
+          <label for="situation">Which best describes your current situation?</label>
+          <select id="situation" name="situation" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Regional council managing FOGO or organic waste diversion obligations</option>
+            <option>Agricultural or livestock operation with organic waste to manage</option>
+            <option>Food processing or storage facility with organic waste outputs</option>
+            <option>Exploring options before committing to anything</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else we should know? (optional)</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit — We'll Be In Touch Within 48 Hours</button>
+        <p class="form-note">Your information is used solely to respond to your enquiry. We don't share it with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap; margin-bottom:1.25rem;">
+    <a href="/" aria-label="Radicle Compost home">
+      <img src="assets/rc-logo.png" alt="Radicle Compost" style="height:36px; width:auto; opacity:0.85; filter:brightness(0) invert(1);">
+    </a>
+    <a href="https://www.linkedin.com/company/radicle-compost" target="_blank" rel="noopener" aria-label="Radicle Compost on LinkedIn"
+       style="display:inline-flex; align-items:center; gap:0.4rem; color:rgba(255,255,255,0.7); font-family:var(--sans); font-size:0.85rem; text-decoration:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      LinkedIn
+    </a>
+
+  </div>
+  <strong>Radicle Agriculture Pty Ltd t/as Radicle Compost</strong> &nbsp;·&nbsp; ABN 67 645 914 781 &nbsp;|&nbsp;
+  <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
+  <br><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd t/as Radicle Compost. All rights reserved.
+</footer>
+
+</body>
+</html>
