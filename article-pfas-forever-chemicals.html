@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFAS: The Forever Chemical Already in Your Bin — Radicle Compost</title>
+  <meta name="description" content="Composting doesn't create PFAS contamination — it concentrates whatever arrives in the feedstock. What Australia's forever-chemical exposure actually looks like, how Queensland's compost testing regime compares to untested everyday products, and what organics operators need to manage.">
+  <meta name="author" content="Martin Tower, Radicle Compost">
+  <meta name="keywords" content="PFAS compost, PFAS FOGO, forever chemicals composting, PFAS testing compost Queensland, biosolids PFAS risk, PFAS feedstock management plan">
+  <meta property="og:title" content="PFAS: The Forever Chemical Already in Your Bin — Radicle Compost">
+  <meta property="og:description" content="Composting doesn't create PFAS contamination — it concentrates whatever arrives in the feedstock. What this means for councils, operators, and the finished product.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://radiclecompost.com.au/article-pfas-forever-chemicals.html">
+  <meta property="og:site_name" content="Radicle Compost">
+  <meta property="og:locale" content="en_AU">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .article-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .article-hero .article-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      line-height: 1.25;
+    }
+    .article-hero .article-meta {
+      color: rgba(255,255,255,0.65);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+    }
+    .article-container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+    .article-lead {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .article-answer-block {
+      background: var(--cream);
+      border-left: 5px solid var(--green-mid);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: #2a2a2a;
+    }
+    .article-answer-block strong { color: var(--green-dark); }
+    .article-container p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--grey);
+      margin-bottom: 1.4rem;
+    }
+    .article-container h2 {
+      font-size: 1.5rem;
+      color: var(--green-dark);
+      margin: 3rem 0 1.1rem;
+      line-height: 1.3;
+    }
+    .article-divider {
+      border: none;
+      border-top: 3px solid var(--green-light);
+      margin: 3rem 0;
+      opacity: 0.4;
+    }
+    .article-blockquote {
+      border-left: 5px solid var(--green-mid);
+      margin: 2.5rem 0;
+      padding: 1.25rem 1.75rem;
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+    }
+    .article-blockquote p {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      margin-bottom: 0.5rem;
+    }
+    .article-blockquote cite {
+      font-size: 0.85rem;
+      color: var(--grey-light);
+      font-style: normal;
+      font-family: var(--sans);
+    }
+    .inline-bold { font-weight: 700; }
+    .faq-block {
+      margin: 1rem 0;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      background: #fafafa;
+    }
+    .faq-block + .faq-block { margin-top: 1rem; }
+    .faq-block h3 {
+      font-size: 1.05rem;
+      color: var(--green-dark);
+      margin: 0 0 0.6rem;
+      line-height: 1.4;
+    }
+    .faq-block p {
+      margin-bottom: 0;
+      font-size: 0.97rem;
+    }
+    .article-closing {
+      font-style: italic;
+      color: #555;
+      border-top: 1px solid #ddd;
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+    .article-closing p { font-style: italic; }
+    .author-line {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--grey-light);
+      font-style: normal;
+      font-family: var(--sans);
+    }
+    .enquiry-section { background: var(--cream); padding: 5rem 2rem; }
+    .enquiry-inner { max-width: 720px; margin: 0 auto; }
+    .enquiry-inner h2 { color: var(--green-dark); margin-bottom: 0.5rem; }
+    .enquiry-inner > p { margin-bottom: 2rem; }
+    .form-wrap { background: var(--white); border-radius: 10px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label { display: block; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--green-dark); margin-bottom: 0.45rem; }
+    .form-group select, .form-group textarea, .form-group input[type="text"], .form-group input[type="email"] {
+      width: 100%; padding: 0.7rem 0.9rem; border: 1px solid #d0d8ce; border-radius: 6px;
+      font-family: var(--sans); font-size: 0.95rem; color: var(--grey); background: #fafafa;
+      box-sizing: border-box; transition: border-color 0.2s;
+    }
+    .form-group select:focus, .form-group textarea:focus, .form-group input:focus {
+      outline: none; border-color: var(--green-mid); background: var(--white);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-submit {
+      width: 100%; padding: 1rem; background: var(--green-mid); color: var(--white);
+      border: none; border-radius: 6px; font-family: var(--sans); font-size: 1rem;
+      font-weight: 700; cursor: pointer; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--green-dark); }
+    .form-note { font-size: 0.82rem; color: var(--grey-light); margin-top: 1rem; text-align: center; }
+    @media (max-width: 600px) {
+      .article-hero { padding: 3.5rem 1.25rem 3rem; }
+      .article-container { padding: 2.5rem 1.25rem 4rem; }
+      .form-wrap { padding: 1.75rem 1.25rem; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3G0RXX2B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1H3G0RXX2B');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://radiclecompost.com.au/#organization",
+    "name": "Radicle Compost",
+    "legalName": "Radicle Agriculture Pty Ltd t/as Radicle Compost",
+    "alternateName": "Radicle Agriculture Pty Ltd",
+    "taxID": "67645914781",
+    "url": "https://radiclecompost.com.au",
+    "sameAs": ["https://www.linkedin.com/company/radicle-compost"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PFAS: The Forever Chemical Already in Your Bin",
+    "description": "Composting doesn't create PFAS contamination — it concentrates whatever arrives in the feedstock. What this means for councils, operators, and the finished product.",
+    "url": "https://radiclecompost.com.au/article-pfas-forever-chemicals.html",
+    "datePublished": "2026-07-09",
+    "dateModified": "2026-07-09",
+    "author": { "@id": "https://radiclecompost.com.au/#martin-tower", "@type": "Person", "name": "Martin Tower" },
+    "publisher": { "@id": "https://radiclecompost.com.au/#organization", "@type": "ProfessionalService", "name": "Radicle Compost" },
+    "mainEntityOfPage": "https://radiclecompost.com.au/article-pfas-forever-chemicals.html"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does composting create PFAS contamination, or does it come from somewhere else?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Composting doesn't create PFAS — it concentrates whatever arrives in the feedstock. A composting process converts roughly four to six tonnes of incoming organic material into one tonne of finished product. Water evaporates, volatile organics off-gas, and carbon mineralises, but PFAS don't break down under normal environmental conditions, so they remain in the concentrated fraction. A PFAS level that's below detection in raw FOGO can exceed regulatory limits in the finished compost, simply as a consequence of the volume reduction that makes compost valuable in the first place."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What PFAS testing is required for finished compost in Queensland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compost intended for unrestricted use in Queensland is tested against a 28-compound PFAS suite plus a TOP Assay, which is designed to capture precursor compounds that could break down into more harmful PFAS later. That's a materially more rigorous test than almost any other PFAS-containing consumer product is ever subjected to — a pizza box or a non-stick frying pan is never tested before sale, but compost is."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which organic waste streams carry the highest PFAS risk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Biosolids carry the highest PFAS risk of any common composting feedstock, because sewage sludge concentrates PFAS from everything a catchment discharges into the sewer system. FOGO carries moderate risk, mainly through PFAS-coated food packaging (grease-proof paper, pizza boxes, microwave popcorn bags) ending up in the bin. Garden organics (GO) carries the lowest PFAS risk of any common feedstock, which is one more reason to sequence a new organics operation or council pathway GO before FOGO."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is compost a significant source of PFAS exposure compared to everyday products?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On current evidence, compost sits under a more conservative testing and application regime than most other PFAS pathways — it's tested with a 28-compound suite plus TOP Assay before sale, and agricultural application rates cap how much can be applied to a given area each year, a control that doesn't exist for other PFAS-containing products. Recent research also found compost amendment reduced plant PFAS uptake by up to 90 percent compared to unamended soil. The clearest, most direct evidence of dietary PFAS contribution currently points to food packaging and non-stick cookware, not agricultural soil amended with compost."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="12" y="10" width="14" height="100" rx="4" fill="#FFFFFF"/>
+      <path d="M26 10 Q76 10 76 42 Q76 74 26 74" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="51" cy="42" rx="22" ry="26" fill="#7B4226" transform="rotate(-10,51,42)"/>
+      <line x1="44" y1="25" x2="58" y2="62" stroke="#2D1A0E" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="74" x2="72" y2="110" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html">Policy Library</a></li>
+    <li><a href="free-tools.html" style="color:#B7E4C7;font-weight:600;">Free Tools</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<script>
+  (function(){
+    var btn = document.querySelector('.nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+</script>
+
+<!-- ── ARTICLE HERO ──────────────────────────────────────────── -->
+<div class="article-hero">
+  <div class="article-tag">Compliance</div>
+  <h1>PFAS: The Forever Chemical Already in Your Bin</h1>
+  <div class="article-meta">July 2026 &nbsp;·&nbsp; Martin Tower, Radicle Compost</div>
+</div>
+
+<!-- ── ARTICLE BODY ──────────────────────────────────────────── -->
+<div class="article-container">
+
+  <p class="article-lead">There is a chemical in your kitchen right now that will outlast you, your children, and probably your grandchildren.</p>
+
+  <div class="article-answer-block">
+    <strong>In short:</strong> PFAS — per- and polyfluoroalkyl substances — don't originate in composting, but composting concentrates whatever arrives in the feedstock. A process that turns four to six tonnes of raw organics into one tonne of finished product leaves PFAS behind at higher concentration than it started, which is why compost that looks clean going in can still fail a finished-product test. The organics industry didn't create this problem, but it's one of the more closely tested and rate-controlled pathways PFAS travels through — not one of the looser ones.
+  </div>
+
+  <p>It is in the paper bag your takeaway came in. It may be in the grease-proof liner of your pizza box. It is almost certainly in the non-stick coating of your frying pan, the stain-resistant treatment on your couch, and the lining of the microwave popcorn bag you threw out last week.</p>
+
+  <p>PFAS are a family of more than 12,000 synthetic chemicals that have been manufactured and used commercially since the 1950s. They do not break down in the environment. They accumulate in living organisms. And they are now detectable, at some level, in virtually every human body on the planet.</p>
+
+  <p>This is not a fringe concern. It is a documented, measurable, and escalating problem — and it has arrived at the gate of Australia's organics recycling industry in a way that demands serious attention.</p>
+
+  <hr class="article-divider">
+
+  <h2>What Makes PFAS Different</h2>
+
+  <p>Most environmental contaminants degrade over time. Some break down quickly; others take decades. PFAS do not degrade at all under normal environmental conditions. That is what earns them the name "forever chemicals."</p>
+
+  <p>The fluorine-carbon bond at the core of PFAS chemistry is one of the strongest in organic chemistry. Heat, water, soil microbes, UV radiation — none of these break it. When PFAS enter the environment, they stay. When they enter a living organism, they accumulate. When they enter a composting process, they concentrate.</p>
+
+  <p>Australia's current guideline values give some sense of the scale of concern. For soil, the PFAS National Environmental Management Plan sets an ecological guideline value of 3 micrograms per kilogram (µg/kg) for PFOA — one of the key PFAS compounds. For finished compost distributed without restriction, Queensland's limits are tighter again. These are not large numbers. The concern is not acute poisoning at current environmental concentrations — it is the direction of travel. Background levels in soil and water are rising, and the pathway from everyday products into the food and waste stream is well established.</p>
+
+  <hr class="article-divider">
+
+  <h2>Where PFAS Come From — and Where They End Up</h2>
+
+  <p>The challenge with PFAS is that they are not a single product or a single source. They are in:</p>
+
+  <p><strong>Food packaging.</strong> Grease-resistant paper bags, cardboard food containers, microwave popcorn bags, and fast-food wrappers have historically used PFAS coatings to prevent oil and moisture migration. From 1 July 2025, Australia banned the manufacture, import, export and use of PFOS, PFOA, and PFHxS — three of the most studied and concerning PFAS compounds. But there are more than 12,000 PFAS substances, and the ban applies to three. Products manufactured before the ban remain in circulation.</p>
+
+  <p><strong>Non-stick cookware and textiles.</strong> Teflon and similar coatings, stain-resistant treatments on carpets, furniture and clothing, waterproofing treatments on outdoor gear — all potential PFAS sources.</p>
+
+  <p><strong>Industrial and firefighting applications.</strong> Aqueous film-forming foam (AFFF) used at airports, defence sites, and industrial fire events is one of the most significant point-source contamination pathways. Legacy contamination at these sites continues to migrate into groundwater.</p>
+
+  <p><strong>Biosolids.</strong> Sewage sludge concentrates PFAS from across the entire catchment — everything households and businesses discharge into the sewer system. Biosolids, which are increasingly attractive as a composting feedstock for their nitrogen and phosphorus value, carry the highest PFAS risk of any common organic waste stream.</p>
+
+  <p><strong>FOGO bins.</strong> This is where it becomes directly relevant for organics recycling. When a household places a greasy pizza box, a paper coffee cup, or a food-grade packaging liner into their FOGO bin, any PFAS coating on that item enters the organics processing stream. A 2024 NSW EPA study examining 18 FOGO and GO composting facilities found that some facilities had average PFAS concentrations in finished compost that exceeded Queensland's regulatory limits. In Western Australia, a composting facility ceased accepting incoming FOGO material in late 2024 after PFAS contamination was identified — resulting in all FOGO collected in the South West being redirected to landfill.</p>
+
+  <hr class="article-divider">
+
+  <h2>The Concentration Problem</h2>
+
+  <p>Here is the core difficulty with PFAS in organic waste processing: composting concentrates.</p>
+
+  <p>A composting process converts roughly four to six tonnes of incoming organic material into one tonne of finished compost. Water evaporates. Volatile organics off-gas. Carbon mineralises. What remains is a concentrated fraction of whatever was in the original feedstock — including any PFAS that arrived with it.</p>
+
+  <div class="article-blockquote">
+    <p>A PFAS concentration that is below the detection limit in raw FOGO may exceed regulatory limits in the finished product.</p>
+    <cite>— not a failure of the composting process, but a straightforward consequence of the volume reduction that makes compost valuable in the first place</cite>
+  </div>
+
+  <p>The finished product limit in Queensland for the sum of 28 PFAS compounds in compost is set conservatively, reflecting the unrestricted use of compost on agricultural and horticultural land. If compost is applied to food-producing land year after year, any PFAS in the compost accumulates in the soil. That soil grows food. That food is consumed. The pathway is not theoretical.</p>
+
+  <hr class="article-divider">
+
+  <h2>What This Means for the End User</h2>
+
+  <p>It is worth being clear about where compost actually sits in someone's overall PFAS exposure, because the testing and application regime that governs it is genuinely more conservative than most of the other pathways PFAS travels through.</p>
+
+  <p>Finished compost destined for unrestricted use is tested against Queensland's limits using a 28-compound PFAS suite plus a TOP Assay — a test specifically designed to capture precursor compounds that could break down into more harmful PFAS later. That is a more rigorous test than almost any other PFAS-containing product on the market is ever subjected to. A pizza box is not tested before it goes in the FOGO bin. A non-stick frying pan is not tested before it goes on sale. Compost is.</p>
+
+  <p>Application of compost to agricultural land is also rate-controlled, not unlimited. Agronomic application rates are set with reference to nutrient loading, not PFAS specifically, but they have the practical effect of capping how much of any contaminant can be applied to a given area in a given year — a control that doesn't exist for the other major PFAS pathways at all.</p>
+
+  <p>There is also early evidence that compost may behave better in soil than the concentration argument alone suggests. Recent soil-porewater-lettuce research found that compost amendment reduced plant uptake of PFAS by up to 90 percent compared to unamended soil, because the organic carbon in compost binds PFAS and makes it less bioavailable to plants. That doesn't make the concentration problem irrelevant — accumulated PFAS in soil over decades of repeat application is still a legitimate long-term question — but it complicates any simple "compost in, PFAS into your vegetables" narrative.</p>
+
+  <p>Compare that to the pathways with the clearest, most direct evidence of dietary contribution: food packaging and non-stick cookware. PFAS coatings on grease-proof paper and packaging are not bonded to the substrate the way they are baked onto cookware at high temperature, which means they migrate into food more readily, not less. Australia's Total Diet Study has found only minimal PFAS in the general food supply to date, but where dietary exposure has been traced to a specific source, packaging and cookware are consistently implicated more directly than agricultural soil amended with compost.</p>
+
+  <p>Is this ideal? No. Nobody designing a food safety system from scratch would choose to run a contaminant of unknown long-term consequence through any pathway, including a well-tested one. But the regulatory and testing settings the Australian organics sector operates under right now mean compost is one of the more closely controlled vectors PFAS travels through — not one of the looser ones. The bigger exposure risk, on current evidence, sits in the kitchen drawer and the takeaway bag, not the green bin.</p>
+
+  <hr class="article-divider">
+
+  <h2>Where Does That Leave Us?</h2>
+
+  <p>Australia banned three key PFAS substances from 1 July 2025. That is meaningful progress. But it applies to new manufacture and import — not to legacy products already in homes, businesses, and waste streams. The pipeline of PFAS-containing material entering FOGO bins, abattoir waste, and biosolids will continue for years, possibly decades, as existing products reach end of life.</p>
+
+  <p>The organics recycling industry cannot solve this upstream. We cannot inspect every pizza box or test every paper bag before it enters a FOGO bin. What we can do is manage risk at the feedstock acceptance stage, test finished product consistently — more rigorously than most of the products causing the problem in the first place — and be honest with clients and councils about what current data shows.</p>
+
+  <p>The bigger question — how society stops the concentration of forever chemicals from rising in soils and food systems without halting the beneficial reuse of organic material — does not yet have a complete answer. National phase-out of the worst PFAS compounds is a start. But the chemistry is complex, the substitutes are not always safer, and the volume of legacy material is enormous.</p>
+
+  <p>This is a problem that will be with the organics industry for a long time. The organisations that understand it clearly, manage it carefully, and communicate it honestly — without overstating their own risk relative to the rest of the supply chain — will be the ones still operating when the regulatory framework catches up with the science.</p>
+
+  <div class="article-closing">
+    <p>We are keen to talk to you, obligation free, about our experience managing PFAS and feedstock risk across biosolids, FOGO, and food-processing waste streams. Martin Tower has spent 25 years designing, commissioning, and operating organics processing facilities across Australia — council, agricultural, and food processing sectors.</p>
+    <p class="author-line"><a href="https://radiclecompost.com.au">radiclecompost.com.au</a> &nbsp;|&nbsp; <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a></p>
+  </div>
+
+  <hr class="article-divider">
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-block">
+    <h3>Does composting create PFAS contamination, or does it come from somewhere else?</h3>
+    <p>Composting doesn't create PFAS — it concentrates whatever arrives in the feedstock. A composting process converts roughly four to six tonnes of incoming organic material into one tonne of finished product. Water evaporates, volatile organics off-gas, and carbon mineralises, but PFAS don't break down under normal environmental conditions, so they remain in the concentrated fraction. A PFAS level that's below detection in raw FOGO can exceed regulatory limits in the finished compost, simply as a consequence of the volume reduction that makes compost valuable in the first place.</p>
+  </div>
+  <div class="faq-block">
+    <h3>What PFAS testing is required for finished compost in Queensland?</h3>
+    <p>Compost intended for unrestricted use in Queensland is tested against a 28-compound PFAS suite plus a TOP Assay, which is designed to capture precursor compounds that could break down into more harmful PFAS later. That's a materially more rigorous test than almost any other PFAS-containing consumer product is ever subjected to — a pizza box or a non-stick frying pan is never tested before sale, but compost is.</p>
+  </div>
+  <div class="faq-block">
+    <h3>Which organic waste streams carry the highest PFAS risk?</h3>
+    <p>Biosolids carry the highest PFAS risk of any common composting feedstock, because sewage sludge concentrates PFAS from everything a catchment discharges into the sewer system. FOGO carries moderate risk, mainly through PFAS-coated food packaging ending up in the bin. Garden organics (GO) carries the lowest PFAS risk of any common feedstock — one more reason to sequence a new organics operation or council pathway GO before FOGO.</p>
+  </div>
+  <div class="faq-block">
+    <h3>Is compost a significant source of PFAS exposure compared to everyday products?</h3>
+    <p>On current evidence, compost sits under a more conservative testing and application regime than most other PFAS pathways — tested with a 28-compound suite plus TOP Assay before sale, with agricultural application rates capping how much can be applied to a given area each year. Recent research also found compost amendment reduced plant PFAS uptake by up to 90 percent compared to unamended soil. The clearest, most direct evidence of dietary PFAS contribution currently points to food packaging and non-stick cookware, not agricultural soil amended with compost.</p>
+  </div>
+
+</div>
+
+<!-- ── MORE ARTICLES ──────────────────────────────────────────── -->
+<section style="background:#f0f4f0;padding:4rem 2rem;">
+  <div style="max-width:740px;margin:0 auto;">
+    <h2 style="color:var(--green-dark);margin-bottom:0.4rem;">Coming Up</h2>
+    <p style="color:#666;margin-bottom:1.5rem;font-size:0.95rem;">What we're publishing next.</p>
+    <div style="display:grid;gap:1.25rem;">
+      <div style="background:white;padding:1.25rem 1.5rem;border-radius:8px;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Next &middot; Strategy</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">The Paradigm Reversal: Why Market Comes Before Technology</div>
+      </div>
+      <div style="background:white;padding:1.25rem 1.5rem;border-radius:8px;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Next &middot; Operations</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">Site Evaluation: What Actually Makes a Good Site</div>
+      </div>
+      <div style="background:white;padding:1.25rem 1.5rem;border-radius:8px;border-left:4px solid var(--green-mid);">
+        <div style="font-family:var(--sans);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.4rem;">Date TBC &middot; Climate</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--green-dark);">Soil Carbon: The Invisible Climate Lever</div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;"><a href="articles.html" style="color:var(--green-mid);font-weight:700;text-decoration:none;">&larr; Read all our articles</a></p>
+  </div>
+</section>
+
+<!-- ── ENQUIRY FORM ───────────────────────────────────────────── -->
+<section class="enquiry-section">
+  <div class="enquiry-inner">
+    <h2>Tell us about your situation</h2>
+    <p>Every situation is different. Tell us about yours and we'll come back to you within 48 hours with an honest assessment of whether and how we can help.</p>
+    <div class="form-wrap">
+      <form>
+        <div class="form-group">
+          <label for="situation">Which best describes your current situation?</label>
+          <select id="situation" name="situation" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Regional council managing FOGO or organic waste diversion obligations</option>
+            <option>Agricultural or livestock operation with organic waste to manage</option>
+            <option>Food processing or storage facility with organic waste outputs</option>
+            <option>Exploring options before committing to anything</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else we should know? (optional)</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit — We'll Be In Touch Within 48 Hours</button>
+        <p class="form-note">Your information is used solely to respond to your enquiry. We don't share it with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap; margin-bottom:1.25rem;">
+    <a href="/" aria-label="Radicle Compost home">
+      <img src="assets/rc-logo.png" alt="Radicle Compost" style="height:36px; width:auto; opacity:0.85; filter:brightness(0) invert(1);">
+    </a>
+    <a href="https://www.linkedin.com/company/radicle-compost" target="_blank" rel="noopener" aria-label="Radicle Compost on LinkedIn"
+       style="display:inline-flex; align-items:center; gap:0.4rem; color:rgba(255,255,255,0.7); font-family:var(--sans); font-size:0.85rem; text-decoration:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      LinkedIn
+    </a>
+
+  </div>
+  <strong>Radicle Agriculture Pty Ltd t/as Radicle Compost</strong> &nbsp;·&nbsp; ABN 67 645 914 781 &nbsp;|&nbsp;
+  <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
+  <br><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd t/as Radicle Compost. All rights reserved.
+</footer>
+
+</body>
+</html>
