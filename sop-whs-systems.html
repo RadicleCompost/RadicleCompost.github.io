@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facility Operations &amp; WHS Systems — Radicle Compost</title>
+  <meta name="description" content="Ready-to-use SOPs and a facility WHS system for composting and organics recycling operations — built from 25 years of hands-on experience, licensed as a template or customised to your site by Radicle Compost.">
+  <link rel="canonical" href="https://radiclecompost.com.au/sop-whs-systems.html">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── SOP/WHS Systems page specific styles ─── */
+    .tools-hero-stat-num { font-family: var(--sans); font-size: 2rem; font-weight: 800; color: var(--green-light); line-height: 1; }
+    .tools-hero-stat-label { font-family: var(--sans); font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 4px; letter-spacing: 0.03em; }
+
+    .who-section { padding: 4rem 2rem 1rem; }
+    .who-inner { max-width: var(--max-w); margin: 0 auto; }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem; }
+    @media (max-width: 700px) { .who-grid { grid-template-columns: 1fr; } }
+    .who-card { border-radius: 8px; padding: 1.75rem 2rem; }
+    .who-card--for { background: var(--cream); border-left: 4px solid var(--green-mid); }
+    .who-card--not { background: #fff; border: 1px solid #e6e6e6; }
+    .who-card h3 { font-size: 1.05rem; margin-bottom: 0.75rem; }
+    .who-card--not h3 { color: var(--grey); }
+    .who-card ul { padding-left: 1.2rem; }
+    .who-card li { font-size: 0.93rem; color: var(--grey); margin-bottom: 0.4rem; }
+
+    .doc-section { padding: 1rem 2rem 3rem; }
+    .doc-inner { max-width: var(--max-w); margin: 0 auto; }
+    .doc-group { margin-top: 3rem; }
+    .doc-group-label {
+      font-family: var(--sans); font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--green-mid);
+      margin-bottom: 0.4rem;
+    }
+    .doc-group h3 { margin-bottom: 0.5rem; }
+    .doc-group > p { max-width: 680px; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .doc-card {
+      background: var(--white); border: 1px solid #e0e8e3; border-radius: 8px;
+      padding: 1.25rem 1.4rem; box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .doc-card h4 { font-family: var(--sans); font-size: 0.98rem; color: var(--charcoal); margin-bottom: 0.4rem; }
+    .doc-card p { font-size: 0.87rem; margin-bottom: 0; color: var(--grey); }
+
+    .currency-banner {
+      background: var(--cream); border-top: 3px solid var(--green-mid);
+      padding: 1.5rem 2rem; margin: 0 auto; max-width: var(--max-w);
+      border-radius: 8px; font-family: var(--sans); font-size: 0.92rem; color: var(--green-dark);
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .currency-icon { font-size: 1.3rem; flex-shrink: 0; }
+
+    .engage-section { background: var(--cream); padding: 4rem 2rem; }
+    .engage-inner { max-width: var(--max-w); margin: 0 auto; }
+    .engage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .engage-card {
+      background: var(--white); border-radius: 8px; overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06); display: flex; flex-direction: column;
+    }
+    .engage-card-header { background: var(--green-dark); padding: 1.5rem 1.75rem; }
+    .engage-card-header .tag { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-light); }
+    .engage-card-header h3 { color: var(--white); margin: 0.4rem 0 0; }
+    .engage-card-body { padding: 1.5rem 1.75rem; flex: 1; }
+    .engage-card-body ul { padding-left: 1.2rem; margin-top: 0.75rem; }
+    .engage-card-body li { font-size: 0.92rem; color: var(--grey); margin-bottom: 0.5rem; }
+    .engage-card-cta {
+      display: block; text-align: center; padding: 0.9rem 1.5rem;
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 600;
+      background: var(--charcoal); color: var(--white); text-decoration: none;
+    }
+    .engage-card-cta:hover { background: #000; text-decoration: none; }
+
+    .guidance-banner { background: #fff8f0; border-top: 3px solid #f4a261; border-bottom: 1px solid #f4d4b0; padding: 1.25rem 2rem; }
+    .guidance-inner { max-width: var(--max-w); margin: 0 auto; display: flex; gap: 1rem; align-items: flex-start; font-family: var(--sans); font-size: 0.88rem; color: #7a4a00; line-height: 1.65; }
+    .guidance-inner strong { color: #5a3300; }
+    .guidance-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+
+    .advisory-cta { background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%); padding: 4rem 2rem; color: var(--white); }
+    .advisory-cta-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+    @media (max-width: 640px) { .advisory-cta-inner { grid-template-columns: 1fr; } }
+    .advisory-cta h2 { color: var(--white); }
+    .advisory-cta p { color: rgba(255,255,255,0.75); }
+    .advisory-cta-btn-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .advisory-cta-note { font-family: var(--sans); font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3G0RXX2B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1H3G0RXX2B');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://radiclecompost.com.au/#organization",
+    "name": "Radicle Compost",
+    "legalName": "Radicle Agriculture Pty Ltd t/as Radicle Compost",
+    "alternateName": "Radicle Agriculture Pty Ltd",
+    "taxID": "67645914781",
+    "url": "https://radiclecompost.com.au",
+    "sameAs": ["https://www.linkedin.com/company/radicle-compost"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Composting facility SOP and WHS system licensing",
+    "provider": { "@id": "https://radiclecompost.com.au/#organization" },
+    "areaServed": "AU",
+    "url": "https://radiclecompost.com.au/sop-whs-systems.html",
+    "description": "A licensable library of standard operating procedures and a facility Work Health & Safety system for composting and organics recycling operations, available as a template or customised to a specific site."
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="12" y="10" width="14" height="100" rx="4" fill="#FFFFFF"/>
+      <path d="M26 10 Q76 10 76 42 Q76 74 26 74" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="51" cy="42" rx="22" ry="26" fill="#7B4226" transform="rotate(-10,51,42)"/>
+      <line x1="44" y1="25" x2="58" y2="62" stroke="#2D1A0E" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="74" x2="72" y2="110" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="sop-whs-systems.html" style="color:#B7E4C7;font-weight:600;">SOP &amp; WHS Systems</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html">Policy Library</a></li>
+    <li><a href="free-tools.html">Free Tools</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<script>
+  (function(){
+    var btn = document.querySelector('.nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Facility Operations &amp; WHS Systems</div>
+    <h1>Already operating? Run it on a system, not on memory.</h1>
+    <p>A licensable library of standard operating procedures and a facility Work Health &amp; Safety system for composting and organics recycling operations — built from 25 years of hands-on experience, not a generic template pack.</p>
+    <a href="#contact-cta" class="btn">Ask About Licensing</a>
+    <a href="#documents" class="btn btn--outline">See What's Included</a>
+    <div class="tools-hero-stats" style="margin-top:2.5rem;">
+      <div>
+        <div class="tools-hero-stat-num">12</div>
+        <div class="tools-hero-stat-label">Documents in the library</div>
+      </div>
+      <div>
+        <div class="tools-hero-stat-num">3</div>
+        <div class="tools-hero-stat-label">Coverage areas — operations, certification, WHS</div>
+      </div>
+      <div>
+        <div class="tools-hero-stat-num">25+</div>
+        <div class="tools-hero-stat-label">Years experience behind them</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="who-section">
+  <div class="who-inner">
+    <h2>Built for operations that already exist</h2>
+    <p style="max-width:680px;">This is different from our project-based service offers. It's for a site that's already receiving material, running a pile, or moving toward it — and needs the documentation, training material, and safety system that a professional operation runs on, without commissioning it from scratch.</p>
+    <div class="who-grid">
+      <div class="who-card who-card--for">
+        <h3>This is a good fit if you:</h3>
+        <ul>
+          <li>Run a composting or organics facility without a documented SOP or WHS system</li>
+          <li>Are relying on one or two people's memory to run the site correctly</li>
+          <li>Need to demonstrate a system exists for a licence condition, funding body, or insurer</li>
+          <li>Want a head start rather than building your own documentation from a blank page</li>
+        </ul>
+      </div>
+      <div class="who-card who-card--not">
+        <h3>This isn't the right starting point if you:</h3>
+        <ul>
+          <li>Haven't yet decided whether to build a facility at all — start with <a href="index.html#services">SO1, Input Audit &amp; Concept Proposal</a></li>
+          <li>Need site-specific design, approvals, or construction support — that's SO2/SO3</li>
+          <li>Want us to run the site directly rather than hand you a system to run it yourselves — talk to us about an ongoing advisory arrangement instead</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section class="doc-section" id="documents">
+  <div class="doc-inner">
+
+    <div class="doc-group">
+      <div class="doc-group-label">Group A</div>
+      <h3>Facility Operations</h3>
+      <p>The procedures a receival, processing, and collections operation runs on day to day — from the gate through to the finished pile.</p>
+      <div class="doc-grid">
+        <div class="doc-card"><h4>Site Receipt &amp; Weighing</h4><p>Weighbridge, loader load-cell, or estimated-volume methods; anchors reporting, compliance, and batch records.</p></div>
+        <div class="doc-card"><h4>Manual Picking &amp; Contamination Severity Assessment</h4><p>Post-spreading severity re-assessment, picking-intensity bands, sharps and hazmat handling.</p></div>
+        <div class="doc-card"><h4>Moisture Assessment &amp; Correction</h4><p>Field squeeze-test method plus a documented correction procedure for too-dry or too-wet piles.</p></div>
+        <div class="doc-card"><h4>Shredding &amp; Chipping Decision Framework</h4><p>Own-vs-hire decision logic and oversize material management.</p></div>
+        <div class="doc-card"><h4>Drop-Off Facility Acceptance Protocol</h4><p>Accept/reject rules for public drop-off, rejection notice template, biosecurity movement controls.</p></div>
+        <div class="doc-card"><h4>Driver Training &amp; Bin Inspection/Tagging Protocol</h4><p>Collection-side quality control — the first point contamination can be caught, or missed.</p></div>
+        <div class="doc-card"><h4>Residential GO/FOGO Education Program</h4><p>Bin sticker, letterbox drop, web and school-program content to reduce contamination at the source.</p></div>
+      </div>
+    </div>
+
+    <div class="doc-group">
+      <div class="doc-group-label">Group B</div>
+      <h3>Certification &amp; Compliance</h3>
+      <p>The documentation that gets a product to market and keeps a facility inside its licence conditions.</p>
+      <div class="doc-grid">
+        <div class="doc-card"><h4>AS 4454 Compliance SOP</h4><p>Operator-level checklist covering the full classification process and non-detriment-indicator decision guide.</p></div>
+        <div class="doc-card"><h4>AS 4454 Sampling Protocol</h4><p>Core sampling method, NATA laboratory engagement, and results interpretation.</p></div>
+        <div class="doc-card"><h4>Feedstock Management Plan Template</h4><p>PFAS trigger box and biosecurity controls, built against current Queensland regulatory position.</p></div>
+      </div>
+    </div>
+
+    <div class="doc-group">
+      <div class="doc-group-label">Group C</div>
+      <h3>Work Health &amp; Safety</h3>
+      <p>A governing safety system, not just task-specific hazard notes buried inside individual SOPs.</p>
+      <div class="doc-grid">
+        <div class="doc-card"><h4>Work Health &amp; Safety Plan — Composting Facility</h4><p>Facility-wide hazard register, PPE requirements by task, emergency and incident procedures, training cross-reference.</p></div>
+        <div class="doc-card"><h4>Fire Prevention &amp; Response Procedure</h4><p>Covers battery-related fire risk (lead-acid and lithium) and self-heating stockpile risk — a gap most operations don't have documented at all.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CURRENCY -->
+<div style="padding:0 2rem 3rem;">
+  <div class="currency-banner">
+    <span class="currency-icon">🔁</span>
+    <span><strong>This library doesn't sit still.</strong> Every document carries a standing review date and gets checked against current regulation on a rolling cycle — so what you licence today is built to stay current, not go stale in a drawer.</span>
+  </div>
+</div>
+
+<!-- GUIDANCE -->
+<div class="guidance-banner">
+  <div class="guidance-inner">
+    <span class="guidance-icon">📋</span>
+    <span><strong>These are professionally developed templates, not off-the-shelf compliance guarantees.</strong> Most documents are built against current Queensland regulation as the primary reference, with several extended to NSW and Victorian requirements — coverage varies by document and we'll confirm exactly what applies to your jurisdiction before you licence. Every facility still needs its own site-specific adaptation and sign-off; these documents are the head start, not the finish line.</span>
+  </div>
+</div>
+
+<!-- ENGAGEMENT MODELS -->
+<section class="engage-section" id="contact-cta">
+  <div class="engage-inner">
+    <h2>Two ways to use this</h2>
+    <p style="max-width:680px;">Same library, two different levels of involvement — pricing is discussed against your specific situation, not published as a flat rate.</p>
+    <div class="engage-grid">
+
+      <div class="engage-card">
+        <div class="engage-card-header">
+          <div class="tag">Option 1</div>
+          <h3>Template Licence</h3>
+        </div>
+        <div class="engage-card-body">
+          <p>You take the library as-is and adapt it in-house. The fastest, lowest-cost way in if you have the internal capacity to do the site-specific customisation yourselves.</p>
+          <ul>
+            <li>Full 12-document library, single-facility licence</li>
+            <li>Editable format, your branding</li>
+            <li>You handle site-specific adaptation and sign-off</li>
+          </ul>
+        </div>
+        <a href="mailto:support@radiclecompost.com.au?subject=SOP%20%26%20WHS%20Template%20Licence%20Enquiry" class="engage-card-cta">Ask About This Option →</a>
+      </div>
+
+      <div class="engage-card">
+        <div class="engage-card-header">
+          <div class="tag">Option 2</div>
+          <h3>Template + Site Customisation</h3>
+        </div>
+        <div class="engage-card-body">
+          <p>We do the adaptation work — site walk, feedstock-specific parameters, jurisdiction-specific regulatory tailoring, and integration with what you're already running. You get a system that's actually ready to use, not just a template to work through.</p>
+          <ul>
+            <li>Everything in the Template Licence</li>
+            <li>Site visit and feedstock/facility-specific tailoring</li>
+            <li>Jurisdiction-specific regulatory checks for your state</li>
+            <li>Rollout and staff training support</li>
+          </ul>
+        </div>
+        <a href="mailto:support@radiclecompost.com.au?subject=SOP%20%26%20WHS%20Template%20%2B%20Customisation%20Enquiry" class="engage-card-cta">Ask About This Option →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORY CTA -->
+<section class="advisory-cta">
+  <div class="advisory-cta-inner">
+    <div>
+      <div class="hero-tag" style="margin-bottom:1rem;">Radicle Compost Advisory</div>
+      <h2>Not sure which option fits?</h2>
+      <p>Tell us what you're running and where the gaps are — an operational review that isn't working, a WHS obligation you can't currently evidence, or a licence condition asking for documentation you don't have. We'll give you an honest read before you commit to anything.</p>
+    </div>
+    <div class="advisory-cta-btn-wrap">
+      <a href="mailto:support@radiclecompost.com.au?subject=Facility%20SOP%20%26%20WHS%20Enquiry" class="btn">Talk to Radicle Compost</a>
+      <div class="advisory-cta-note">No obligation — happy to discuss<br>where you're at</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap; margin-bottom:1.25rem;">
+    <a href="/" aria-label="Radicle Compost home">
+      <img src="assets/rc-logo.png" alt="Radicle Compost" style="height:36px; width:auto; opacity:0.85; filter:brightness(0) invert(1);">
+    </a>
+    <a href="https://www.linkedin.com/company/radicle-compost" target="_blank" rel="noopener" aria-label="Radicle Compost on LinkedIn"
+       style="display:inline-flex; align-items:center; gap:0.4rem; color:rgba(255,255,255,0.7); font-family:var(--sans); font-size:0.85rem; text-decoration:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      LinkedIn
+    </a>
+  </div>
+  <strong>Radicle Agriculture Pty Ltd t/as Radicle Compost</strong> &nbsp;·&nbsp; ABN 67 645 914 781 &nbsp;|&nbsp;
+  <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
+  <br><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd t/as Radicle Compost. All rights reserved. These documents are templates for adaptation to your specific site and should not be relied on as a substitute for site-specific regulatory, engineering, or legal advice.
+</footer>
+
+</body>
+</html>
