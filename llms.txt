@@ -7,6 +7,7 @@
 - [About Radicle Compost](https://radiclecompost.com.au/about.html): Background on the practice, Martin Tower's 25 years of experience, and the independent, market-first advisory approach.
 - [Industry](https://radiclecompost.com.au/industry.html): Regulatory and industry context for organics processing in Australia, including FOGO policy, compliance standards, and market dynamics.
 - [SOP & WHS Systems](https://radiclecompost.com.au/sop-whs-systems.html): A licensable library of 12 standard operating procedures and a facility Work Health & Safety system for composting and organics recycling operations, covering site receival, processing, certification/AS4454 compliance, and safety — available as a template licence or customised to a specific site.
+- [Feedlot & Poultry Manure Advisory](https://radiclecompost.com.au/feedlot-poultry-manure.html): Advisory for cattle feedlots and poultry operations moving from aged/stockpiled manure to aerated static pile composting — covering pathogen and weed seed control, nitrogen economics, odour, compliance, and staged market development. Home of the weekly "Handled Right" article series.
 
 ## Articles
 

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedlot &amp; Poultry Manure Advisory — Radicle Compost</title>
+  <meta name="description" content="Turn feedlot and poultry manure from a cost you tolerate into a genuine profit line — aerated static pile composting, QA and compliance, and market development advice from 25 years running these operations, not just advising on them.">
+  <link rel="canonical" href="https://radiclecompost.com.au/feedlot-poultry-manure.html">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Feedlot & Poultry Manure page specific styles ─── */
+    .tools-hero-stat-num { font-family: var(--sans); font-size: 2rem; font-weight: 800; color: var(--green-light); line-height: 1; }
+    .tools-hero-stat-label { font-family: var(--sans); font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 4px; letter-spacing: 0.03em; }
+
+    .who-section { padding: 4rem 2rem 1rem; }
+    .who-inner { max-width: var(--max-w); margin: 0 auto; }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem; }
+    @media (max-width: 700px) { .who-grid { grid-template-columns: 1fr; } }
+    .who-card { border-radius: 8px; padding: 1.75rem 2rem; }
+    .who-card--for { background: var(--cream); border-left: 4px solid var(--green-mid); }
+    .who-card--not { background: #fff; border: 1px solid #e6e6e6; }
+    .who-card h3 { font-size: 1.05rem; margin-bottom: 0.75rem; }
+    .who-card--not h3 { color: var(--grey); }
+    .who-card ul { padding-left: 1.2rem; }
+    .who-card li { font-size: 0.93rem; color: var(--grey); margin-bottom: 0.4rem; }
+
+    .story-banner {
+      background: var(--cream); border-top: 3px solid var(--green-mid);
+      padding: 2rem 2.25rem; margin: 0 auto 3rem; max-width: var(--max-w);
+      border-radius: 8px; font-family: var(--sans); font-size: 0.98rem; color: var(--green-dark);
+      line-height: 1.7;
+    }
+    .story-banner strong { color: var(--charcoal); }
+    .story-stat { font-size: 1.4rem; font-weight: 800; color: var(--green-dark); }
+
+    .doc-section { padding: 1rem 2rem 3rem; }
+    .doc-inner { max-width: var(--max-w); margin: 0 auto; }
+    .doc-group { margin-top: 3rem; }
+    .doc-group-label {
+      font-family: var(--sans); font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--green-mid);
+      margin-bottom: 0.4rem;
+    }
+    .doc-group h3 { margin-bottom: 0.5rem; }
+    .doc-group > p { max-width: 680px; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .doc-card {
+      background: var(--white); border: 1px solid #e0e8e3; border-radius: 8px;
+      padding: 1.25rem 1.4rem; box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      position: relative;
+    }
+    .doc-card h4 { font-family: var(--sans); font-size: 0.98rem; color: var(--charcoal); margin-bottom: 0.4rem; }
+    .doc-card p { font-size: 0.87rem; margin-bottom: 0; color: var(--grey); }
+    .doc-card .status-tag {
+      display: inline-block; font-family: var(--sans); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .status-tag--soon { background: #fff3e0; color: #a15c00; }
+    .status-tag--live { background: #e3f5e9; color: var(--green-dark); }
+
+    .engage-section { background: var(--cream); padding: 4rem 2rem; }
+    .engage-inner { max-width: var(--max-w); margin: 0 auto; }
+    .engage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .engage-card {
+      background: var(--white); border-radius: 8px; overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06); display: flex; flex-direction: column;
+    }
+    .engage-card-header { background: var(--green-dark); padding: 1.5rem 1.75rem; }
+    .engage-card-header .tag { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-light); }
+    .engage-card-header h3 { color: var(--white); margin: 0.4rem 0 0; }
+    .engage-card-body { padding: 1.5rem 1.75rem; flex: 1; }
+    .engage-card-body ul { padding-left: 1.2rem; margin-top: 0.75rem; }
+    .engage-card-body li { font-size: 0.92rem; color: var(--grey); margin-bottom: 0.5rem; }
+    .engage-card-cta {
+      display: block; text-align: center; padding: 0.9rem 1.5rem;
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 600;
+      background: var(--charcoal); color: var(--white); text-decoration: none;
+    }
+    .engage-card-cta:hover { background: #000; text-decoration: none; }
+
+    .guidance-banner { background: #fff8f0; border-top: 3px solid #f4a261; border-bottom: 1px solid #f4d4b0; padding: 1.25rem 2rem; }
+    .guidance-inner { max-width: var(--max-w); margin: 0 auto; display: flex; gap: 1rem; align-items: flex-start; font-family: var(--sans); font-size: 0.88rem; color: #7a4a00; line-height: 1.65; }
+    .guidance-inner strong { color: #5a3300; }
+    .guidance-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+
+    .advisory-cta { background: linear-gradient(135deg, var(--green-dark) 0%, #1a4033 100%); padding: 4rem 2rem; color: var(--white); }
+    .advisory-cta-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+    @media (max-width: 640px) { .advisory-cta-inner { grid-template-columns: 1fr; } }
+    .advisory-cta h2 { color: var(--white); }
+    .advisory-cta p { color: rgba(255,255,255,0.75); }
+    .advisory-cta-btn-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .advisory-cta-note { font-family: var(--sans); font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3G0RXX2B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1H3G0RXX2B');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://radiclecompost.com.au/#organization",
+    "name": "Radicle Compost",
+    "legalName": "Radicle Agriculture Pty Ltd t/as Radicle Compost",
+    "alternateName": "Radicle Agriculture Pty Ltd",
+    "taxID": "67645914781",
+    "url": "https://radiclecompost.com.au",
+    "sameAs": ["https://www.linkedin.com/company/radicle-compost"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Feedlot and poultry manure composting advisory",
+    "provider": { "@id": "https://radiclecompost.com.au/#organization" },
+    "areaServed": "AU",
+    "url": "https://radiclecompost.com.au/feedlot-poultry-manure.html",
+    "description": "Advisory service helping cattle feedlots and poultry operations move from aged/stockpiled manure handling to aerated static pile composting — covering pathogen and weed seed control, nutrient value, QA/compliance, and staged market development."
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo-wrap">
+    <svg class="nav-logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="12" y="10" width="14" height="100" rx="4" fill="#FFFFFF"/>
+      <path d="M26 10 Q76 10 76 42 Q76 74 26 74" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="51" cy="42" rx="22" ry="26" fill="#7B4226" transform="rotate(-10,51,42)"/>
+      <line x1="44" y1="25" x2="58" y2="62" stroke="#2D1A0E" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="74" x2="72" y2="110" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Radicle <strong>Compost</strong></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="sop-whs-systems.html">SOP &amp; WHS Systems</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="industry.html">Policy Library</a></li>
+    <li><a href="free-tools.html">Free Tools</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<!-- NOTE: deliberately not added as a nav-links item yet — direct-link only, per Martin's 17 Jul 2026 decision. Add a Services/nav entry once the Handled Right series has some runway. -->
+<script>
+  (function(){
+    var btn = document.querySelector('.nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Feedlot &amp; Poultry Manure Advisory</div>
+    <h1>Your manure is either a cost you tolerate or a profit line you're leaving on the table.</h1>
+    <p>Most operations age and screen manure, then sell it cheap. Properly composted — aerated static pile, not windrow — it's a different product, a different market, and a different price. Advice from 25 years actually running these systems, not just recommending them.</p>
+    <a href="#contact-cta" class="btn">Ask About an Assessment</a>
+    <a href="#series" class="btn btn--outline">Read the Handled Right Series</a>
+    <div class="tools-hero-stats" style="margin-top:2.5rem;">
+      <div>
+        <div class="tools-hero-stat-num">$18→$120</div>
+        <div class="tools-hero-stat-label">Per tonne, same manure, six years, different handling</div>
+      </div>
+      <div>
+        <div class="tools-hero-stat-num">23%</div>
+        <div class="tools-hero-stat-label">More nitrogen retained — forced aeration vs turned windrow*</div>
+      </div>
+      <div>
+        <div class="tools-hero-stat-num">25+</div>
+        <div class="tools-hero-stat-label">Years running feedlot &amp; poultry composting operations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="who-section">
+  <div class="who-inner">
+    <h2>Built for operations already producing manure at scale</h2>
+    <p style="max-width:680px;">This is advisory for feedlots and poultry operations — not a generic composting pitch. It's for a site that's already aging, stockpiling, or windrowing manure and wants to know what it would actually take to turn that into a compliant, higher-value, lower-hassle product.</p>
+    <div class="who-grid">
+      <div class="who-card who-card--for">
+        <h3>This is a good fit if you:</h3>
+        <ul>
+          <li>Currently age and screen manure, then sell it cheap, with no real QA behind the price</li>
+          <li>Are fighting windrow turner maintenance, fuel, and manpower costs in caustic conditions</li>
+          <li>Need to demonstrate biosecurity, EPA/licence, or product-quality risk is being actively managed — not just tolerated</li>
+          <li>Want a product that can legally be labelled and sold as compost (AS 4454), not just "manure"</li>
+        </ul>
+      </div>
+      <div class="who-card who-card--not">
+        <h3>This isn't the right starting point if you:</h3>
+        <ul>
+          <li>Are still deciding whether to build a facility at all — start with <a href="index.html#services">SO1, Input Audit &amp; Concept Proposal</a></li>
+          <li>Want to sell 100% of your manure as compost from day one — that's usually the wrong call; staged market development is part of the advice, not an afterthought</li>
+          <li>Are looking for a turnkey build with no involvement in your own process — this starts as an assessment, not a handover</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARTIN'S STORY -->
+<div style="padding:0 2rem;">
+  <div class="story-banner">
+    <strong>I ran a poultry manure composting operation for six years.</strong> In that time, the same basic product went from <span class="story-stat">$18 a tonne to $120 a tonne</span>. Same manure, same farm, same person running it — what changed was how it was handled. Windrow turning was the biggest cost: heavy equipment in caustic, corrosive conditions, constant maintenance, fuel, and manpower. Moving to aerated static pile — build the pile properly, let automated aeration do the work, sensors give you a real temperature record for compliance and QA — cut that burden dramatically and made the product consistent enough that buyers actually paid for it. The market didn't get built on a brochure. It got built on demonstrated performance, one farmer telling another over the gate. — Martin Tower, Radicle Compost
+  </div>
+</div>
+
+<!-- HANDLED RIGHT SERIES -->
+<section class="doc-section" id="series">
+  <div class="doc-inner">
+    <div class="doc-group" style="margin-top:0;">
+      <div class="doc-group-label">Handled Right</div>
+      <h3>What we're publishing on this, week by week</h3>
+      <p>A weekly series (Fridays) on what the evidence actually says about composted vs. aged manure — nitrogen economics, labour and time cost, odour, compliance, market development, and mortality management. Written for feedlot and poultry operators, not a general audience.</p>
+      <div class="doc-grid">
+        <div class="doc-card">
+          <span class="status-tag status-tag--soon">First up</span>
+          <h4>I ran windrows for years — here's what I didn't know I was losing</h4>
+          <p>A first-person account of the windrow-to-ASP transition, and the $18→$120/t journey behind it.</p>
+        </div>
+        <div class="doc-card">
+          <span class="status-tag status-tag--soon">Coming</span>
+          <h4>Your compost's price is set by nitrogen you're currently venting into the air</h4>
+          <p>The nitrogen-economics case for aerated static pile over turned windrow.</p>
+        </div>
+        <div class="doc-card">
+          <span class="status-tag status-tag--soon">Coming</span>
+          <h4>What turning a windrow actually costs you</h4>
+          <p>Labour, fuel, and equipment maintenance — the real operating cost comparison.</p>
+        </div>
+        <div class="doc-card">
+          <span class="status-tag status-tag--soon">Coming</span>
+          <h4>Why the neighbours smell your windrow and not your ASP</h4>
+          <p>Odour management, and what actually drives complaints.</p>
+        </div>
+        <div class="doc-card">
+          <span class="status-tag status-tag--soon">Coming</span>
+          <h4>Reading the Feedlot Code of Practice as a manure-value document</h4>
+          <p>Environmental compliance, reframed as a value question, not just a licence-condition checklist.</p>
+        </div>
+        <div class="doc-card">
+          <span class="status-tag status-tag--soon">Coming</span>
+          <h4>Why we won't sell you more compost than the market can absorb</h4>
+          <p>Staged market development — including what happens when you convert 100% of output before the market's ready for it.</p>
+        </div>
+        <div class="doc-card">
+          <span class="status-tag status-tag--soon">Coming</span>
+          <h4>Composting is Australia's own emergency mortality protocol</h4>
+          <p>What AUSVETPLAN-approved mortality composting means for routine, not just emergency, use.</p>
+        </div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--grey); margin-top:1.5rem;">This page is updated as each article goes live — check back, or follow <a href="https://www.linkedin.com/company/radicle-compost" target="_blank" rel="noopener">Radicle Compost on LinkedIn</a> for the weekly post.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDANCE -->
+<div class="guidance-banner">
+  <div class="guidance-inner">
+    <span class="guidance-icon">📋</span>
+    <span><strong>*The 23% nitrogen-retention figure is from a single published study comparing forced-aeration to conventionally turned compost</strong> — a strong, credible headline number, but treated here as indicative rather than settled fact until corroborated by a second source. Ask us for the reference if you want to check it yourself.</span>
+  </div>
+</div>
+
+<!-- ENGAGEMENT MODELS -->
+<section class="engage-section" id="contact-cta">
+  <div class="engage-inner">
+    <h2>Two ways to start</h2>
+    <p style="max-width:680px;">No pricing conversation until we understand your situation — that comes after, not before.</p>
+    <div class="engage-grid">
+
+      <div class="engage-card">
+        <div class="engage-card-header">
+          <div class="tag">Option 1</div>
+          <h3>Process Assessment</h3>
+        </div>
+        <div class="engage-card-body">
+          <p>An honest look at what you're currently doing with your manure, where the value is leaking, and what it would take to capture it. No capital outlay to start.</p>
+          <ul>
+            <li>Review of current handling, equipment, and product outcomes</li>
+            <li>Biosecurity, EPA/licence, and compliance risk read</li>
+            <li>A clear picture of the gap between where you are and AS 4454-compliant compost</li>
+          </ul>
+        </div>
+        <a href="mailto:support@radiclecompost.com.au?subject=Feedlot%2FPoultry%20Manure%20Process%20Assessment%20Enquiry" class="engage-card-cta">Ask About This Option →</a>
+      </div>
+
+      <div class="engage-card">
+        <div class="engage-card-header">
+          <div class="tag">Option 2</div>
+          <h3>Build &amp; Implementation</h3>
+        </div>
+        <div class="engage-card-body">
+          <p>For operations ready to move to aerated static pile — design, SOPs, QA and compliance recordkeeping, and a staged plan for growing the market rather than flooding it.</p>
+          <ul>
+            <li>ASP system design and specification</li>
+            <li>SOPs, QA process, and temperature/compliance recordkeeping</li>
+            <li>Staged market-development plan — proof of performance before scale</li>
+          </ul>
+        </div>
+        <a href="mailto:support@radiclecompost.com.au?subject=Feedlot%2FPoultry%20Manure%20Build%20%26%20Implementation%20Enquiry" class="engage-card-cta">Ask About This Option →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORY CTA -->
+<section class="advisory-cta">
+  <div class="advisory-cta-inner">
+    <div>
+      <div class="hero-tag" style="margin-bottom:1rem;">Radicle Compost Advisory</div>
+      <h2>Still ageing and screening?</h2>
+      <p>Tell us what you're currently doing with your manure. We'll give you an honest read on where you're at, no capital outlay to start, and no obligation to go further.</p>
+    </div>
+    <div class="advisory-cta-btn-wrap">
+      <a href="mailto:support@radiclecompost.com.au?subject=Feedlot%2FPoultry%20Manure%20Enquiry" class="btn">Talk to Radicle Compost</a>
+      <div class="advisory-cta-note">No obligation — happy to discuss<br>where you're at</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap; margin-bottom:1.25rem;">
+    <a href="/" aria-label="Radicle Compost home">
+      <img src="assets/rc-logo.png" alt="Radicle Compost" style="height:36px; width:auto; opacity:0.85; filter:brightness(0) invert(1);">
+    </a>
+    <a href="https://www.linkedin.com/company/radicle-compost" target="_blank" rel="noopener" aria-label="Radicle Compost on LinkedIn"
+       style="display:inline-flex; align-items:center; gap:0.4rem; color:rgba(255,255,255,0.7); font-family:var(--sans); font-size:0.85rem; text-decoration:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      LinkedIn
+    </a>
+  </div>
+  <strong>Radicle Agriculture Pty Ltd t/as Radicle Compost</strong> &nbsp;·&nbsp; ABN 67 645 914 781 &nbsp;|&nbsp;
+  <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> &nbsp;|&nbsp;
+  <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a>
+  <br><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd t/as Radicle Compost. All rights reserved. General guidance only — not a substitute for site-specific regulatory, engineering, or veterinary advice.
+</footer>
+
+</body>
+</html>
