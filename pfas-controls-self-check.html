@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PFAS Controls Self-Check for Councils — Radicle Compost</title>
+<meta name="description" content="Ten questions to check how well your council controls PFAS in its organics: what goes in the bin, what the processing contract requires, and where the compost goes. Free, no login, nothing stored.">
+<meta name="author" content="Martin Tower, Radicle Compost">
+<meta property="og:title" content="PFAS Controls Self-Check for Councils — Radicle Compost">
+<meta property="og:description" content="Ten questions on the three decisions councils actually control: bin rules, processing contract terms and end use.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://radiclecompost.com.au/pfas-controls-self-check.html">
+<meta property="og:site_name" content="Radicle Compost">
+<meta property="og:locale" content="en_AU">
+<meta name="robots" content="index, follow">
+<style>
+  :root {
+    --green-dark:#2D6A4F; --green-mid:#52B788; --green-light:#B7E4C7; --cream:#F8F5F0;
+    --charcoal:#1C1C1C; --grey:#555555; --grey-light:#888888; --white:#FFFFFF;
+    --good:#1D9E75; --part:#BA7517; --gap:#D85A30;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Arial, Helvetica, sans-serif; background:var(--cream); color:var(--charcoal); padding:2rem 1rem; }
+  .wrap { max-width:900px; margin:0 auto; }
+  .branding { display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:20px; padding-bottom:16px; border-bottom:2px solid var(--green-dark); flex-wrap:wrap; }
+  .brand-name { font-size:13px; font-weight:700; color:var(--green-dark); letter-spacing:.03em; }
+  .brand-url { font-size:11px; color:var(--grey-light); }
+  .tool-id { font-size:11px; color:var(--grey-light); text-align:right; }
+  h1 { font-size:24px; color:var(--green-dark); margin-bottom:6px; }
+  .subtitle { font-size:14px; color:var(--grey); margin-bottom:8px; line-height:1.6; }
+  .privacy { font-size:12px; color:var(--grey-light); margin-bottom:22px; }
+
+  .context-card, .q-card, .result-card { background:var(--white); border:1px solid #e0e0e0; border-radius:10px; padding:14px 16px; }
+  .context-card { margin-bottom:22px; }
+  .label { font-size:11px; font-weight:700; color:var(--green-dark); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; }
+  .opts { display:flex; flex-wrap:wrap; gap:6px; }
+  .opt { font:inherit; font-size:12px; padding:6px 12px; border-radius:20px; border:1px solid #ccc; background:var(--cream); color:#444; cursor:pointer; transition:all .15s; }
+  .opt:hover { border-color:var(--green-dark); color:var(--green-dark); }
+  .opt:focus-visible { outline:2px solid var(--green-dark); outline-offset:2px; }
+  .opt.active { background:var(--green-dark); border-color:var(--green-dark); color:var(--white); }
+  .opt.a-yes.active { background:var(--good); border-color:var(--good); }
+  .opt.a-part.active { background:var(--part); border-color:var(--part); }
+  .opt.a-no.active { background:var(--gap); border-color:var(--gap); }
+
+  .section-head { display:flex; align-items:baseline; gap:10px; margin:26px 0 10px; }
+  .section-num { font-size:12px; font-weight:700; color:var(--white); background:var(--green-dark); border-radius:50%; width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .section-head h2 { font-size:17px; color:var(--green-dark); }
+  .section-why { font-size:13px; color:var(--grey); margin:-4px 0 12px 34px; line-height:1.55; }
+  .q-list { display:flex; flex-direction:column; gap:10px; }
+  .q-text { font-size:14px; color:var(--charcoal); line-height:1.5; margin-bottom:4px; }
+  .q-hint { font-size:12px; color:var(--grey-light); line-height:1.5; margin-bottom:10px; }
+
+  .progress { position:sticky; top:0; z-index:5; background:var(--cream); padding:10px 0; margin-top:8px; }
+  .progress-track { height:6px; background:#e3e0da; border-radius:3px; overflow:hidden; }
+  .progress-fill { height:100%; width:0; background:var(--green-mid); transition:width .3s; }
+  .progress-text { font-size:11px; color:var(--grey-light); margin-top:4px; }
+
+  #results { margin-top:28px; display:none; }
+  .result-card { margin-bottom:14px; }
+  .overall { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+  .badge { display:inline-block; padding:5px 14px; border-radius:20px; font-size:13px; font-weight:700; color:var(--white); }
+  .overall-note { font-size:13px; color:var(--grey); line-height:1.6; }
+  .bar-row { display:grid; grid-template-columns:150px 1fr 48px; gap:10px; align-items:center; margin:10px 0; }
+  .bar-label { font-size:12px; color:var(--grey); text-align:right; }
+  .bar-track { height:12px; background:#f0f0f0; border-radius:6px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:6px; transition:width .4s; }
+  .bar-num { font-size:12px; color:var(--grey); }
+  .actions-card { background:#EAF4EE; border:1px solid #c8e6d4; }
+  .action { display:flex; gap:10px; margin:10px 0; align-items:flex-start; }
+  .dot { width:9px; height:9px; border-radius:50%; margin-top:5px; flex-shrink:0; }
+  .action-text { font-size:13px; color:#333; line-height:1.55; }
+  .action-text b { color:var(--charcoal); }
+  .context-note { font-size:13px; color:#333; line-height:1.6; background:var(--white); border-left:4px solid var(--green-mid); padding:10px 12px; border-radius:4px; margin-bottom:10px; }
+  .btn-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .btn { font:inherit; font-size:13px; font-weight:700; padding:9px 16px; border-radius:6px; cursor:pointer; text-decoration:none; display:inline-block; }
+  .btn-primary { background:var(--green-dark); color:var(--white); border:1px solid var(--green-dark); }
+  .btn-primary:hover { background:#24563f; }
+  .btn-ghost { background:none; color:var(--grey); border:1px solid #bbb; }
+  .btn-ghost:hover { border-color:var(--green-dark); color:var(--green-dark); }
+  .footnote { font-size:11px; color:var(--grey-light); margin-top:24px; line-height:1.6; border-top:1px solid #ddd; padding-top:12px; }
+  .footnote a { color:var(--green-dark); }
+
+  footer { background:var(--green-dark); color:rgba(255,255,255,.8); text-align:center; padding:2rem 1rem; margin:2.5rem -1rem -2rem; font-size:.85rem; line-height:1.7; }
+  footer a { color:rgba(255,255,255,.85); }
+
+  @media (max-width:640px) {
+    body { padding:1.25rem 16px; }
+    .bar-row { grid-template-columns:1fr 48px; }
+    .bar-label { grid-column:1 / -1; text-align:left; }
+    .section-why { margin-left:0; }
+    footer { margin:2.5rem -16px -1.25rem; }
+  }
+  @media print {
+    body { background:#fff; padding:0; }
+    .progress, .btn-row, footer, #questionnaire, .context-card, .privacy { display:none !important; }
+    #results { display:block !important; }
+    .result-card { break-inside:avoid; }
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3G0RXX2B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1H3G0RXX2B');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "url": "https://radiclecompost.com.au/pfas-controls-self-check.html",
+  "name": "PFAS Controls Self-Check for Councils",
+  "applicationCategory": "BusinessApplication",
+  "isPartOf": { "@id": "https://radiclecompost.com.au/#organization" },
+  "about": { "@id": "https://radiclecompost.com.au/#organization" }
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="branding">
+  <div>
+    <div class="brand-name">RADICLE COMPOST</div>
+    <div class="brand-url">radiclecompost.com.au</div>
+  </div>
+  <div class="tool-id">Free Planning Tool #4 — PFAS Controls Self-Check<br>Version 1.0 | October 2026</div>
+</div>
+
+<h1>PFAS in your organics: a 10-question self-check</h1>
+<p class="subtitle">Composting doesn't make PFAS. It concentrates what arrives. Councils can't test every pizza box, but they do control the three decisions that matter most: what goes in the bin, what the processing contract requires, and where the product goes. This check shows where your controls are solid and where the gaps are.</p>
+<p class="privacy">About five minutes. No login, nothing is stored or sent anywhere. Your answers stay in your browser.</p>
+
+<div class="context-card">
+  <div class="label">Where is your council now?</div>
+  <div class="opts" data-ctx>
+    <button class="opt" data-val="go">Garden organics only</button>
+    <button class="opt" data-val="planning">Planning or trialling FOGO</button>
+    <button class="opt" data-val="fogo">Running FOGO</button>
+  </div>
+</div>
+
+<div class="progress"><div class="progress-track"><div class="progress-fill" id="pfill"></div></div><div class="progress-text" id="ptext">0 of 10 answered</div></div>
+
+<div id="questionnaire"></div>
+
+<div id="results">
+  <div class="result-card">
+    <div class="label">Your result</div>
+    <div class="overall"><span class="badge" id="badge"></span><span style="font-size:12px;color:var(--grey-light)" id="scoreline"></span></div>
+    <p class="overall-note" id="overallNote"></p>
+    <div id="bars" style="margin-top:8px"></div>
+  </div>
+  <div class="result-card actions-card">
+    <div class="label">Where to start</div>
+    <div id="ctxNote"></div>
+    <div id="actions"></div>
+    <div class="btn-row">
+      <a class="btn btn-primary" id="talkBtn" href="mailto:support@radiclecompost.com.au?subject=PFAS%20self-check%20results">Talk it through with Radicle Compost</a>
+      <button class="btn btn-ghost" onclick="window.print()">Print or save as PDF</button>
+      <button class="btn btn-ghost" onclick="resetAll()">Start again</button>
+    </div>
+  </div>
+</div>
+
+<div class="footnote">
+  This self-check is a general guide, not legal or regulatory advice. PFAS rules differ between states and are changing: Queensland, for example, retired numeric PFAS limits for composting approvals in 2026 and now relies on the general environmental duty. Your obligations depend on your state, your approvals and your contracts. Background reading: <a href="article-pfas-what-councils-control.html">PFAS in Compost: The Three Decisions Councils Actually Control</a> and <a href="article-pfas-forever-chemicals.html">PFAS: The Forever Chemical Already in Your Bin</a>. Radicle Compost, October 2026.
+</div>
+
+<footer>
+  <strong>Radicle Agriculture Pty Ltd t/as Radicle Compost</strong> &nbsp;·&nbsp; ABN 67 645 914 781<br>
+  <a href="mailto:support@radiclecompost.com.au">support@radiclecompost.com.au</a> &nbsp;|&nbsp; <a href="https://www.radiclecompost.com.au">radiclecompost.com.au</a> &nbsp;|&nbsp; <a href="free-tools.html">More free tools</a><br>
+  &copy; 2026 Radicle Agriculture Pty Ltd t/as Radicle Compost. All rights reserved.
+</footer>
+</div>
+
+<script>
+const SECTIONS = [
+  { id:'bin', title:'What goes in the bin', why:'The cheapest PFAS control a council has. Packaging is the prime suspect for PFAS in food and garden organics compost.' },
+  { id:'contract', title:'What the processing contract requires', why:'If PFAS appears only as "comply with all applicable laws", the risk and the information have both been handed over.' },
+  { id:'use', title:'Where the product goes', why:'Where compost ends up matters as much as what is in it. Surface-spread on grazing land is a very different exposure from soil worked into a garden bed.' },
+];
+
+const QS = [
+  { s:'bin', q:'Do your bin rules keep compostable packaging out (cups, containers, trays, food-soiled cardboard), not just plastics?',
+    hint:'Western Australia narrowed its kerbside FOGO guidance in July 2026 to food, garden organics and certified compostable caddy liners.',
+    fix:'<b>Tighten the bin list.</b> Consider limiting FOGO to food, garden organics and certified caddy liners. Look-alike "compostable" packaging is hard to tell apart at the kerb, and fibre packaging is a known PFAS source.', pri:2 },
+  { s:'bin', q:'Do you audit bins regularly, recording contamination by item type, and act on what you find?',
+    hint:'A percentage-contamination figure alone won’t tell you how much packaging is getting through.',
+    fix:'<b>Audit by item type.</b> Add packaging categories to your bin audits so you can see what is actually getting in, and feed the results back into resident communication.', pri:3 },
+  { s:'bin', q:'Do residents get one clear, consistent list (bin lid, website, app) that matches what your processor actually accepts?',
+    hint:'Mixed messages between the lid sticker, the app and the processor’s acceptance rules are common.',
+    fix:'<b>Make the list consistent.</b> One short list on the lid, the website and the app, checked against what the processor accepts.', pri:3 },
+  { s:'contract', q:'Does the processing contract set feedstock acceptance criteria and require a documented feedstock management plan?',
+    hint:'This is the evidence a regulator will ask for, and it’s what lets you see what else goes through the same facility.',
+    fix:'<b>Write feedstock controls into the contract.</b> Acceptance criteria and a documented feedstock management plan you can see.', pri:1 },
+  { s:'contract', q:'Does the contract require finished-product testing at a stated frequency, including PFAS, with results shared with council?',
+    hint:'Many contracts require testing but not disclosure to council.',
+    fix:'<b>Get the data.</b> Require PFAS testing of finished product at a stated frequency, with results shared with council as a matter of course.', pri:1 },
+  { s:'contract', q:'Does the contract say what happens to product that fails testing, and who pays?',
+    hint:'Without it, a failed batch becomes a negotiation at the worst possible time.',
+    fix:'<b>Agree the failure plan now.</b> Who holds failed product, where it goes and who pays, written into the contract.', pri:1 },
+  { s:'contract', q:'Do you have a standby arrangement if the facility stops accepting your organics?',
+    hint:'In WA, a facility stopped taking FOGO after PFAS detections in late 2024. A neighbouring shire was still landfilling its households’ FOGO 19 months later.',
+    fix:'<b>Have a plan B.</b> A standby processing arrangement, or at least a standby approval of your own, so a facility shutdown doesn’t send your organics to landfill for months.', pri:1 },
+  { s:'use', q:'Do you know where your compost ends up: which markets and which end uses?',
+    hint:'Not "sold by the processor", but who buys it and what they use it for.',
+    fix:'<b>Find out where the product goes.</b> Ask your processor for a breakdown of markets and end uses. You can’t manage a pathway you can’t see.', pri:2 },
+  { s:'use', q:'Do your contract or purchasing rules ask for more care, or more data, when product goes to food production or grazing land?',
+    hint:'NSW modelling found surface-spread compost on dairy pasture was the highest-risk pathway. Worked into the soil, the calculated risk fell below the level of concern for the key compounds.',
+    fix:'<b>Match product to end use.</b> Set a higher bar (more testing, better data) for compost going to food production and grazing land, and favour incorporated or non-food uses where the data is thin.', pri:2 },
+  { s:'use', q:'Do you know whether biosolids, or material from sites with a firefighting-foam history, go through the same facility as your organics?',
+    hint:'These streams carry larger PFAS risks of their own and deserve a separate decision.',
+    fix:'<b>Ask what else goes through the facility.</b> Higher-risk streams such as biosolids or foam-affected material should be a deliberate, separate decision, not a quiet inclusion.', pri:2 },
+];
+
+const ANSWERS = [
+  { val:2, label:'Yes', cls:'a-yes' },
+  { val:1, label:'Partly / not sure', cls:'a-part' },
+  { val:0, label:'No', cls:'a-no' },
+];
+
+const state = { ctx:null, a:{} };
+
+function build() {
+  const root = document.getElementById('questionnaire');
+  let n = 0, html = '';
+  SECTIONS.forEach((sec, si) => {
+    html += `<div class="section-head"><span class="section-num">${si+1}</span><h2>${sec.title}</h2></div><p class="section-why">${sec.why}</p><div class="q-list">`;
+    QS.forEach((q, qi) => {
+      if (q.s !== sec.id) return;
+      n++;
+      html += `<div class="q-card"><div class="q-text">${n}. ${q.q}</div><div class="q-hint">${q.hint}</div><div class="opts" data-q="${qi}">` +
+        ANSWERS.map(a => `<button class="opt ${a.cls}" data-val="${a.val}" aria-pressed="false">${a.label}</button>`).join('') + `</div></div>`;
+    });
+    html += `</div>`;
+  });
+  root.innerHTML = html;
+  root.querySelectorAll('[data-q]').forEach(g => {
+    g.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => {
+      const qi = +g.dataset.q, v = +b.dataset.val;
+      if (state.a[qi] === v) { delete state.a[qi]; } else { state.a[qi] = v; }
+      g.querySelectorAll('.opt').forEach(x => { const on = state.a[qi] === +x.dataset.val; x.classList.toggle('active', on); x.setAttribute('aria-pressed', on); });
+      render();
+    }));
+  });
+  document.querySelectorAll('[data-ctx] .opt').forEach(b => b.addEventListener('click', () => {
+    state.ctx = state.ctx === b.dataset.val ? null : b.dataset.val;
+    document.querySelectorAll('[data-ctx] .opt').forEach(x => x.classList.toggle('active', x.dataset.val === state.ctx));
+    render();
+  }));
+}
+
+function colour(p) { return p >= 0.8 ? 'var(--good)' : p >= 0.5 ? 'var(--part)' : 'var(--gap)'; }
+
+function render() {
+  const answered = Object.keys(state.a).length;
+  document.getElementById('pfill').style.width = (answered / QS.length * 100) + '%';
+  document.getElementById('ptext').textContent = `${answered} of ${QS.length} answered` + (answered < QS.length ? '' : ' — your result is below');
+  const res = document.getElementById('results');
+  if (answered < QS.length) { res.style.display = 'none'; return; }
+  res.style.display = 'block';
+
+  let total = 0;
+  const bars = SECTIONS.map(sec => {
+    const idx = QS.map((q,i) => q.s === sec.id ? i : -1).filter(i => i >= 0);
+    const got = idx.reduce((t,i) => t + state.a[i], 0), max = idx.length * 2;
+    total += got;
+    const p = got / max;
+    return `<div class="bar-row"><div class="bar-label">${sec.title}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(p*100,3)}%;background:${colour(p)}"></div></div><div class="bar-num">${got}/${max}</div></div>`;
+  }).join('');
+  document.getElementById('bars').innerHTML = bars;
+
+  const pct = total / 20;
+  const unsure = Object.values(state.a).filter(v => v === 1).length;
+  let label, bg, note;
+  if (pct >= 0.85) { label = 'Strong controls'; bg = 'var(--good)'; note = 'Your council has most of the controls that matter in place. The job now is keeping them current as state rules change, and checking the results you receive are actually being read.'; }
+  else if (pct >= 0.55) { label = 'Gaps worth closing'; bg = 'var(--part)'; note = 'Some important controls are in place, but there are gaps. Most of them can be closed at the next contract review or bin-rule refresh, without new technology.'; }
+  else { label = 'Exposed'; bg = 'var(--gap)'; note = 'Much of your PFAS risk currently sits outside council’s view or control. That’s common, and fixable, but it is worth acting on before the next contract is signed or the next question from councillors arrives.'; }
+  if (unsure >= 3) note += ' You answered “not sure” to several questions. That is an answer in itself: if you can’t tell, the contract or the bin rules probably don’t say.';
+  const b = document.getElementById('badge'); b.textContent = label; b.style.background = bg;
+  document.getElementById('scoreline').textContent = `Score ${total} of 20`;
+  document.getElementById('overallNote').textContent = note;
+
+  const ctxNotes = {
+    go: 'You’re on garden organics only, which carries the lowest PFAS risk of any common feedstock. That makes now the best time to put the contract, testing and market controls in place, before adding food and the packaging that comes with it.',
+    planning: 'You’re planning FOGO. Settle the bin list and write these controls into the processing contract before go-live. Adding packaging-heavy streams before the controls are in place means importing the problem first and managing it later.',
+    fogo: 'You’re running FOGO. The contract questions (feedstock plan, shared testing, failure plan, standby arrangement) are usually the fastest wins, and the next contract review is the natural moment to fix them.'
+  };
+  document.getElementById('ctxNote').innerHTML = state.ctx ? `<div class="context-note">${ctxNotes[state.ctx]}</div>` : '';
+
+  const gaps = QS.map((q,i) => ({...q, i, v:state.a[i]})).filter(q => q.v < 2).sort((a,b) => a.pri - b.pri || a.v - b.v);
+  const acts = document.getElementById('actions');
+  if (gaps.length === 0) {
+    acts.innerHTML = '<div class="action"><div class="dot" style="background:var(--good)"></div><div class="action-text">No gaps flagged. Keep the evidence (audit results, test reports, the feedstock plan) where you can find it quickly, because that’s what a regulator or councillor will ask to see.</div></div>';
+  } else {
+    acts.innerHTML = gaps.slice(0,5).map(g => `<div class="action"><div class="dot" style="background:${g.v === 0 ? 'var(--gap)' : 'var(--part)'}"></div><div class="action-text">${g.fix}</div></div>`).join('') +
+      (gaps.length > 5 ? `<div class="action-text" style="color:var(--grey-light);margin-top:6px">Plus ${gaps.length - 5} more gap${gaps.length - 5 > 1 ? 's' : ''} in the answers above.</div>` : '');
+  }
+
+  const body = `My PFAS self-check result: ${label} (${total}/20).%0D%0A%0D%0AI'd like to talk through: `;
+  document.getElementById('talkBtn').href = `mailto:support@radiclecompost.com.au?subject=${encodeURIComponent('PFAS self-check: ' + label)}&body=${body}`;
+}
+
+function resetAll() {
+  state.ctx = null; state.a = {};
+  document.querySelectorAll('.opt').forEach(x => { x.classList.remove('active'); x.setAttribute('aria-pressed','false'); });
+  render();
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+build(); render();
+</script>
+</body>
+</html>

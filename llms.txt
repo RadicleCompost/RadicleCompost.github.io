@@ -20,6 +20,7 @@
 - [The FOD Discipline](https://radiclecompost.com.au/article-fod-discipline.html): Why contamination control needs a defined household response ladder and a continuous on-site vigilance culture — not just upfront education — and why contamination in delivered product is a commercial risk, not only a compliance issue.
 - [PFAS: The Forever Chemical Already in Your Bin](https://radiclecompost.com.au/article-pfas-forever-chemicals.html): Why composting concentrates PFAS rather than creating it, how Queensland's finished-compost testing regime compares to untested everyday products, and what organics operators need to manage across FOGO and biosolids feedstocks.
 - [Risk Avoided, or Value Given Away?](https://radiclecompost.com.au/article-council-risk-and-return.html): Part 1 of 2. Why outsourcing organics processing prices a council's risk in rather than removing it (processor margin, freight, renewal leverage, loss of product control), and why every council should hold at least a standby composting approval on its own site as insurance against processor exit or emergencies.
+- [PFAS in Compost: The Three Decisions Councils Actually Control](https://radiclecompost.com.au/article-pfas-what-councils-control.html): Queensland retired its numeric PFAS limits for compost in 2026 (general environmental duty now applies). Composting concentrates PFAS that arrive with the feedstock, mainly packaging. Councils control three decisions: FOGO bin rules, processing contract terms (feedstock plan, shared testing, failure plan, standby arrangement) and end use.
 
 ## Free Tools
 
@@ -27,3 +28,4 @@
 - [Organics Processing Spectrum](https://radiclecompost.com.au/organics-processing-spectrum.html): Interactive tool comparing organics processing technologies across the spectrum from simple windrow to enclosed aerated systems.
 - [Feedstock Risk Profiler](https://radiclecompost.com.au/feedstock-risk-profiler.html): Tool for assessing contamination and processing risk in a given organics feedstock.
 - [Facility Sizing Calculator](https://radiclecompost.com.au/facility-sizing-calculator.html): Tool for estimating composting facility size and throughput requirements based on feedstock volume.
+- [PFAS Controls Self-Check](https://radiclecompost.com.au/pfas-controls-self-check.html): 10-question self-assessment for councils on PFAS controls in organics: bin rules, processing contract terms and end use, with a rating and priority actions.
